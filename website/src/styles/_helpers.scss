@@ -1,0 +1,8 @@
+@import 'pallettes';
+
+$color_purple: map-get($md-purple, 500);
+$color_pink: map-get($md-pink, 500);
+$color_green: map-get($md-green, 500);
+
+$custom-font-body: Helvetica, sans-serif;
+$custom-font-accent: Merriweather, serif;

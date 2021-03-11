@@ -1,0 +1,37 @@
+<section class="container-fluid p-5">
+    <div class="container">
+        <h2 class="text-center">
+            Get Directed to Relevent Resources
+        </h2>
+        <label class="d-block text-center">
+            <h3>What industry do you work in?</h3>
+        </label>
+        <div class="d-flex flex-column">
+            <mat-chip-list #industry aria-label="" aria-orientation="vertical">
+                <mat-chip class="justify-content-center">Government: Agency</mat-chip>
+                <mat-chip class="justify-content-center">Government: data/information office</mat-chip>
+                <mat-chip class="justify-content-center">Private Sector</mat-chip>
+                <mat-chip class="justify-content-center">Academia</mat-chip>
+            </mat-chip-list>    
+        </div>
+        
+        <label class="d-block text-center">
+            <h3>What most clsoely describes your role?</h3>
+        </label>
+        <div class="d-flex flex-column">
+            <mat-chip-list name="role"  class="mat-chip-list-stacked text-center">
+                <mat-chip  class="text-center">I manage public sector services that could benefit from AI/ML models</mat-chip>
+                <mat-chip value="it-procurement">I lead or facilitate the procurement process for IT and/or data systems</mat-chip>
+                <mat-chip value="engineer">I code/develop algorithms s a data scientist or ML engineer</mat-chip>
+                <mat-chip value="other">Others</mat-chip>
+            </mat-chip-list>
+        </div>
+
+        <mat-slider class="d-block w-100" color="primary" min="0" max="3" step="0.5" value="0.5"></mat-slider>
+        <div class="row text-center">
+            <div class="col">I am new to AI/ML as a concept, have not implemnted</div>
+            <div class="col">I have concceptual knowledge of AI/ML,  limited implementation experience</div>
+            <div class="col">I am a data scientist/ML engineer</div>
+        </div>
+    </div>
+</section>

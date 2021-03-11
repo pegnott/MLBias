@@ -1,0 +1,11 @@
+@import 'pallettes';
+@import 'theme';
+
+html, 
+html body {
+    margin:0; padding:0;
+    
+    .theme-gradient {
+        background-image: linear-gradient(to bottom right, map-get($md-pink, 500), map-get($md-green, 500));
+    }
+}

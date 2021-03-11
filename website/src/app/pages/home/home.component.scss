@@ -1,0 +1,20 @@
+h3 {
+    position:relative;
+
+    &:after {
+        content:"";
+        position:absolute;
+        top:auto; right:auto; bottom:-0.4em; left:0;
+        width:4rem;
+        height:4px;
+        background:#ab30ab;
+    }
+}
+
+section:nth-child(even) {
+    //background-color:lighten(#cccccc, 20%);
+}
+
+section:nth-child(odd) {
+    background-color:#cecece;
+}
