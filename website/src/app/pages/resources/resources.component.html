@@ -1,36 +1,53 @@
-<section class="container-fluid p-5">
-    <div class="container">
-        <h2 class="text-center">
-            Get Directed to Relevent Resources
-        </h2>
-        <label class="d-block text-center">
-            <h3>What industry do you work in?</h3>
-        </label>
-        <div class="d-flex flex-column">
-            <mat-chip-list #industry aria-label="" aria-orientation="vertical">
-                <mat-chip class="justify-content-center">Government: Agency</mat-chip>
-                <mat-chip class="justify-content-center">Government: data/information office</mat-chip>
-                <mat-chip class="justify-content-center">Private Sector</mat-chip>
-                <mat-chip class="justify-content-center">Academia</mat-chip>
-            </mat-chip-list>
-        </div>
+<div class="container-fluid p-5 bg-grey">
+	<section class="container mat-app-background p-5">
+		<h2 class="text-center">
+			Get Directed to Relevent Resources
+		</h2>
+		<div class="mt-5 mb-5">
+			<h3 class="text-center">
+				What brings you to the Toolkit?
+			</h3>
+			<label for="intent" class="d-block text-center">
+				I want to...
+			</label>
+			<div class="d-flex flex-row align-items-center">
+				<div class="flex-fill d-flex flex-column">
+					<mat-chip-list selectable="true" name="intent" #intent aria-label="" aria-orientation="vertical">
+						<mat-chip #learn="matChip" (click)="learn.select()" class="col">
+							Learn
+						</mat-chip>
+						<mat-chip #build="matChip" (click)="build.select()" class="col">
+							Build
+						</mat-chip>
+						<mat-chip #contribute="matChip"	(click)="contribute.select()"class="col">
+							Contribute
+						</mat-chip>
+					</mat-chip-list>
+				</div>
+			</div>
+		</div>
+		<div class="mt-5 mb-5">
+			<h3 class="text-center">
+				What is your current knowledge base about AI/ML?
+			</h3>
+			<mat-slider class="d-block w-100" color="primary" min="0" max="3" step="0.5" value="0.5"></mat-slider>
+			<div class="row text-center">
+				<div class="col">I'm new here! Let's start with definitions and concepts</div>
+				<div class="col">I've had some exposure, let's talk about applications and context</div>
+				<div class="col">I'm using AI/ML in my daily work and I'm here to get the latest info</div>
+			</div>
+		</div>
 
-        <label class="d-block text-center">
-            <h3>What most clsoely describes your role?</h3>
-        </label>
-        <div class="d-flex flex-column">
-            <mat-chip-list #role  class="mat-chip-list-stacked text-center">
-                <mat-chip>I manage public sector services that could benefit from AI/ML models</mat-chip>
-                <mat-chip>I lead or facilitate the procurement process for IT and/or data systems</mat-chip>
-                <mat-chip>I code/develop algorithms s a data scientist or ML engineer</mat-chip>
-                <mat-chip>Other</mat-chip>
-            </mat-chip-list>
-        </div>
-        <mat-slider class="d-block w-100" color="primary" min="0" max="3" step="0.5" value="0.5"></mat-slider>
-        <div class="row text-center">
-            <div class="col">I am new to AI/ML as a concept, have not implemented</div>
-            <div class="col">I have conceptual knowledge of AI/ML,  limited implementation experience</div>
-            <div class="col">I am a data scientist/ML engineer</div>
-        </div>
-    </div>
-</section>
+		<div class="mt-5 mb-5">
+			<h3 class="text-center">
+				What is your current knowledge base about Bias?
+			</h3>
+			<mat-slider class="d-block w-100" color="primary" min="0" max="3" step="0.5" value="0.5"></mat-slider>
+			<div class="row text-center">
+				<div class="col">I'm new here! Let's start with definitions and concepts</div>
+				<div class="col">I've had some exposure, let's talk about applications and context</div>
+				<div class="col">I'm working with bias daily and I'm here to get the latest info</div>
+			</div>
+		</div>
+    </section>
+</div>

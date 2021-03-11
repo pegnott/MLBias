@@ -34,7 +34,7 @@ $light-theme: mat-light-theme((
     color: (
         primary: $theme-primary,
         accent: $theme-accent,
-        warn: $theme-warn,  
+        warn: $theme-warn,
     )
 ));
 $dark-theme: mat-dark-theme(
@@ -42,38 +42,47 @@ $dark-theme: mat-dark-theme(
     color: (
         primary: $theme-primary,
         accent: $theme-accent,
-        warn: $theme-warn,  
+        warn: $theme-warn,
     ),
   )
 );
 @include angular-material-theme($light-theme);
 .dark {  @include angular-material-color($dark-theme) }
 
-html, 
+html,
 html body {
     margin:0; padding:0;
-    
+
     .theme-gradient {
         background-image: linear-gradient(to bottom right, map-get($md-pink, 500), map-get($md-green, 500));
     }
-    
-    
+	.bg-grey { background:$color_grey_light; }
+
+	mat-chip,
+	.mat-chip.mat-standard-chip {
+		background-color:transparent;
+		border:1px black solid;
+		height:3em;
+
+		&[selected] {
+			background-color:transparent;
+			border-color:#a937a9;
+		}
+	}
     // mat-icon {
     //     position:relative;
-    //     background:green;
-    //     color:white;
-    //     // &:before {
-    //     //     z-index:1;
-    //     //     $border-width:0.1em;
-    //     //     content:"";
-    //     //     position:absolute;
-    //     //     top:0; right:auto; bottom:auto; left:$border-width / 2 * -1;
-    //     //     border-width:$border-width;
-    //     //     border-style:solid;
-    //     //     border-color:map-get($md-green, 500);
-    //     //     border-radius:500px;
-    //     //     width:100%; height:100%;
-    //     // }
+    //     &:before {
+    //          z-index:1;
+    //         $border-width:0.1em;
+    //         content:"";
+    //         position:absolute;
+    //         top:0; right:auto; bottom:auto; left:$border-width / 2 * -1;
+    //         border-width:$border-width;
+    //         border-style:solid;
+    //         border-color:map-get($md-green, 500);
+    //         border-radius:500px;
+    //         width:100%; height:100%;
+    //     }
     // }
 }
 
@@ -82,7 +91,7 @@ html body {
 //     status-bar: green,
 //     app-bar:    map_get($md-purple, 500),
 //     background: map_get($mat-grey, 100),
-//     hover:      red, 
+//     hover:      red,
 //     card:       white,
 //     dialog:     orange,
 //     disabled-button: yellow,

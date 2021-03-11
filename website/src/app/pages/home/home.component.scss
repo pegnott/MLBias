@@ -1,3 +1,4 @@
+@import '../../../styles/helpers';
 h3 {
     position:relative;
 
@@ -11,10 +12,6 @@ h3 {
     }
 }
 
-section:nth-child(even) {
-    //background-color:lighten(#cccccc, 20%);
-}
-
 section:nth-child(odd) {
-    background-color:#cecece;
+    background-color:$color_grey_light;
 }
