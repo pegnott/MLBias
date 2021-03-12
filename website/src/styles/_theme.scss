@@ -62,65 +62,57 @@ html body {
 	mat-chip,
 	.mat-chip.mat-standard-chip {
 		background-color:transparent;
-		border:1px black solid;
+		border:1px $color_purple solid;
 		height:3em;
 
 		&[selected] {
 			background-color:transparent;
-			border-color:#a937a9;
+			border-color:$color_pink;
 		}
 	}
 
 	.mat-slider.mat-slider-horizontal .mat-slider-wrapper {
-		//`border:1px yellow solid;
 		top: 18px;
-	  }
-	  .mat-slider.mat-slider-horizontal .mat-slider-track-wrapper {
-		//border:1px yellowgreen solid;
+	}
+	.mat-slider.mat-slider-horizontal .mat-slider-track-wrapper {
 		height: 12px;
 		border-radius: 10px
-	  }
-	  .mat-slider.mat-slider-horizontal .mat-slider-track-background,
-	  .mat-slider.mat-slider-horizontal .mat-slider-track-fill {
+	}
+	.mat-slider.mat-slider-horizontal .mat-slider-track-background,
+	.mat-slider.mat-slider-horizontal .mat-slider-track-fill {
 		height: 100%;
-	  }
-	  .mat-slider.mat-slider-horizontal .mat-slider-track-fill {
+	}
+	.mat-slider.mat-slider-horizontal .mat-slider-track-fill {
 		background-color: $color_pink;
-	  }
-	  .mat-slider-thumb {
+	}
+	.mat-slider-thumb,
+    .mat-slider-thumb-label {
 		height: 30px;
 		width: 30px;
-		background-color: white;
-		border: solid 2px $color_grey_light;
+		background-color: $color_pink !important;
+		border: solid 2px rgba($color_pink, 0.5);
 		bottom: -20px;
 		right: -20px;
-	  }
+	}
 	  .mat-slider-min-value:not(.mat-slider-thumb-label-showing) .mat-slider-thumb {
-		background-color: white;
-	  }
-    // mat-icon {
-    //     position:relative;
-    //     &:before {
-    //          z-index:1;
-    //         $border-width:0.1em;
-    //         content:"";
-    //         position:absolute;
-    //         top:0; right:auto; bottom:auto; left:$border-width / 2 * -1;
-    //         border-width:$border-width;
-    //         border-style:solid;
-    //         border-color:map-get($md-green, 500);
-    //         border-radius:500px;
-    //         width:100%; height:100%;
-    //     }
-    // }
-
-	// mat-slider,
-	// .mat-slider {
-	// 	.mat-slider-track-background,
-	// 	.mat-slider-track-fill {
-	// 		height:10px;
-	// 	}
-	// }
+		background-color: $color_pink;
+	}
+    .mat-button-base { min-height:3em; }
+    mat-icon.round-outline {
+        position:relative;
+        &:before {
+             z-index:1;
+            $border-width:0.1em;
+            content:"";
+            position:absolute;
+            top:0; right:auto; bottom:auto; left:$border-width / 2 * -1;
+            border-width:$border-width;
+            border-style:solid;
+            border-color:map-get($md-green, 500);
+            border-radius:500px;
+            width:100%; height:100%;
+        }
+    }
 }
 
 
