@@ -1,17 +1,17 @@
 @import '../../../styles/helpers';
-h3 {
-    position:relative;
+// h3 {
+//     position:relative;
 
-    &:after {
-        content:"";
-        position:absolute;
-        top:auto; right:auto; bottom:-0.4em; left:0;
-        width:4rem;
-        height:4px;
-        background:#ab30ab;
-    }
-}
+//     &:after {
+//         content:"";
+//         position:absolute;
+//         top:auto; right:auto; bottom:-0.4em; left:0;
+//         width:4rem;
+//         height:4px;
+//         background:#ab30ab;
+//     }
+// }
 
-section:nth-child(odd) {
-    background-color:$color_grey_light;
-}
+// section:nth-child(odd) {
+//     background-color:$color_grey_light;
+// }

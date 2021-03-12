@@ -6,69 +6,127 @@
 @import '~@angular/material/theming';
 
 $typography: mat-typography-config(
-    $font-family:   $custom-font-body,
-    $display-4:     mat-typography-level(72px, 80px, 400), // large, one-off font classes
-    $display-3:     mat-typography-level(64px, 72px, 400), //
-    $display-2:     mat-typography-level(56px, 64px, 400), //
-    $display-1:     mat-typography-level(48px, 56px, 400), //
+	$font-family:   $custom-font-body,
+	$display-4:	 mat-typography-level(72px, 80px, 400),		// largest one-off font classes
+	$display-3:	 mat-typography-level(64px, 72px, 400),		// largest one-off font classes
+	$display-2:	 mat-typography-level(56px, 64px, 400),		// largest one-off font classes
+	$display-1:	 mat-typography-level(48px, 56px, 400),		// largest one-off font classes
 
-    $headline:      mat-typography-level(48px, 56px, 700, $custom-font-accent),  // Section heading corresponding to the <h1> tag.
-    $title:         mat-typography-level(32px, 48px, 700, $custom-font-accent), // Section heading corresponding to the <h2> tag.
-    $subheading-2:  mat-typography-level(24px, 32px, 400), // Section heading corresponding to the <h3> tag.
-    $subheading-1:  mat-typography-level(20px, 24px, 400), // Section heading corresponding to the <h4> tag.
+	$headline:	  mat-typography-level(48px, 56px, 700, $custom-font-accent), 	// h1 .h1 etc
+	$title:		 mat-typography-level(32px, 48px, 700, $custom-font-accent),	// h2 .h2 etc
+	$subheading-2:  mat-typography-level(24px, 32px, 400), 						// h3 .h3 etc
+	$subheading-1:  mat-typography-level(20px, 24px, 400), 						// h4 .h4 etc
 
-    $body-2:        mat-typography-level(18px, 24px, 700), // Bolder body text.
-    $body-1:        mat-typography-level(18px, 24px, 400), // Base body text.
+	$body-2:		mat-typography-level(18px, 24px, 700),	// Bold body text.
+	$body-1:		mat-typography-level(18px, 24px, 400),	// Base body text.
 
-    $caption:       mat-typography-level(14px, 20px, 400),
-    $button:        mat-typography-level(18px, 48px, 700, $custom-font-accent),
-    $input:         mat-typography-level(16px, 1.25, 400)
+	$caption:		mat-typography-level(14px, 20px, 400),
+	$button:		mat-typography-level(18px, 48px, 700, $custom-font-accent),
+	$input:			mat-typography-level(16px, 1.25, 400)
 );
 @include mat-core($typography);
 @include angular-material-typography($typography);
 
-$theme-primary: mat-palette($md-purple);
-$theme-accent:  mat-palette($md-green);
-$theme-warn:    mat-palette($mat-pink);
-$light-theme: mat-light-theme((
-    color: (
-        primary: $theme-primary,
-        accent: $theme-accent,
-        warn: $theme-warn,
-    )
+$theme-primary:	mat-palette($md-purple);
+$theme-accent:	mat-palette($md-green);
+$theme-warn:	mat-palette($mat-pink);
+$light-theme:	mat-light-theme((
+	color: (
+		primary: $theme-primary,
+		accent: $theme-accent,
+		warn: $theme-warn,
+	)
 ));
-$dark-theme: mat-dark-theme(
-  (
-    color: (
-        primary: $theme-primary,
-        accent: $theme-accent,
-        warn: $theme-warn,
-    ),
-  )
-);
+$dark-theme: mat-dark-theme((
+	color: (
+		 primary: $theme-primary,
+		 accent: $theme-accent,
+		 warn: $theme-warn,
+	),
+));
 @include angular-material-theme($light-theme);
 .dark {  @include angular-material-color($dark-theme) }
 
-html,
-html body {
-    margin:0; padding:0;
+$light-foreground: map-get($light-theme, foreground);
+$light-background: map-get($light-theme, background);
 
-    .theme-gradient {
-        background-image: linear-gradient(to bottom right, map-get($md-pink, 500), map-get($md-green, 500));
-    }
+$theme-background-light: (
+	status-bar:					map-get($light-background, status-bar),
+	app-bar:					map-get($light-background, app-bar),
+	background:					map-get($light-background, background),
+	hover:	 					map-get($light-background, hover),
+	card:	   					map-get($light-background, card),
+	dialog:						map-get($light-background, dialog),
+	disabled-button:			map-get($light-background, disabled-button),
+	raised-button:				map-get($light-background, raised-button),
+	focused-button:				map-get($light-background, focused-button),
+	selected-button:			map-get($light-background, selected-button),
+	selected-disabled-button:	map-get($light-background, selected-disabled-button),
+	disabled-button-toggle:		map-get($light-background, disabled-button-toggle),
+	unselected-chip:			transparent,
+	disabled-list-option:		map-get($light-background, disabled-list-option),
+	tooltip: 					map-get($light-background, tooltip),
+);
+$theme-foreground-light: (
+	base:				map-get($light-foreground, base),
+	divider:			$color_purple,
+	dividers:			$color_purple,
+	disabled:			map-get($light-foreground, disabled),
+	disabled-button:  	map-get($light-foreground, disabled-button),
+	disabled-text:		map-get($light-foreground, disabled-text),
+	elevation:			black,
+	hint-text:			map-get($light-foreground, hint-text),
+	secondary-text:		map-get($light-foreground, secondary-text),
+	icon:				$color_green,
+	icons:				$color_green,
+	text:				map-get($light-foreground, text),
+	slider-min:			map-get($light-foreground, slider-min),
+	slider-off:			map-get($light-foreground, slider-off),
+	slider-off-active:	map-get($light-foreground, slider-off-active),
+);
+
+//
+@include angular-material-theme((
+	primary: $theme-primary,
+	accent: $theme-accent,
+	warn: $theme-warn,
+	is-dark: false,
+	foreground: $theme-foreground-light,
+	background: $theme-background-light,
+));
+
+// html body {
+// 	.mat-chip {
+// 		border-color:10px $color_purple solid im !important;
+// 	}
+// }
+// html body .TESTERTHING {
+// 	color: map-get($theme-foreground-light, base);
+// 	background-color:map-get($light-foreground, base);
+// 	border:10px solid map-get($theme-background-light, unselected-chip);
+// }
+
+html,
+html body { margin:0; padding:0; }
+
+html body {
+
+	.theme-gradient {
+		background-image: linear-gradient(to bottom right, map-get($md-pink, 500), map-get($md-green, 500));
+	}
 	.bg-grey { background:$color_grey_light; }
 
 
 	mat-chip,
 	.mat-chip.mat-standard-chip {
-		background-color:transparent;
+		//background-color:transparent;
 		border:1px $color_purple solid;
 		height:3em;
 
-		&[selected] {
-			background-color:transparent;
-			border-color:$color_pink;
-		}
+		// &[selected] {
+		// 	background-color:transparent;
+		// 	border-color:$color_pink;
+		// }
 	}
 
 	.mat-slider.mat-slider-horizontal .mat-slider-wrapper {
@@ -86,7 +144,7 @@ html body {
 		background-color: $color_pink;
 	}
 	.mat-slider-thumb,
-    .mat-slider-thumb-label {
+	.mat-slider-thumb-label {
 		height: 30px;
 		width: 30px;
 		background-color: $color_pink !important;
@@ -97,62 +155,26 @@ html body {
 	  .mat-slider-min-value:not(.mat-slider-thumb-label-showing) .mat-slider-thumb {
 		background-color: $color_pink;
 	}
-    .mat-button-base { min-height:3em; }
-    mat-icon.round-outline {
-        position:relative;
-        &:before {
-             z-index:1;
-            $border-width:0.1em;
-            content:"";
-            position:absolute;
-            top:0; right:auto; bottom:auto; left:$border-width / 2 * -1;
-            border-width:$border-width;
-            border-style:solid;
-            border-color:map-get($md-green, 500);
-            border-radius:500px;
-            width:100%; height:100%;
-        }
-    }
+	.mat-stroked-button { min-height:3em; }
+	mat-icon.round-outline {
+		position:relative;
+		z-index:10;
+		&:before {
+			 z-index:-1;
+			$border-width:0.1em;
+			content:"";
+			position:absolute;
+			top:0; right:auto; bottom:auto; left:$border-width / 2 * -1;
+			border-width:$border-width;
+			border-style:solid;
+			border-color:map-get($md-green, 500);
+			border-radius:500px;
+			width:100%; height:100%;
+		}
+		&:hover {
+			color:white !important;
+			&:before { background-color: $color_green; }
+
+		}
+	}
 }
-
-
-// $theme-background: (
-//     status-bar: green,
-//     app-bar:    map_get($md-purple, 500),
-//     background: map_get($mat-grey, 100),
-//     hover:      red,
-//     card:       white,
-//     dialog:     orange,
-//     disabled-button: yellow,
-//     raised-button: map-get($md-purple, 500),
-//     focused-button: green,
-//     selected-button: blue,
-//     selected-disabled-button: purple,
-//     disabled-button-toggle:teal,
-//     unselected-chip: yellowgreen,
-//     disabled-list-option: black,
-// );
-// $theme-foreground: (
-//   base:              black,
-//   divider:           red,
-//   dividers:          orange,
-//   disabled:          yellow,
-//   disabled-button:   green,
-//   disabled-text:     blue,
-//   hint-text:         rgba(black, 0.3),
-//   secondary-text:    rgba(black, 0.7),
-//   icon:             map-get($md-green, 500),
-//   icons:            map-get($md-green, 500),
-//   text:              black,
-//   slider-min:        black,
-//   slider-off:        rgba(black, 0.3),
-//   slider-off-active: rgba(black, 0.3),
-// );
-// @include angular-material-theme((
-//     primary: $theme-primary,
-//     accent: $theme-accent,
-//     warn: $theme-warn,
-//     is-dark: false,
-//     //foreground: $theme-foreground,
-//     //background: $theme-background,
-// ));
