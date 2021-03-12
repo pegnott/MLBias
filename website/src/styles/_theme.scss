@@ -58,6 +58,7 @@ html body {
     }
 	.bg-grey { background:$color_grey_light; }
 
+
 	mat-chip,
 	.mat-chip.mat-standard-chip {
 		background-color:transparent;
@@ -69,6 +70,34 @@ html body {
 			border-color:#a937a9;
 		}
 	}
+
+	.mat-slider.mat-slider-horizontal .mat-slider-wrapper {
+		//`border:1px yellow solid;
+		top: 18px;
+	  }
+	  .mat-slider.mat-slider-horizontal .mat-slider-track-wrapper {
+		//border:1px yellowgreen solid;
+		height: 12px;
+		border-radius: 10px
+	  }
+	  .mat-slider.mat-slider-horizontal .mat-slider-track-background,
+	  .mat-slider.mat-slider-horizontal .mat-slider-track-fill {
+		height: 100%;
+	  }
+	  .mat-slider.mat-slider-horizontal .mat-slider-track-fill {
+		background-color: $color_pink;
+	  }
+	  .mat-slider-thumb {
+		height: 30px;
+		width: 30px;
+		background-color: white;
+		border: solid 2px $color_grey_light;
+		bottom: -20px;
+		right: -20px;
+	  }
+	  .mat-slider-min-value:not(.mat-slider-thumb-label-showing) .mat-slider-thumb {
+		background-color: white;
+	  }
     // mat-icon {
     //     position:relative;
     //     &:before {
@@ -84,6 +113,14 @@ html body {
     //         width:100%; height:100%;
     //     }
     // }
+
+	// mat-slider,
+	// .mat-slider {
+	// 	.mat-slider-track-background,
+	// 	.mat-slider-track-fill {
+	// 		height:10px;
+	// 	}
+	// }
 }
 
 
