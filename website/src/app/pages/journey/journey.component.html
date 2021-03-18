@@ -11,76 +11,160 @@
 <section class="container-fluid">
 	<div class="container">
 		<mat-vertical-stepper #stepper color="warn">
+            <ng-template #dialogActions>
+                <button mat-button [mat-dialog-close]="'back'">
+                    <mat-icon>navigate_before</mat-icon>
+                </button>
+                <button mat-button [mat-dialog-close]="'next'">
+                    <mat-icon>navigate_next</mat-icon>
+                </button>
+            </ng-template>
 			<ng-template matStepperIcon="edit">
 				<mat-icon>check</mat-icon>
 			</ng-template>
 			<mat-step>
-				<ng-template #step1Title><h5>Identify the <em>problems/challenge</em></h5></ng-template>
+				<ng-template #step1Title><span class="h5">Identify the <em>problems/challenge</em></span></ng-template>
 				<ng-template #step1Content>
-
+                    <p>
+                        Cras id dui. Pellentesque commodo eros a enim. Vestibulum suscipit nulla quis orci. Ut tincidunt tincidunt erat. Vivamus consectetuer hendrerit lacus.
+                    </p>
 				</ng-template>
-				<app-dialog #step1Dialog (title)="step1Title" (content)="step1Content"></app-dialog>
 				<ng-template matStepLabel>
-					<div (click)="openDialog(step1Dialog)">
+					<div (click)="openDialog({ title: step1Title, content: step1Content})">
 						<ng-container *ngIf="step1Title then step1Title"></ng-container>
 					</div>
 				</ng-template>
-
 			</mat-step>
 			<mat-step>
+                <ng-template #step2Title><span class="h5">Ideate on how to <em>solve the challenge</em></span></ng-template>
+                <ng-template #step2Content>
+                    <p>
+                        Cras id dui. Pellentesque commodo eros a enim. Vestibulum suscipit nulla quis orci. Ut tincidunt tincidunt erat. Vivamus consectetuer hendrerit lacus.
+                    </p>
+				</ng-template>
 				<ng-template matStepLabel>
-					<span class="h5">Ideate on how to <em>solve the challenge</em></span>
+					<div (click)="openDialog({ title: step2Title, content: step2Content})">
+						<ng-container *ngIf="step2Title then step2Title"></ng-container>
+					</div>
 				</ng-template>
 			</mat-step>
 			<mat-step>
+                <ng-template #step3Title><span class="h5">Engage with <em>the community</em></span></ng-template>
+                <ng-template #step3Content>
+                    <p>
+                        Cras id dui. Pellentesque commodo eros a enim. Vestibulum suscipit nulla quis orci. Ut tincidunt tincidunt erat. Vivamus consectetuer hendrerit lacus.
+                    </p>
+				</ng-template>
 				<ng-template matStepLabel>
-					<span class="h5">Engage with <em>the community</em></span>
+					<div (click)="openDialog({ title: step3Title, content: step3Content})">
+						<ng-container *ngIf="step3Title then step3Title"></ng-container>
+					</div>
 				</ng-template>
 			</mat-step>
 			<mat-step>
+                <ng-template #step4Title><span class="h5">Consulst with AI <em>pracitioners and experts</em></span></ng-template>
+                <ng-template #step4Content>
+                    <p>
+                        Cras id dui. Pellentesque commodo eros a enim. Vestibulum suscipit nulla quis orci. Ut tincidunt tincidunt erat. Vivamus consectetuer hendrerit lacus.
+                    </p>
+				</ng-template>
 				<ng-template matStepLabel>
-					<span class="h5">Consulst with AI <em>pracitioners and experts</em></span>
+					<div (click)="openDialog({ title: step4Title, content: step4Content})">
+						<ng-container *ngIf="step4Title then step4Title"></ng-container>
+					</div>
 				</ng-template>
 			</mat-step>
 			<mat-step>
+                <ng-template #step5Title><span class="h5">Write and release Request <em>for proposal to design AI</em></span></ng-template>
+				<ng-template #step5Content>
+                    <p>
+                        Cras id dui. Pellentesque commodo eros a enim. Vestibulum suscipit nulla quis orci. Ut tincidunt tincidunt erat. Vivamus consectetuer hendrerit lacus.
+                    </p>
+				</ng-template>
 				<ng-template matStepLabel>
-					<span class="h5">Write and release Request <em>for proposal to design AI</em></span>
+					<div (click)="openDialog({ title: step5Title, content: step5Content})">
+						<ng-container *ngIf="step5Title then step5Title"></ng-container>
+					</div>
 				</ng-template>
 			</mat-step>
 			<mat-step>
+                <ng-template #step6Title><span class="h5">Evaluate RFP's <em>and choose a partnet</em></span></ng-template>
+                <ng-template #step6Content>
+                    <p>
+                        Cras id dui. Pellentesque commodo eros a enim. Vestibulum suscipit nulla quis orci. Ut tincidunt tincidunt erat. Vivamus consectetuer hendrerit lacus.
+                    </p>
+				</ng-template>
 				<ng-template matStepLabel>
-					<span class="h5">Evaluate RFP's <em>and choose a partnet</em></span>
+					<div (click)="openDialog({ title: step6Title, content: step6Content})">
+						<ng-container *ngIf="step6Title then step6Title"></ng-container>
+					</div>
 				</ng-template>
 			</mat-step>
 			<mat-step>
+                <ng-template #step7Title><span class="h5">Design AI: Ethical reviews <em>and community feedback</em></span></ng-template>
+                <ng-template #step7Content>
+                    <p>
+                        Cras id dui. Pellentesque commodo eros a enim. Vestibulum suscipit nulla quis orci. Ut tincidunt tincidunt erat. Vivamus consectetuer hendrerit lacus.
+                    </p>
+				</ng-template>
 				<ng-template matStepLabel>
-					<span class="h5">Design AI: Ethical reviews <em>and community feedback</em></span>
+					<div (click)="openDialog({ title: step7Title, content: step7Content})">
+						<ng-container *ngIf="step7Title then step7Title"></ng-container>
+					</div>
 				</ng-template>
 			</mat-step>
 			<mat-step>
+                <ng-template #step8Title><span class="h5"><em>Implement and monitor</em></span></ng-template>
+                <ng-template #step8Content>
+                    <p>
+                        Cras id dui. Pellentesque commodo eros a enim. Vestibulum suscipit nulla quis orci. Ut tincidunt tincidunt erat. Vivamus consectetuer hendrerit lacus.
+                    </p>
+				</ng-template>
 				<ng-template matStepLabel>
-					<span class="h5"><em>Implement and monitor</em></span>
+					<div (click)="openDialog({ title: step8Title, content: step8Content})">
+						<ng-container *ngIf="step8Title then step8Title"></ng-container>
+					</div>
 				</ng-template>
 			</mat-step>
 			<mat-step>
+                <ng-template #step9Title><span class="h5"><em>Pilot</em></span></ng-template>
+                <ng-template #step9Content>
+                    <p>
+                        Cras id dui. Pellentesque commodo eros a enim. Vestibulum suscipit nulla quis orci. Ut tincidunt tincidunt erat. Vivamus consectetuer hendrerit lacus.
+                    </p>
+				</ng-template>
 				<ng-template matStepLabel>
-					<span class="h5"><em>Pilot</em></span>
+					<div (click)="openDialog({ title: step9Title, content: step9Content})">
+						<ng-container *ngIf="step9Title then step9Title"></ng-container>
+					</div>
 				</ng-template>
 			</mat-step>
 			<mat-step>
+                <ng-template #step10Title><span class="h5"><em>Evaluate</em></span></ng-template>
+                <ng-template #step10Content>
+                    <p>
+                        Cras id dui. Pellentesque commodo eros a enim. Vestibulum suscipit nulla quis orci. Ut tincidunt tincidunt erat. Vivamus consectetuer hendrerit lacus.
+                    </p>
+				</ng-template>
 				<ng-template matStepLabel>
-					<span class="h5"><em>Evaluate</em></span>
+					<div (click)="openDialog({ title: step10Title, content: step10Content})">
+						<ng-container *ngIf="step10Title then step10Title"></ng-container>
+					</div>
 				</ng-template>
 			</mat-step>
 			<mat-step>
+                <ng-template #step11Title><span class="h5"><em>Scale and monitor</em></span></ng-template>
+                <ng-template #step11Content>
+                    <p>
+                        Cras id dui. Pellentesque commodo eros a enim. Vestibulum suscipit nulla quis orci. Ut tincidunt tincidunt erat. Vivamus consectetuer hendrerit lacus.
+                    </p>
+				</ng-template>
 				<ng-template matStepLabel>
-					<span class="h5"><em>Scale and monitor</em></span>
+					<div (click)="openDialog({ title: step11Title, content: step11Content})">
+						<ng-container *ngIf="step11Title then step11Title"></ng-container>
+					</div>
 				</ng-template>
 			</mat-step>
-
-			<ng-template matStepperIcon="phone">
-				<mat-icon>call_end</mat-icon>
-			  </ng-template>
 	  	</mat-vertical-stepper>
 	</div>
 </section>

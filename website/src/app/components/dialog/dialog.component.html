@@ -1,12 +1,14 @@
-<ng-template #dialog>
-	<div *ngIf="title" mat-dialog-title class="border-bottom">
-		<ng-template #noTitle>THERE IS NO TITLE</ng-template>
-		<ng-container *ngIf="title then title else noTitle"></ng-container>
-	</div>
-	<mat-dialog-content *ngIf="content">CONTENT</mat-dialog-content>
-	<mat-dialog-actions>
-		<button mat-icon-button [mat-dialog-close]="true">
-			<mat-icon>close</mat-icon>
-		</button>
-	</mat-dialog-actions>
-</ng-template>
+<div class="d-flex justify-content-between align-content-stretch flex-nowrap border-bottom">
+    <div mat-dialog-title>
+        <ng-container *ngTemplateOutlet="data.title"></ng-container>
+    </div>
+    <button mat-icon-button [mat-dialog-close]="true">
+        <mat-icon>close</mat-icon>
+    </button>
+</div>
+<mat-dialog-content class="mt-5">
+    <ng-container *ngTemplateOutlet="data.content"></ng-container>
+</mat-dialog-content>
+<mat-dialog-actions>
+    <ng-container *ngTemplateOutlet="data.actions"></ng-container>
+</mat-dialog-actions>
