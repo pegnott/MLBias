@@ -106,75 +106,111 @@ $theme-foreground-light: (
 // 	border:10px solid map-get($theme-background-light, unselected-chip);
 // }
 
+$border-radius:0.6rem;
+
 html,
 html body { margin:0; padding:0; }
 
-html body {
+html body .theme-gradient {
+    background-image: linear-gradient(to bottom right, map-get($md-pink, 500), map-get($md-green, 500));
+}
+html body .bg-grey {
+    .bg-grey { background:$color_grey_light; }
+}
 
-	.theme-gradient {
-		background-image: linear-gradient(to bottom right, map-get($md-pink, 500), map-get($md-green, 500));
-	}
-	.bg-grey { background:$color_grey_light; }
-
-
-	mat-chip,
-	.mat-chip.mat-standard-chip {
-		//background-color:transparent;
+html body .mat-chip {
+    &.mat-standard-chip {
+        //background-color:transparent;
 		border:1px $color_purple solid;
-		height:3em;
+        border-radius:$border-radius;
+		min-height:3em;
 
 		// &[selected] {
 		// 	background-color:transparent;
 		// 	border-color:$color_pink;
 		// }
 	}
+}
 
-	.mat-slider.mat-slider-horizontal .mat-slider-wrapper {
-		top: 18px;
+html body .mat-button-base {
+    border-radius:$border-radius;
+    &.mat-stroked-button { min-height:3em; }
+}
+
+html body mat-icon {
+    &.round-outline {
+        font-size:1.8rem;
+        height:1em; width:1em;
+        position:relative;
+        z-index:10;
+        
+        &:before {
+            $border-width:0.08em;
+            $offset: $border-width * -0.25;
+
+            content:"";
+            position:absolute;
+            top:$offset; left:$offset;
+            width:100%; height:100%;
+            z-index:-1;
+            
+            font-size:inherit;
+            border-width:$border-width;
+            border-style:solid;
+            border-color:map-get($md-green, 500);
+            border-radius:500px;
+        }
+        &:hover {
+            color:white !important;
+            &:before { background-color: $color_green; }
+        }
+    }
+}
+
+html body mat-slider {
+    font-size:2rem;
+    $track-height:0.33em;
+    
+    height:1em;
+
+    * { font-size:inherit }
+    border:1px green solid;
+	&.mat-slider-horizontal .mat-slider-wrapper {
+		top: calc(#{"1em"} - #{$track-height});
 	}
-	.mat-slider.mat-slider-horizontal .mat-slider-track-wrapper {
-		height: 12px;
-		border-radius: 10px
+	&.mat-slider-horizontal .mat-slider-track-wrapper {
+		height: $track-height;
+		border-radius: 100vh;
 	}
-	.mat-slider.mat-slider-horizontal .mat-slider-track-background,
-	.mat-slider.mat-slider-horizontal .mat-slider-track-fill {
-		height: 100%;
-	}
-	.mat-slider.mat-slider-horizontal .mat-slider-track-fill {
-		background-color: $color_pink;
-	}
+    &.mat-slider-horizontal {
+        .mat-slider-track-background,
+        .mat-slider-track-fill { height: 100% }
+
+        .mat-slider-track-fill { background-color: $color_pink }
+    }
+	.mat-slider-thumb#NOPE {
+        &:before {
+            $border-width:0.42em;
+            $offset: $border-width * -1;
+            content:"";
+            position:absolute;
+            top:$offset; right:$offset; bottom:$offset; left:$offset;
+            border:$border-width rgba($color_pink, 0.5) solid;
+            border-radius:500vh;
+        }
+    }
 	.mat-slider-thumb,
 	.mat-slider-thumb-label {
-		height: 30px;
-		width: 30px;
-		background-color: $color_pink !important;
-		border: solid 2px rgba($color_pink, 0.5);
-		bottom: -20px;
-		right: -20px;
+		height: 1em;
+		width: 1em;
+        top:50%;
+        background-color: $color_pink !important;
+        // bottom: $track-height * -1; 
+        // transform:translate(0, 25%);
+		// bottom: -0.66666666em;
+		// right: -0.66666666em;
 	}
-	  .mat-slider-min-value:not(.mat-slider-thumb-label-showing) .mat-slider-thumb {
-		background-color: $color_pink;
-	}
-	.mat-stroked-button { min-height:3em; }
-	mat-icon.round-outline {
-		position:relative;
-		z-index:10;
-		&:before {
-			 z-index:-1;
-			$border-width:0.1em;
-			content:"";
-			position:absolute;
-			top:0; right:auto; bottom:auto; left:$border-width / 2 * -1;
-			border-width:$border-width;
-			border-style:solid;
-			border-color:map-get($md-green, 500);
-			border-radius:500px;
-			width:100%; height:100%;
-		}
-		&:hover {
-			color:white !important;
-			&:before { background-color: $color_green; }
-
-		}
+	#NOPE.mat-slider-min-value:not(.mat-slider-thumb-label-showing) .mat-slider-thumb {
+		background-color: green;
 	}
 }
