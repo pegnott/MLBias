@@ -18,33 +18,39 @@ import { ContactComponent } from './pages/contact/contact.component';
 import { PrivacyComponent } from './pages/privacy/privacy.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { XdIconComponent } from './components/xd-icon/xd-icon.component';
+import { STEPPER_GLOBAL_OPTIONS } from '@angular/cdk/stepper';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    HeaderComponent,
-    FooterComponent,
-    HomeComponent,
-    JourneyComponent,
-    ResourcesComponent,
-    TutorialComponent,
-    ToolsComponent,
-    TeamComponent,
-    AboutComponent,
-    PartnersComponent,
-    ContactComponent,
-    PrivacyComponent,
-    XdIconComponent
-  ],
-  exports: [],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-	HttpClientModule,
-    MaterialModule,
-    BrowserAnimationsModule,
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+	declarations: [
+		AppComponent,
+		HeaderComponent,
+		FooterComponent,
+		HomeComponent,
+		JourneyComponent,
+		ResourcesComponent,
+		TutorialComponent,
+		ToolsComponent,
+		TeamComponent,
+		AboutComponent,
+		PartnersComponent,
+		ContactComponent,
+		PrivacyComponent,
+		XdIconComponent
+	],
+	exports: [],
+	imports: [
+		BrowserModule,
+		AppRoutingModule,
+		HttpClientModule,
+		MaterialModule,
+		BrowserAnimationsModule,
+	],
+	providers: [
+		// {
+		// 	provide: STEPPER_GLOBAL_OPTIONS,
+		// 	useValue: { displayDefaultIndicatorType: false }
+		// }
+	],
+	bootstrap: [AppComponent]
 })
 export class AppModule { }

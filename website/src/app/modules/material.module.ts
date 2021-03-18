@@ -4,7 +4,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatCardModule } from '@angular/material/card';
 import { MatChipsModule } from '@angular/material/chips';
-//import { MatDialogModule } from '@angular/material/dialog';
+import { MatDialogModule } from '@angular/material/dialog';
 import { MatFormFieldDefaultOptions, MatFormFieldModule, MAT_FORM_FIELD_DEFAULT_OPTIONS } from '@angular/material/form-field';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatIconModule } from '@angular/material/icon';
@@ -22,7 +22,7 @@ const materialModules = [
     MatButtonToggleModule,
 	MatCardModule,
     MatChipsModule,
-	// MatDialogModule,
+	MatDialogModule,
 	MatFormFieldModule,
     MatGridListModule,
 	MatIconModule,
