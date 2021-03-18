@@ -1,0 +1,9 @@
+#journey {
+	position:relative;
+
+	h1:after  {
+		content:url(/assets/header-pattern.png);
+		position:absolute;
+		top:auto; right:auto; bottom:0; left:0;
+	}
+}

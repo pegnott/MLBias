@@ -1,4 +1,4 @@
-<section class="container-fluid theme-gradient text-light pt-5 pb-5">
+<section id="journey" class="container-fluid padding-xl-top padding-xl-bottom theme-gradient text-light">
     <div class="container">
         <h1 class="text-center">
             Your AI Bias Journey
@@ -8,7 +8,79 @@
         </p>
     </div>
 </section>
-<section class="container-fluid pt-5 pb-5">
-    <div class="container">
-    </div>
+<section class="container-fluid">
+	<div class="container">
+		<mat-vertical-stepper #stepper color="warn">
+			<ng-template matStepperIcon="edit">
+				<mat-icon>check</mat-icon>
+			</ng-template>
+			<mat-step>
+				<ng-template #step1Title><h5>Identify the <em>problems/challenge</em></h5></ng-template>
+				<ng-template #step1Content>
+
+				</ng-template>
+				<app-dialog #step1Dialog (title)="step1Title" (content)="step1Content"></app-dialog>
+				<ng-template matStepLabel>
+					<div (click)="openDialog(step1Dialog)">
+						<ng-container *ngIf="step1Title then step1Title"></ng-container>
+					</div>
+				</ng-template>
+
+			</mat-step>
+			<mat-step>
+				<ng-template matStepLabel>
+					<span class="h5">Ideate on how to <em>solve the challenge</em></span>
+				</ng-template>
+			</mat-step>
+			<mat-step>
+				<ng-template matStepLabel>
+					<span class="h5">Engage with <em>the community</em></span>
+				</ng-template>
+			</mat-step>
+			<mat-step>
+				<ng-template matStepLabel>
+					<span class="h5">Consulst with AI <em>pracitioners and experts</em></span>
+				</ng-template>
+			</mat-step>
+			<mat-step>
+				<ng-template matStepLabel>
+					<span class="h5">Write and release Request <em>for proposal to design AI</em></span>
+				</ng-template>
+			</mat-step>
+			<mat-step>
+				<ng-template matStepLabel>
+					<span class="h5">Evaluate RFP's <em>and choose a partnet</em></span>
+				</ng-template>
+			</mat-step>
+			<mat-step>
+				<ng-template matStepLabel>
+					<span class="h5">Design AI: Ethical reviews <em>and community feedback</em></span>
+				</ng-template>
+			</mat-step>
+			<mat-step>
+				<ng-template matStepLabel>
+					<span class="h5"><em>Implement and monitor</em></span>
+				</ng-template>
+			</mat-step>
+			<mat-step>
+				<ng-template matStepLabel>
+					<span class="h5"><em>Pilot</em></span>
+				</ng-template>
+			</mat-step>
+			<mat-step>
+				<ng-template matStepLabel>
+					<span class="h5"><em>Evaluate</em></span>
+				</ng-template>
+			</mat-step>
+			<mat-step>
+				<ng-template matStepLabel>
+					<span class="h5"><em>Scale and monitor</em></span>
+				</ng-template>
+			</mat-step>
+
+			<ng-template matStepperIcon="phone">
+				<mat-icon>call_end</mat-icon>
+			  </ng-template>
+	  	</mat-vertical-stepper>
+	</div>
 </section>

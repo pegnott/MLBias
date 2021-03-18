@@ -1,7 +1,28 @@
 @import '../../../styles/helpers';
+
+#toolkit {
+	.decoration {
+		position:relative;
+		background-image:url(/assets/wireframeface.png);
+		background-repeat:no-repeat;
+		background-size:contain;
+		background-position:center center;
+
+		&:before {}
+		&:after {
+			content: "";
+			position:absolute;
+			top:auto; right:auto; bottom:0; left:90%;
+			width:100px; height:49px;
+			background: transparent;
+			background-image: radial-gradient(white 2px, transparent 0);
+			background-size: 7px 7px;
+		}
+	}
+}
+
 h3 {
     position:relative;
-
     &:after {
         content:"";
         position:absolute;
@@ -10,7 +31,3 @@ h3 {
         background:$color_pink;
     }
 }
-
-// section:nth-child(odd) {
-//     background-color:$color_grey_light;
-// }

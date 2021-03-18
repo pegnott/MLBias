@@ -19,6 +19,7 @@ import { PrivacyComponent } from './pages/privacy/privacy.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { XdIconComponent } from './components/xd-icon/xd-icon.component';
 import { STEPPER_GLOBAL_OPTIONS } from '@angular/cdk/stepper';
+import { DialogComponent } from './components/dialog/dialog.component';
 
 @NgModule({
 	declarations: [
@@ -35,7 +36,8 @@ import { STEPPER_GLOBAL_OPTIONS } from '@angular/cdk/stepper';
 		PartnersComponent,
 		ContactComponent,
 		PrivacyComponent,
-		XdIconComponent
+		XdIconComponent,
+		DialogComponent
 	],
 	exports: [],
 	imports: [

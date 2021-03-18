@@ -23,7 +23,7 @@ $typography: mat-typography-config(
 
 $theme-primary:	mat-palette($md-purple);
 $theme-accent:	mat-palette($md-green);
-$theme-warn:	mat-palette($mat-pink);
+$theme-warn:	mat-palette($md-pink);
 $light-theme:	mat-light-theme((
 	color: (
 		primary: $theme-primary,
@@ -38,6 +38,7 @@ $dark-theme: mat-dark-theme((
 		 warn: $theme-warn,
 	),
 ));
+
 @include angular-material-theme($light-theme);
 .theme-dark {  @include angular-material-color($dark-theme) }
 
@@ -86,27 +87,83 @@ $theme-foreground-light: (
 	background: $theme-background-light,
 ));
 
-// html body {
-// 	.mat-chip {
-// 		border-color:10px $color_purple solid im !important;
-// 	}
-// }
-// html body .TESTERTHING {
-// 	color: map-get($theme-foreground-light, base);
-// 	background-color:map-get($light-foreground, base);
-// 	border:10px solid map-get($theme-background-light, unselected-chip);
-// }
-
 $border-radius:0.6rem;
 
 html,
 html body { margin:0; padding:0; }
 
+
+html body .padding-lg-top  		{ padding-top:7rem }
+html body .padding-lg-right		{ padding-right:7rem }
+html body .padding-lg-bottom	{ padding-bottom:7rem }
+html body .padding-lg-left  	{ padding-left:7rem }
+
+html body .padding-xl-top  		{ padding-top:10rem }
+html body .padding-xl-right  	{ padding-right:10rem }
+html body .padding-xl-bottom  	{ padding-bottom:10rem }
+html body .padding-xl-left  	{ padding-left:10rem }
+
+html body .bg-grey {
+    .bg-grey { background:$color_grey_light; }
+}
+
 html body .theme-gradient {
     background-image: linear-gradient(to bottom right, map-get($md-pink, 500), map-get($md-green, 500));
 }
-html body .bg-grey {
-    .bg-grey { background:$color_grey_light; }
+
+html body .dec-line {
+	$width:3em;
+	$height:0.4em;
+	position:relative;
+	&:before {
+		content:"";
+		position:absolute;
+		top:auto; right:auto; bottom:auto; left:auto;
+		width:$width;
+		height:$height;
+	}
+	$offset: $width * -1.5;
+
+	&.top:before { top:0.5em }
+	&.offset-top:before { top:$offset; }
+
+	&.right:before { right:0 }
+	&.offset-right:before { right:$offset; }
+
+	&.bottom:before { bottom:0 }
+	&.offset-bottom:before {bottom:$offset; }
+
+	&.left:before { left:0 }
+	&.offset-left:before { left:$offset; }
+
+	&.green:before { background-color: $color_green }
+	&.purple:before { background-color: $color_purple }
+	&.pink:before { background-color: $color_pink }
+}
+
+html body .mat-stepper-vertical {
+	.mat-step-label {
+		em { display:block; }
+	}
+}
+
+html body .mat-step-icon.mat-step-icon-state-edit,
+html body .mat-slider-thumb {
+	background-color:$color_pink;
+	&:before {
+		$color: rgba($color_pink, 0.23);
+		$border-width:0.42em;
+		$offset: $border-width * -1;
+		content:"";
+		box-sizing: content-box;
+		width:100%; height:100%;
+		position:absolute;
+		top:$offset; right:$offset; bottom:$offset; left:$offset;
+		background-color:$color;
+		border:$border-width $color solid;
+		border-radius:100%;
+
+	}
 }
 
 html body .mat-chip {
@@ -134,7 +191,7 @@ html body mat-icon {
         height:1em; width:1em;
         position:relative;
         z-index:10;
-        
+
         &:before {
             $border-width:0.08em;
             $offset: $border-width * -0.25;
@@ -144,7 +201,7 @@ html body mat-icon {
             top:$offset; left:$offset;
             width:100%; height:100%;
             z-index:-1;
-            
+
             font-size:inherit;
             border-width:$border-width;
             border-style:solid;
@@ -160,50 +217,21 @@ html body mat-icon {
 
 html body mat-slider {
     font-size:2rem;
-    $track-height:0.33em;
-    
-    height:1em;
-
+	height:1em;
+    $track-height:0.33;
     * { font-size:inherit }
-    border:1px green solid;
-	&.mat-slider-horizontal .mat-slider-wrapper {
-		top: calc(#{"1em"} - #{$track-height});
-	}
+
 	&.mat-slider-horizontal .mat-slider-track-wrapper {
-		height: $track-height;
+		margin-top:calc(#{"1em"} * #{$track-height * -0.33333333});
+		height: calc(#{"1em"} * #{$track-height});
+
 		border-radius: 100vh;
 	}
     &.mat-slider-horizontal {
         .mat-slider-track-background,
         .mat-slider-track-fill { height: 100% }
-
         .mat-slider-track-fill { background-color: $color_pink }
     }
-	.mat-slider-thumb#NOPE {
-        &:before {
-            $border-width:0.42em;
-            $offset: $border-width * -1;
-            content:"";
-            position:absolute;
-            top:$offset; right:$offset; bottom:$offset; left:$offset;
-            border:$border-width rgba($color_pink, 0.5) solid;
-            border-radius:500vh;
-        }
-    }
-	.mat-slider-thumb,
-	.mat-slider-thumb-label {
-		height: 1em;
-		width: 1em;
-        top:50%;
-        background-color: $color_pink !important;
-        // bottom: $track-height * -1; 
-        // transform:translate(0, 25%);
-		// bottom: -0.66666666em;
-		// right: -0.66666666em;
-	}
-	#NOPE.mat-slider-min-value:not(.mat-slider-thumb-label-showing) .mat-slider-thumb {
-		background-color: green;
-	}
 }
 
 
