@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { HttpClientModule } from "@angular/common/http";
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { MaterialModule } from './modules/material.module';
@@ -16,6 +17,7 @@ import { PartnersComponent } from './pages/partners/partners.component';
 import { ContactComponent } from './pages/contact/contact.component';
 import { PrivacyComponent } from './pages/privacy/privacy.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { XdIconComponent } from './components/xd-icon/xd-icon.component';
 
 @NgModule({
   declarations: [
@@ -31,12 +33,14 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     AboutComponent,
     PartnersComponent,
     ContactComponent,
-    PrivacyComponent
+    PrivacyComponent,
+    XdIconComponent
   ],
   exports: [],
   imports: [
     BrowserModule,
     AppRoutingModule,
+	HttpClientModule,
     MaterialModule,
     BrowserAnimationsModule,
   ],

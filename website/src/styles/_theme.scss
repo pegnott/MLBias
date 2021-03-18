@@ -1,25 +1,19 @@
 @import 'helpers';
-
-@import 'https://fonts.googleapis.com/css?family=Material+Icons';
-@import url('https://fonts.googleapis.com/css?family=Merriweather:300,400,500');
-@import '~bootstrap/scss/bootstrap';
 @import '~@angular/material/theming';
 
 $typography: mat-typography-config(
 	$font-family:   $custom-font-body,
-	$display-4:	 mat-typography-level(72px, 80px, 400),		// largest one-off font classes
-	$display-3:	 mat-typography-level(64px, 72px, 400),		// largest one-off font classes
-	$display-2:	 mat-typography-level(56px, 64px, 400),		// largest one-off font classes
-	$display-1:	 mat-typography-level(48px, 56px, 400),		// largest one-off font classes
+	$display-4:	 	mat-typography-level(72px, 80px, 400),							// largest one-off font classes
+	$display-3:	 	mat-typography-level(64px, 72px, 400),							// largest one-off font classes
+	$display-2:		mat-typography-level(56px, 64px, 400),							// largest one-off font classes
+	$display-1:	 	mat-typography-level(48px, 56px, 400),							// largest one-off font classes
 
-	$headline:	  mat-typography-level(48px, 56px, 700, $custom-font-accent), 	// h1 .h1 etc
-	$title:		 mat-typography-level(32px, 48px, 700, $custom-font-accent),	// h2 .h2 etc
-	$subheading-2:  mat-typography-level(24px, 32px, 400), 						// h3 .h3 etc
-	$subheading-1:  mat-typography-level(20px, 24px, 400), 						// h4 .h4 etc
-
-	$body-2:		mat-typography-level(18px, 24px, 700),	// Bold body text.
-	$body-1:		mat-typography-level(18px, 24px, 400),	// Base body text.
-
+	$headline:	 	mat-typography-level(48px, 60px, 700, $custom-font-accent), 	// h1 .h1 etc
+	$title:		 	mat-typography-level(32px, 40px, 700, $custom-font-accent),		// h2 .h2 etc
+	$subheading-2:  mat-typography-level(24px, 30px, 400), 							// h3 .h3 etc
+	$subheading-1:  mat-typography-level(20px, 25px, 400), 							// h4 .h4 etc
+	$body-2:		mat-typography-level(18px, 30px, 700),							// Bold body text
+	$body-1:		mat-typography-level(18px, 30px, 400),							// Base body text
 	$caption:		mat-typography-level(14px, 20px, 400),
 	$button:		mat-typography-level(18px, 48px, 700, $custom-font-accent),
 	$input:			mat-typography-level(16px, 1.25, 400)
@@ -45,11 +39,10 @@ $dark-theme: mat-dark-theme((
 	),
 ));
 @include angular-material-theme($light-theme);
-.dark {  @include angular-material-color($dark-theme) }
+.theme-dark {  @include angular-material-color($dark-theme) }
 
 $light-foreground: map-get($light-theme, foreground);
 $light-background: map-get($light-theme, background);
-
 $theme-background-light: (
 	status-bar:					map-get($light-background, status-bar),
 	app-bar:					map-get($light-background, app-bar),
@@ -74,7 +67,7 @@ $theme-foreground-light: (
 	disabled:			map-get($light-foreground, disabled),
 	disabled-button:  	map-get($light-foreground, disabled-button),
 	disabled-text:		map-get($light-foreground, disabled-text),
-	elevation:			black,
+	elevation:			$color_purple,
 	hint-text:			map-get($light-foreground, hint-text),
 	secondary-text:		map-get($light-foreground, secondary-text),
 	icon:				$color_green,
@@ -84,8 +77,6 @@ $theme-foreground-light: (
 	slider-off:			map-get($light-foreground, slider-off),
 	slider-off-active:	map-get($light-foreground, slider-off-active),
 );
-
-//
 @include angular-material-theme((
 	primary: $theme-primary,
 	accent: $theme-accent,
@@ -214,3 +205,105 @@ html body mat-slider {
 		background-color: green;
 	}
 }
+
+$theme-background-medium: (
+	status-bar:					map-get($light-background, status-bar),
+	app-bar:					map-get($light-background, app-bar),
+	background:					#edeff0,
+	hover:	 					map-get($light-background, hover),
+	card:	   					map-get($light-background, card),
+	dialog:						map-get($light-background, dialog),
+	disabled-button:			map-get($light-background, disabled-button),
+	raised-button:				map-get($light-background, raised-button),
+	focused-button:				map-get($light-background, focused-button),
+	selected-button:			map-get($light-background, selected-button),
+	selected-disabled-button:	map-get($light-background, selected-disabled-button),
+	disabled-button-toggle:		map-get($light-background, disabled-button-toggle),
+	unselected-chip:			transparent,
+	disabled-list-option:		map-get($light-background, disabled-list-option),
+	tooltip: 					map-get($light-background, tooltip),
+);
+
+.theme-medium {
+	@include angular-material-theme((
+		primary: $theme-primary,
+		accent: $theme-accent,
+		warn: $theme-warn,
+		is-dark: false,
+		foreground: $theme-foreground-light,
+		background: $theme-background-medium,
+	));
+}
+html body {
+	.theme-gradient {
+		background-image: linear-gradient(to bottom right, map-get($md-pink, 500), map-get($md-green, 500));
+	}
+}
+
+html body mat-chip,
+html body .mat-chip { border:1px $color_purple solid !important; }
+
+// // html body#NOPE {
+
+// // 	//.bg-grey { background:$color_grey_light; }
+
+// // 	mat-chip,
+// // 	.mat-chip.mat-standard-chip {
+// // 		//background-color:transparent;
+// // 		border:1px $color_purple solid;
+// // 		height:3em;
+
+// // 		// &[selected] {
+// // 		// 	background-color:transparent;
+// // 		// 	border-color:$color_pink;
+// // 		// }
+// // 	}
+
+// // 	.mat-slider.mat-slider-horizontal .mat-slider-wrapper {
+// // 		top: 18px;
+// // 	}
+// // 	.mat-slider.mat-slider-horizontal .mat-slider-track-wrapper {
+// // 		height: 12px;
+// // 		border-radius: 10px
+// // 	}
+// // 	.mat-slider.mat-slider-horizontal .mat-slider-track-background,
+// // 	.mat-slider.mat-slider-horizontal .mat-slider-track-fill {
+// // 		height: 100%;
+// // 	}
+// // 	.mat-slider.mat-slider-horizontal .mat-slider-track-fill {
+// // 		background-color: $color_pink;
+// // 	}
+// // 	.mat-slider-thumb,
+// // 	.mat-slider-thumb-label {
+// // 		height: 30px;
+// // 		width: 30px;
+// // 		background-color: $color_pink !important;
+// // 		border: solid 2px rgba($color_pink, 0.5);
+// // 		bottom: -20px;
+// // 		right: -20px;
+// // 	}
+// // 	  .mat-slider-min-value:not(.mat-slider-thumb-label-showing) .mat-slider-thumb {
+// // 		background-color: $color_pink;
+// // 	}
+// // 	.mat-stroked-button { min-height:3em; }
+// // 	mat-icon.round-outline {
+// // 		position:relative;
+// // 		z-index:10;
+// // 		&:before {
+// // 			 z-index:-1;
+// // 			$border-width:0.1em;
+// // 			content:"";
+// // 			position:absolute;
+// // 			top:0; right:auto; bottom:auto; left:$border-width / 2 * -1;
+// // 			border-width:$border-width;
+// // 			border-style:solid;
+// // 			border-color:map-get($md-green, 500);
+// // 			border-radius:500px;
+// // 			width:100%; height:100%;
+// // 		}
+// // 		&:hover {
+// // 			color:white !important;
+// // 			&:before { background-color: $color_green; }=
+// // 		}
+// // 	}
+// // }
