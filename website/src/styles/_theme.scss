@@ -74,7 +74,7 @@ $theme-foreground-light: (
 	disabled:			map-get($light-foreground, disabled),
 	disabled-button:  	map-get($light-foreground, disabled-button),
 	disabled-text:		map-get($light-foreground, disabled-text),
-	elevation:			$color_purple,
+	elevation:			map-get($light-foreground, elevation),
 	hint-text:			map-get($light-foreground, hint-text),
 	secondary-text:		map-get($light-foreground, secondary-text),
 	icon:				$color_green,
@@ -92,6 +92,42 @@ $theme-foreground-light: (
 	foreground: $theme-foreground-light,
 	background: $theme-background-light,
 ));
+
+/* MEDIUM THEME */
+$theme-background-medium: (
+	status-bar:					map-get($light-background, status-bar),
+	app-bar:					map-get($light-background, app-bar),
+	background:					#edeff0,
+	hover:	 					map-get($light-background, hover),
+	card:	   					map-get($light-background, card),
+	dialog:						map-get($light-background, dialog),
+	disabled-button:			map-get($light-background, disabled-button),
+	raised-button:				map-get($light-background, raised-button),
+	focused-button:				map-get($light-background, focused-button),
+	selected-button:			map-get($light-background, selected-button),
+	selected-disabled-button:	map-get($light-background, selected-disabled-button),
+	disabled-button-toggle:		map-get($light-background, disabled-button-toggle),
+	unselected-chip:			transparent,
+	disabled-list-option:		map-get($light-background, disabled-list-option),
+	tooltip: 					map-get($light-background, tooltip),
+);
+
+.theme-medium {
+	@include angular-material-theme((
+		primary: $theme-primary,
+		accent: $theme-accent,
+		warn: $theme-warn,
+		is-dark: false,
+		foreground: $theme-foreground-light,
+		background: $theme-background-medium,
+	));
+}
+html body {
+	.theme-gradient {
+		background-image: linear-gradient(to bottom right, map-get($md-pink, 500), map-get($md-green, 500));
+	}
+}
+
 
 $border-radius:0.6rem;
 
@@ -216,15 +252,13 @@ html body .mat-slider-thumb {
 
 html body .mat-chip {
     &.mat-standard-chip {
-        //background-color:transparent;
-		border:1px $color_purple solid;
+        border:1px $color_purple solid;
         border-radius:$border-radius;
 		min-height:3em;
 
-		// &[selected] {
-		// 	background-color:transparent;
-		// 	border-color:$color_pink;
-		// }
+        &[selected] {
+            border-color:$color_pink;
+        }
 	}
 }
 
@@ -234,6 +268,11 @@ html body .mat-button-base {
 }
 
 html body mat-card {
+    border-radius:$border-radius;
+
+    .mat-card-image:first-child {
+        border-radius:$border-radius $border-radius 0 0;
+    }
     .mat-card-header-text { flex-grow:1 }
 }
 
@@ -284,103 +323,3 @@ html body mat-slider {
         .mat-slider-track-fill { background-color: $color_pink }
     }
 }
-
-/* MEDIUM THEME */
-$theme-background-medium: (
-	status-bar:					map-get($light-background, status-bar),
-	app-bar:					map-get($light-background, app-bar),
-	background:					#edeff0,
-	hover:	 					map-get($light-background, hover),
-	card:	   					map-get($light-background, card),
-	dialog:						map-get($light-background, dialog),
-	disabled-button:			map-get($light-background, disabled-button),
-	raised-button:				map-get($light-background, raised-button),
-	focused-button:				map-get($light-background, focused-button),
-	selected-button:			map-get($light-background, selected-button),
-	selected-disabled-button:	map-get($light-background, selected-disabled-button),
-	disabled-button-toggle:		map-get($light-background, disabled-button-toggle),
-	unselected-chip:			transparent,
-	disabled-list-option:		map-get($light-background, disabled-list-option),
-	tooltip: 					map-get($light-background, tooltip),
-);
-
-.theme-medium {
-	@include angular-material-theme((
-		primary: $theme-primary,
-		accent: $theme-accent,
-		warn: $theme-warn,
-		is-dark: false,
-		foreground: $theme-foreground-light,
-		background: $theme-background-medium,
-	));
-}
-html body {
-	.theme-gradient {
-		background-image: linear-gradient(to bottom right, map-get($md-pink, 500), map-get($md-green, 500));
-	}
-}
-
-//html body mat-chip,
-//html body .mat-chip { border:1px $color_purple solid !important; }
-// // html body#NOPE {
-// // 	//.bg-grey { background:$color_grey_light; }
-// // 	mat-chip,
-// // 	.mat-chip.mat-standard-chip {
-// // 		//background-color:transparent;
-// // 		border:1px $color_purple solid;
-// // 		height:3em;
-
-// // 		// &[selected] {
-// // 		// 	background-color:transparent;
-// // 		// 	border-color:$color_pink;
-// // 		// }
-// // 	}
-
-// // 	.mat-slider.mat-slider-horizontal .mat-slider-wrapper {
-// // 		top: 18px;
-// // 	}
-// // 	.mat-slider.mat-slider-horizontal .mat-slider-track-wrapper {
-// // 		height: 12px;
-// // 		border-radius: 10px
-// // 	}
-// // 	.mat-slider.mat-slider-horizontal .mat-slider-track-background,
-// // 	.mat-slider.mat-slider-horizontal .mat-slider-track-fill {
-// // 		height: 100%;
-// // 	}
-// // 	.mat-slider.mat-slider-horizontal .mat-slider-track-fill {
-// // 		background-color: $color_pink;
-// // 	}
-// // 	.mat-slider-thumb,
-// // 	.mat-slider-thumb-label {
-// // 		height: 30px;
-// // 		width: 30px;
-// // 		background-color: $color_pink !important;
-// // 		border: solid 2px rgba($color_pink, 0.5);
-// // 		bottom: -20px;
-// // 		right: -20px;
-// // 	}
-// // 	  .mat-slider-min-value:not(.mat-slider-thumb-label-showing) .mat-slider-thumb {
-// // 		background-color: $color_pink;
-// // 	}
-// // 	.mat-stroked-button { min-height:3em; }
-// // 	mat-icon.round-outline {
-// // 		position:relative;
-// // 		z-index:10;
-// // 		&:before {
-// // 			 z-index:-1;
-// // 			$border-width:0.1em;
-// // 			content:"";
-// // 			position:absolute;
-// // 			top:0; right:auto; bottom:auto; left:$border-width / 2 * -1;
-// // 			border-width:$border-width;
-// // 			border-style:solid;
-// // 			border-color:map-get($md-green, 500);
-// // 			border-radius:500px;
-// // 			width:100%; height:100%;
-// // 		}
-// // 		&:hover {
-// // 			color:white !important;
-// // 			&:before { background-color: $color_green; }=
-// // 		}
-// // 	}
-// // }

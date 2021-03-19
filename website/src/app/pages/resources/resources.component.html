@@ -1,61 +1,3 @@
-<section id="results" #results class="container-fluid theme-gradient text-light padding-xl-top padding-xl-bottom">
-    <div class="container">
-        <h1>HI</h1>
-    </div>
-</section>
-<section class="container-fluid padding-lg-top padding-lg-bottom">
-    <div class="container">
-        <div class="d-md-flex flex-wrap justify-content-evenly align-items-stretch">
-            <div class="col-md-6 col-lg-4 flex-column mb-5">
-                <mat-card class="h-100 d-flex flex-column">
-                    <img mat-card-image src="/assets/Rectangle 27@2x.png" alt="">
-                    <mat-card-header>
-                        <mat-card-title class="font-accent text-center">
-                            Mapping the Process
-                        </mat-card-title>
-                    </mat-card-header>
-                    <mat-card-content class="flex-fill">
-                        <p>
-                            Ready to integrate AI/ML into your department's processes? Here's a map on how to do it right.
-                        </p>
-                    </mat-card-content>
-                </mat-card>
-            </div>
-            <div class="col-md-6 col-lg-4 flex-column mb-5">
-                <mat-card class="h-100 d-flex flex-column">
-                    <img mat-card-image src="/assets/Rectangle -1.png" alt="">
-                    <mat-card-header>
-                        <mat-card-title class="font-accent text-center">
-                            Understanding Bias
-                        </mat-card-title>
-                    </mat-card-header>
-                    <mat-card-content class="flex-fill">
-                        <p>
-                            What does it mean for data to be biased? How does bias show up in AI/ML nodes?
-                        </p>
-                    </mat-card-content>
-                </mat-card>
-            </div>
-            <div class="col-md-6 col-lg-4 flex-column mb-5">
-                <mat-card class="h-100 d-flex flex-column">
-                    <img mat-card-image src="/assets/Rectangle -4.png" alt="">
-                    <mat-card-header>
-                        <mat-card-title class="font-accent text-center">
-                            Technical Tools
-                        </mat-card-title>
-                    </mat-card-header>
-                    <mat-card-content class="flex-fill">
-                        <p>
-                            Share these technical tools for addressing bias with your AI/ML engineers and partners.
-                        </p>
-                    </mat-card-content>
-                </mat-card>
-            </div>
-        </div>
-    </div>
-</section>
-
-
 <section id="helper" #helper class="container-fluid">
     <div class="container padding-xl-top">
         <h2 class="text-center ">
@@ -73,13 +15,13 @@
 			<div class="d-flex flex-row align-items-center">
 				<div class="flex-fill d-flex flex-column">
 					<mat-chip-list selectable="true" name="intent" #intent aria-label="" aria-orientation="vertical">
-						<mat-chip #learn="matChip" (click)="learn.select()" class="col justify-content-center">
+						<mat-chip color="warn" selected #learn="matChip" (click)="learn.select()" class="bg-light text-dark col justify-content-center">
 							Learn
 						</mat-chip>
-						<mat-chip #build="matChip" (click)="build.select()" class="col justify-content-center">
+						<mat-chip  color="warn" #build="matChip" (click)="build.select()" class="bg-light text-dark col justify-content-center">
 							Build
 						</mat-chip>
-						<mat-chip #contribute="matChip"	(click)="contribute.select()"class="col justify-content-center">
+						<mat-chip  color="warn" #contribute="matChip"	(click)="contribute.select()"class="bg-light text-dark col justify-content-center">
 							Contribute
 						</mat-chip>
 					</mat-chip-list>
@@ -89,9 +31,9 @@
 		<div class="mt-5 mb-5">
 			<h3 class="text-center">
 				What is your current knowledge base about AI/ML? 
-                <small><code>{{ quantai.value }}</code></small>
+                <!-- <small><code>{{ quantai.value }}</code></small> -->
 			</h3>
-			<mat-slider #quantai class="d-block w-100" color="primary" min="0" max="3" step="0.5" value="0.5"></mat-slider>
+			<mat-slider #quantai class="d-block w-100" color="warn" min="0" max="3" step="0.5" value="0.5"></mat-slider>
 			<div class="row text-center">
 				<div class="col">I'm new here! Let's start with definitions and concepts</div>
 				<div class="col">I've had some exposure, let's talk about applications and context</div>
@@ -101,14 +43,80 @@
 		<div class="mt-5 mb-5">
 			<h3 class="text-center">
 				What is your current knowledge base about Bias?
-                <small><code>{{ quantbias.value }}</code></small>
+                <!-- <small><code>{{ quantbias.value }}</code></small> -->
 			</h3>
-			<mat-slider  #quantbias class="d-block w-100" color="primary" min="0" max="3" step="0.5" value="0.5"></mat-slider>
+			<mat-slider  #quantbias class="d-block w-100" color="warn" min="0" max="3" step="0.5" value="0.5"></mat-slider>
 			<div class="row text-center">
 				<div class="col">I'm new here! Let's start with definitions and concepts</div>
 				<div class="col">I've had some exposure, let's talk about applications and context</div>
 				<div class="col">I'm working with bias daily and I'm here to get the latest info</div>
 			</div>
 		</div>
+    </div>
+</section>
+<section id="resources" class="container-fluid padding-lg-top padding-lg-bottom theme-medium mat-app-background">
+    <div *ngIf="quantbias && quantbias.value && quantai && quantai.value" class="container">
+        <div class="d-md-flex flex-wrap justify-content-evenly align-items-stretch">
+            <div *ngIf="quantai.value > 1.5" class="col-md-6 col-lg-4 flex-column mb-5">
+                <mat-card class="h-100 d-flex flex-column">
+                    <img mat-card-image src="/assets/Rectangle 27@2x.png" alt="">
+                    <mat-card-header>
+                        <mat-card-title class="font-accent text-center">
+                            Mapping the Process
+                        </mat-card-title>
+                    </mat-card-header>
+                    <mat-card-content class="flex-fill">
+                        <p>
+                            Ready to integrate AI/ML into your department's processes? Here's a map on how to do it right.
+                        </p>
+                    </mat-card-content>
+                </mat-card>
+            </div>
+            <div *ngIf="learn.selected || quantbias.value < 1.5" class="col-md-6 col-lg-4 flex-column mb-5">
+                <mat-card class="h-100 d-flex flex-column">
+                    <img mat-card-image src="/assets/Rectangle -1.png" alt="">
+                    <mat-card-header>
+                        <mat-card-title class="font-accent text-center">
+                            Understanding Bias
+                        </mat-card-title>
+                    </mat-card-header>
+                    <mat-card-content class="flex-fill">
+                        <p>
+                            What does it mean for data to be biased? How does bias show up in AI/ML nodes?
+                        </p>
+                    </mat-card-content>
+                </mat-card>
+            </div>
+            <div *ngIf="quantai.value > 1.5" class="col-md-6 col-lg-4 flex-column mb-5">
+                <mat-card class="h-100 d-flex flex-column">
+                    <img mat-card-image src="/assets/Rectangle -4.png" alt="">
+                    <mat-card-header>
+                        <mat-card-title class="font-accent text-center">
+                            Technical Tools
+                        </mat-card-title>
+                    </mat-card-header>
+                    <mat-card-content class="flex-fill">
+                        <p>
+                            Share these technical tools for addressing bias with your AI/ML engineers and partners.
+                        </p>
+                    </mat-card-content>
+                </mat-card>
+            </div>
+            <div *ngIf="learn.selected" class="col-md-6 col-lg-4 flex-column mb-5">
+                <mat-card class="h-100 d-flex flex-column">
+                    <img mat-card-image src="/assets/Rectangle -3.png" alt="">
+                    <mat-card-header>
+                        <mat-card-title class="font-accent text-center">
+                            Case Studies
+                        </mat-card-title>
+                    </mat-card-header>
+                    <mat-card-content class="flex-fill">
+                        <p>
+                            Examples/case studies of states, cities, counties
+                        </p>
+                    </mat-card-content>
+                </mat-card>
+            </div>
+        </div>
     </div>
 </section>
