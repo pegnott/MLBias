@@ -145,15 +145,15 @@ html body .padding-xl-right  	{ padding-right:10rem }
 html body .padding-xl-bottom  	{ padding-bottom:10rem }
 html body .padding-xl-left  	{ padding-left:10rem }
 
-@for $i from 1 to 100 { 
+@for $i from 1 to 100 {
     .w-#{$i} { width: #{$i}#{'%'} }
-    // @media only screen and (max-width: 400px) { 
+    // @media only screen and (max-width: 400px) {
     //     .w-sm-#{$i} { width: #{$i}#{'%'} }
     // }
-    // @media only screen and (min-width:401px) and (max-width: 768px) { 
+    // @media only screen and (min-width:401px) and (max-width: 768px) {
     //     .w-md-#{$i} { width: #{$i}#{'%'} }
     // }
-    // @media only screen and (min-width: 769px) { 
+    // @media only screen and (min-width: 769px) {
     //     .w-lg-#{$i} { width: #{$i}#{'%'} }
     // }
 }
@@ -176,7 +176,7 @@ html body .dec-line-vertical {
         top:auto; right:auto; bottom:auto; left:auto;
         width:$width; height:$height;
     }
-    
+
 	&.top:before { top:0.5em }
 	&.offset-top:before { top:-0.5em; }
 
@@ -278,9 +278,9 @@ html body mat-card {
 
 html body mat-icon {
     &.round-outline {
-        font-size:1.8rem;
+        font-size:2.8rem;
         height:1em; width:1em;
-        position:relative;
+       	position:relative;
         z-index:10;
 
         &:before {
