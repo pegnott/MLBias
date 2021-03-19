@@ -1,33 +1,43 @@
 @import '../../../styles/helpers';
 
 #toolkit {
+    // @media only screen and (max-width:691px) {
+    //     position:relative;
+    //     &:after {
+    //         content:"";
+    //         position:absolute;
+    //         top:0; right:0; bottom:0; left:0;
+    //         background-image:url(/assets/wireframeface.png);
+    //         background-repeat:no-repeat;
+    //         background-size:auto 50%;
+    //         background-position:-50% bottom;
+    //     }
+    // }
 	.decoration {
-		position:relative;
+        position:relative;
 		background-image:url(/assets/wireframeface.png);
 		background-repeat:no-repeat;
 		background-size:contain;
 		background-position:center center;
 
-		&:before {}
+        // @media only screen and (max-width:691px) {
+        //     border:2px yellow solid;
+        //     position:asolute;
+        //     top:0; right:0; bottom:0; left:0;
+        //     width:100% !important;
+        //     background-size:cover;
+        // }
+
 		&:after {
 			content: "";
 			position:absolute;
 			top:auto; right:auto; bottom:0; left:90%;
-			width:100px; height:49px;
+			width:100vw; height:49px;
 			background: transparent;
 			background-image: radial-gradient(white 2px, transparent 0);
 			background-size: 7px 7px;
+            
 		}
 	}
 }
 
-h3 {
-    position:relative;
-    &:after {
-        content:"";
-        position:absolute;
-        top:auto; right:auto; bottom:-0.4rem; left:0;
-        width:2.5rem; height:0.3rem;
-        background:$color_pink;
-    }
-}

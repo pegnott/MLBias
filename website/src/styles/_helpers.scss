@@ -1,4 +1,7 @@
 @import 'pallettes';
+@import '~bootstrap/scss/bootstrap-grid';
+@import '~bootstrap/scss/mixins';
+@import '~bootstrap/scss/utilities';
 
 $color_purple: map-get($md-purple, 500);
 $color_pink: map-get($md-pink, 500);

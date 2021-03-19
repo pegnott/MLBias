@@ -1,9 +1,25 @@
 #journey {
-	position:relative;
+    h1 .decoration{
+        position:relative;
 
-	h1:after  {
-		content:url(/assets/header-pattern.png);
-		position:absolute;
-		top:auto; right:auto; bottom:0; left:0;
-	}
+        &:after  {
+            content:"";
+            background-image:url(/assets/header-pattern.png);
+            background-size:contain;
+            background-repeat:no-repeat;
+            background-position:left bottom;
+            
+            position:absolute;
+            top:0; right:-50%; bottom:0; left:100%;
+        }
+    }
+
+	h1 {
+        .decoration {
+            
+
+            
+        }
+        
+    }
 }
