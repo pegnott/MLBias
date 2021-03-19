@@ -57,7 +57,7 @@
 <section id="resources" class="container-fluid padding-lg-top padding-lg-bottom theme-medium mat-app-background">
     <div *ngIf="quantbias && quantbias.value && quantai && quantai.value" class="container">
         <div class="d-md-flex flex-wrap justify-content-evenly align-items-stretch">
-            <div *ngIf="quantai.value > 1.5" class="col-md-6 col-lg-4 flex-column mb-5">
+            <div *ngIf="quantai.value >= 1.5" class="col-md-6 col-lg-4 flex-column mb-5">
                 <mat-card class="h-100 d-flex flex-column">
                     <img mat-card-image src="/assets/Rectangle 27@2x.png" alt="">
                     <mat-card-header>
