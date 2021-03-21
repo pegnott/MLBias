@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from "@angular/common/http";
+import { FormsModule, ReactiveFormsModule }   from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { MaterialModule } from './modules/material.module';
@@ -20,6 +21,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { XdIconComponent } from './components/xd-icon/xd-icon.component';
 import { STEPPER_GLOBAL_OPTIONS } from '@angular/cdk/stepper';
 import { DialogComponent } from './components/dialog/dialog.component';
+import { FormBuilder } from '@angular/forms';
 
 @NgModule({
 	declarations: [
@@ -42,12 +44,14 @@ import { DialogComponent } from './components/dialog/dialog.component';
 	exports: [],
 	imports: [
 		BrowserModule,
+		FormsModule, ReactiveFormsModule,
 		AppRoutingModule,
 		HttpClientModule,
 		MaterialModule,
 		BrowserAnimationsModule,
 	],
 	providers: [
+		FormBuilder,
 		// {
 		// 	provide: STEPPER_GLOBAL_OPTIONS,
 		// 	useValue: { displayDefaultIndicatorType: false }

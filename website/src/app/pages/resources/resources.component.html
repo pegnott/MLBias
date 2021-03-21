@@ -1,4 +1,79 @@
-<section id="helper" #helper class="container-fluid">
+<section class="container-fluid padding-xl-top">
+	<div class="container">
+		<h2 class="text-center ">
+			<span class="dec-line green top left offset-top">
+				Get Directed to Relevent Resources
+			</span>
+		</h2>
+	</div>
+</section>
+<section #helper class="container-fluid">
+		<mat-horizontal-stepper [linear]="true" #stepper>
+			<mat-step label="Welcome" [stepControl]="formGroupOne">
+				<form [formGroup]="formGroupOne">
+					<label for="intent" class="d-block text-center">
+						<span class="d-block mat-h3">
+							What brings you to the Toolkit?
+						</span>
+						I want to...
+					</label>
+					<mat-form-field>
+						<input matInput #int formControlName="int" [value]="learn" required>
+					</mat-form-field>
+					<div class="d-flex flex-row align-items-center">
+						<div class="flex-fill d-flex flex-column">
+							<mat-chip-list selectable="true" name="intent" #intent aria-label="" aria-orientation="vertical">
+								<mat-chip #learn="matChip"
+									selected
+									color="warn" class="bg-light text-dark col justify-content-center"
+									(click)="learn.select(); int.value = 'learn';">
+									Learn
+								</mat-chip>
+								<mat-chip #build="matChip"
+									color="warn" class="bg-light text-dark col justify-content-center"
+									(click)="build.select(); int.value = 'build';">
+									Build
+								</mat-chip>
+								<mat-chip #contribute="matChip"
+									color="warn" class="bg-light text-dark col justify-content-center"
+									(click)="contribute.select(); int.value = 'contribute';">
+									Contribute
+								</mat-chip>
+							</mat-chip-list>
+						</div>
+					</div>
+					<div class="d-flex flex-row flex-nowrap justify-content-end mt-5">
+						<button type="submit" mat-stroked-button matStepperNext>Next</button>
+					</div>
+				</form>
+			</mat-step>
+			<!-- <mat-step label="AI/ML"  [stepControl]="formGroupTwo">
+				<mat-slider #quantai class="d-block w-100" color="warn" min="0" max="3" step="0.5" value="0.5"></mat-slider>
+				<div class="row text-center">
+					<div class="col">I'm new here! Let's start with definitions and concepts</div>
+					<div class="col">I've had some exposure, let's talk about applications and context</div>
+					<div class="col">I'm using AI/ML in my daily work and I'm here to get the latest info</div>
+				</div>
+				 <mat-form-field>
+					<input matInput formControlName="ai" required>
+				</mat-form-field>
+				<div class="d-flex flex-row flex-nowrap justify-content-between mt-5">
+					<button type="submit" mat-stroked-button matStepperPrevious>Prev</button>
+					<button type="submit" mat-stroked-button matStepperNext>Next</button>
+				</div>
+			</mat-step> -->
+			<mat-step label="Bias"  [stepControl]="formGroupThree">
+				<ng-template matStepLabel>Done</ng-template>
+				<p>You are now done.</p>
+				<div>
+					<button mat-button matStepperPrevious>Back</button>
+					<button mat-button (click)="stepper.reset()">Reset</button>
+				</div>
+			</mat-step>
+		</mat-horizontal-stepper>
+
+</section>
+<!-- <section id="helper" #helper class="container-fluid">
     <div class="container padding-xl-top">
         <h2 class="text-center ">
             <span class="dec-line green top left offset-top">
@@ -30,8 +105,8 @@
 		</div>
 		<div class="mt-5 mb-5">
 			<h3 class="text-center">
-				What is your current knowledge base about AI/ML? 
-                <!-- <small><code>{{ quantai.value }}</code></small> -->
+				What is your current knowledge base about AI/ML?
+                <small><code>{{ quantai.value }}</code></small>
 			</h3>
 			<mat-slider #quantai class="d-block w-100" color="warn" min="0" max="3" step="0.5" value="0.5"></mat-slider>
 			<div class="row text-center">
@@ -43,7 +118,7 @@
 		<div class="mt-5 mb-5">
 			<h3 class="text-center">
 				What is your current knowledge base about Bias?
-                <!-- <small><code>{{ quantbias.value }}</code></small> -->
+                <small><code>{{ quantbias.value }}</code></small>
 			</h3>
 			<mat-slider  #quantbias class="d-block w-100" color="warn" min="0" max="3" step="0.5" value="0.5"></mat-slider>
 			<div class="row text-center">
@@ -119,4 +194,4 @@
             </div>
         </div>
     </div>
-</section>
+</section> -->
