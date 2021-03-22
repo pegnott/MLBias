@@ -22,6 +22,7 @@ import { XdIconComponent } from './components/xd-icon/xd-icon.component';
 import { STEPPER_GLOBAL_OPTIONS } from '@angular/cdk/stepper';
 import { DialogComponent } from './components/dialog/dialog.component';
 import { FormBuilder } from '@angular/forms';
+import { SurveyComponent } from './pages/resources/survey/survey.component';
 
 @NgModule({
 	declarations: [
@@ -39,7 +40,8 @@ import { FormBuilder } from '@angular/forms';
 		ContactComponent,
 		PrivacyComponent,
 		XdIconComponent,
-		DialogComponent
+		DialogComponent,
+		SurveyComponent
 	],
 	exports: [],
 	imports: [

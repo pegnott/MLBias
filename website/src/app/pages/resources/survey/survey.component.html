@@ -1,0 +1,101 @@
+<section class="container-fluid bg-white mb-0 padding-lg-top pb-5">
+	<div class="container">
+		<h2 class="text-center">
+			<span class="dec-line green top left offset-top">
+				Get Directed to Relevent Resources
+			</span>
+		</h2>
+	</div>
+</section>
+<section #helper class="container-fluid bg-white">
+    <div class="container padding-lg-top">
+        <form #form action="/resources/" (ngSubmit)="form.submit()" method="GET" [formGroup]="formGroup">
+            <mat-horizontal-stepper [linear]="true" #stepper>
+                <ng-template matStepperIcon="edit">
+                    <mat-icon>check</mat-icon>
+                </ng-template>
+                <mat-step label="Welcome" [stepControl]="formGroup.controls.intent">
+                    <h3 class="text-center">
+                        What brings you to the Toolkit?
+                    </h3>
+                    <mat-form-field class="d-block">
+                        <label for="intent" class="d-block mat-h4 mb-3 text-center">
+                            I want to... 
+                            <input class="d-none" matInput name="intent" id="intent" #intent formControlName="intent" required>
+                        </label>
+                        <div class="d-flex flex-row align-items-center">
+                            <div class="flex-fill d-flex flex-column">
+                                <mat-chip-list selectable="true" multiple="false" #intentSlider aria-label="" aria-orientation="vertical">
+                                    <mat-chip #learn="matChip"
+                                        color="warn" class="bg-light text-dark col justify-content-center"
+                                        [attr.selected]="(intent.value == 'learn') ? true : null"
+                                        (click)="learn.select(); formGroup.controls.intent.setValue('learn');">
+                                        Learn
+                                    </mat-chip>
+                                    <mat-chip #build="matChip"
+                                        color="warn" class="bg-light text-dark col justify-content-center"
+                                        [attr.selected]="(intent.value == 'build') ? true : null"
+                                        (click)="build.select();  formGroup.controls.intent.setValue('build');">
+                                        Build
+                                    </mat-chip>
+                                    <mat-chip #contribute="matChip"
+                                        color="warn" class="bg-light text-dark col justify-content-center"
+                                        [attr.selected]="(intent.value == 'contribute') ? true : null"
+                                        (click)="contribute.select();  formGroup.controls.intent.setValue('contribute');">
+                                        Contribute
+                                    </mat-chip>
+                                </mat-chip-list>
+                            </div>
+                        </div>
+                    </mat-form-field>
+                    <div class="d-flex flex-row flex-nowrap justify-content-end mt-5">
+                        <button type="button" mat-stroked-button matStepperNext>Next</button>
+                    </div>
+                </mat-step>
+                <mat-step label="AI/ML"  [stepControl]="formGroup.controls.ai">
+                    <h3 class="text-center">
+                        What is your current knowledge base about AI/ML?
+                    </h3>
+                    <mat-form-field class="d-block">
+                        <mat-slider #aiSlider (change)="formGroup.controls.ai.setValue(($event.value) ? $event.value.toString() : defaults.ai)" class="d-block w-100" color="warn" min="0" max="3" step="0.5" value="0.5"></mat-slider>
+                        <div class="row text-center">
+                            <div class="col">I'm new here! Let's start with definitions and concepts</div>
+                            <div class="col">I've had some exposure, let's talk about applications and context</div>
+                            <div class="col">I'm using AI/ML in my daily work and I'm here to get the latest info</div>
+                        </div>
+                        <input class="d-none" matInput name="ai" id="ai" #ai formControlName="ai">
+                    </mat-form-field>
+                    <div class="d-flex flex-row flex-nowrap justify-content-between mt-5">
+                        <button type="button" mat-stroked-button matStepperPrevious>Prev</button>
+                        <button type="button" mat-stroked-button matStepperNext>Next</button>
+                    </div>
+                </mat-step>
+                <mat-step label="Bias"  [stepControl]="formGroup.controls.bias">
+                    <h3 class="text-center">
+                        What is your current knowledge base about Bias?
+                    </h3>
+                    <mat-form-field class="d-block">
+                        <mat-slider #biasSlider (change)="formGroup.controls.bias.setValue(($event.value) ? $event.value.toString() : defaults.bias)" class="d-block w-100" color="warn" min="0" max="3" step="0.5" value="0.5"></mat-slider>
+                        <div class="row text-center">
+                            <div class="col">I'm new here! Let's start with definitions and concepts</div>
+                            <div class="col">I've had some exposure, let's talk about applications and context</div>
+                            <div class="col">I'm working with bias daily and I'm here to get the latest info</div>
+                        </div>
+                        <input class="d-none" matInput name="bias" id="bias" #bias formControlName="bias" required>
+                    </mat-form-field>
+                    <div class="d-flex flex-row flex-nowrap justify-content-between mt-5">
+                        <button type="button" mat-stroked-button matStepperPrevious>Prev</button>
+                        <button type="submit" mat-stroked-button >Next</button>
+                    </div>
+                </mat-step>
+                <mat-step label="Resources">
+                    <div class="d-flex flex-row flex-nowrap justify-content-between mt-5">
+                        <button type="submit" mat-stroked-button matStepperPrevious>Prev</button>
+                        <button type="submit" mat-stroked-button>Next</button>
+                        <button mat-button (click)="stepper.reset()">Start Over</button>
+                    </div>
+                </mat-step>
+            </mat-horizontal-stepper>
+        </form>
+    </div>
+</section>

@@ -1,27 +1,38 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
+import { SurveyService } from 'src/app/services/survey.service';
 @Component({
 	selector: 'app-resources',
 	templateUrl: './resources.component.html',
 	styleUrls: ['./resources.component.scss']
 })
 export class ResourcesComponent implements OnInit {
-	public formGroupOne: FormGroup;
-	public formGroupTwo: FormGroup;
-	public formGroupThree: FormGroup;
-	constructor(
-		private formBuilder: FormBuilder
-	) { }
+    public showSurvey: boolean = true;
+    public defaults:any = this.surveyService.defaults;
+    public surveyInput: any = {};
+    constructor(
 
-	ngOnInit(): void {
-		this.formGroupOne = this.formBuilder.group({
-			int:	['learn', Validators.required],
-		});
-		this.formGroupTwo = this.formBuilder.group({
-			ai:		[''],
-		});
-		this.formGroupThree = this.formBuilder.group({
-			bias:	[''],
-		});
-	}
+        private surveyService: SurveyService,
+		private activatedRoute: ActivatedRoute,
+        private router: Router
+	) { 
+        this.router.routeReuseStrategy.shouldReuseRoute = () => false;
+        this.activatedRoute.queryParams
+            .subscribe(params => {
+                Object.keys(params).forEach((name:any) => {
+                    let value:string = params[name];
+                    this.surveyInput[name] = value;
+                });
+                if (JSON.stringify(Object.keys(this.surveyInput)) == JSON.stringify(Object.keys(this.defaults))) {
+                    let emptyValues:boolean = false;
+                    Object.values(this.surveyInput).forEach((value:any) => {
+                        if (value.length == 0)  emptyValues = true;
+                    })  
+                    if (emptyValues) this.showSurvey = true; 
+                    else this.showSurvey = false;
+                }
+            });
+            
+    }
+    ngOnInit(): void {}
 }
