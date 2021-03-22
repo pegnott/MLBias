@@ -9,7 +9,7 @@
 </section>
 <section #helper class="container-fluid">
     <div class="container">
-        <form #form action="/resources/" (ngSubmit)="form.submit()" method="GET" [formGroup]="formGroup">
+        <form #form action="/resources" (ngSubmit)="form.submit()" method="GET" [formGroup]="formGroup">
             <mat-horizontal-stepper [linear]="true" #stepper>
                 <ng-template matStepperIcon="edit">
                     <mat-icon>check</mat-icon>
