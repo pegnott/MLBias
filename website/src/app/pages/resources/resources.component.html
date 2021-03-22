@@ -1,7 +1,7 @@
 <ng-template #survey><app-survey></app-survey></ng-template>
 <ng-template #resources>
     <!-- <pre><code *ngIf="surveyInput">{{ surveyInput | json }}</code></pre> -->
-    <section id="resources" class="container-fluid padding-lg-top padding-lg-bottom theme-medium mat-app-background">
+    <section id="resources" class="container-fluid padding-lg-top padding-lg-bottom">
         <div *ngIf="surveyInput && surveyInput.bias && surveyInput.ai" class="container">
             <div class="d-md-flex flex-wrap justify-content-evenly align-items-stretch">
                 <div *ngIf="surveyInput.ai >= 1.5" class="col-md-6 col-lg-4 flex-column mb-5">

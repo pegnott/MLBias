@@ -3,9 +3,6 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './pages/home/home.component';
 import { JourneyComponent } from './pages/journey/journey.component';
 import { ResourcesComponent } from './pages/resources/resources.component';
-import { SurveyComponent } from './pages/resources/survey/survey.component';
-import { ToolsComponent } from './pages/tools/tools.component';
-import { TutorialComponent } from './pages/tutorial/tutorial.component';
 
 export const routes: Routes = [
     { path: '', pathMatch: 'full', redirectTo: 'home' },
