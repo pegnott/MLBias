@@ -8,7 +8,7 @@
 	</div>
 </section>
 <section #helper class="container-fluid bg-white">
-    <div class="container padding-lg-top">
+    <div class="container">
         <form #form action="/resources/" (ngSubmit)="form.submit()" method="GET" [formGroup]="formGroup">
             <mat-horizontal-stepper [linear]="true" #stepper>
                 <ng-template matStepperIcon="edit">
@@ -68,9 +68,15 @@
 							value="0.5">
 						</mat-slider>
                         <div class="row text-center mb-5">
-                            <div class="col">I'm new here! Let's start with definitions and concepts</div>
-                            <div class="col">I've had some exposure, let's talk about applications and context</div>
-                            <div class="col">I'm using AI/ML in my daily work and I'm here to get the latest info</div>
+                            <label class="col" (click)="aiSlider.value = 0.5">
+                                I'm new here! Let's start with definitions and concepts
+                            </label>
+                            <label class="col"  (click)="aiSlider.value = 1.5">
+                                I've had some exposure, let's talk about applications and context
+                            </label>
+                            <label class="col"  (click)="aiSlider.value = 2.5">
+                                I'm using AI/ML in my daily work and I'm here to get the latest info
+                            </label>
                         </div>
                         <input class="d-none" matInput name="ai" id="ai" #ai formControlName="ai">
                     </mat-form-field>
@@ -92,9 +98,15 @@
                     <mat-form-field class="d-block">
                         <mat-slider #biasSlider (change)="formGroup.controls.bias.setValue(($event.value) ? $event.value.toString() : defaults.bias)" class="d-block w-100" color="warn" min="0" max="3" step="0.5" value="0.5"></mat-slider>
                         <div class="row text-center mb-5">
-                            <div class="col">I'm new here! Let's start with concepts and background</div>
-                            <div class="col">I've had some exposure but would like to go deeper</div>
-                            <div class="col">I am knowledgeable and would like to see new tools and techniques or new white or research papers relevent to government settings</div>
+                            <label class="col" (click)="biasSlider.value = 0.5">
+                                I'm new here! Let's start with concepts and background
+                            </label>
+                            <label class="col" (click)="biasSlider.value = 1.5">
+                                I've had some exposure but would like to go deeper
+                            </label>
+                            <label class="col" (click)="biasSlider.value = 2.5">
+                                I am knowledgeable and would like to see new tools and techniques or new white or research papers relevent to government settings
+                            </label>
                         </div>
                         <input class="d-none" matInput name="bias" id="bias" #bias formControlName="bias" required>
                     </mat-form-field>
