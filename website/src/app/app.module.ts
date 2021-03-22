@@ -10,16 +10,9 @@ import { FooterComponent } from './components/footer/footer.component';
 import { HomeComponent } from './pages/home/home.component';
 import { JourneyComponent } from './pages/journey/journey.component';
 import { ResourcesComponent } from './pages/resources/resources.component';
-import { TutorialComponent } from './pages/tutorial/tutorial.component';
-import { ToolsComponent } from './pages/tools/tools.component';
-import { TeamComponent } from './pages/team/team.component';
-import { AboutComponent } from './pages/about/about.component';
-import { PartnersComponent } from './pages/partners/partners.component';
-import { ContactComponent } from './pages/contact/contact.component';
 import { PrivacyComponent } from './pages/privacy/privacy.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { XdIconComponent } from './components/xd-icon/xd-icon.component';
-import { STEPPER_GLOBAL_OPTIONS } from '@angular/cdk/stepper';
 import { DialogComponent } from './components/dialog/dialog.component';
 import { FormBuilder } from '@angular/forms';
 import { SurveyComponent } from './pages/resources/survey/survey.component';
@@ -32,12 +25,6 @@ import { SurveyComponent } from './pages/resources/survey/survey.component';
 		HomeComponent,
 		JourneyComponent,
 		ResourcesComponent,
-		TutorialComponent,
-		ToolsComponent,
-		TeamComponent,
-		AboutComponent,
-		PartnersComponent,
-		ContactComponent,
 		PrivacyComponent,
 		XdIconComponent,
 		DialogComponent,
@@ -54,10 +41,6 @@ import { SurveyComponent } from './pages/resources/survey/survey.component';
 	],
 	providers: [
 		FormBuilder,
-		// {
-		// 	provide: STEPPER_GLOBAL_OPTIONS,
-		// 	useValue: { displayDefaultIndicatorType: false }
-		// }
 	],
 	bootstrap: [AppComponent]
 })
