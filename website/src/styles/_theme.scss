@@ -53,7 +53,7 @@ $light-background: map-get($light-theme, background);
 $theme-background-light: (
 	status-bar:					map-get($light-background, status-bar),
 	app-bar:					map-get($light-background, app-bar),
-	background:					white,
+	background:				    white,
 	hover:	 					map-get($light-background, hover),
 	card:	   					map-get($light-background, card),
 	dialog:						map-get($light-background, dialog),
@@ -135,6 +135,7 @@ $border-radius:0.6rem;
 html { font-size:10px; }
 html,
 html body { 
+    background:#fafafa;
     margin:0; padding:0; 
     width:100%; height:100%; 
 }

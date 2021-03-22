@@ -1,71 +1,72 @@
 <ng-template #survey><app-survey></app-survey></ng-template>
 <ng-template #resources>
-    <!-- <pre><code *ngIf="surveyInput">{{ surveyInput | json }}</code></pre> -->
-    <section id="resources" class="container-fluid padding-lg-top padding-lg-bottom">
-        <div *ngIf="surveyInput && surveyInput.bias && surveyInput.ai" class="container">
-            <div class="d-md-flex flex-wrap justify-content-evenly align-items-stretch">
-                <div *ngIf="surveyInput.ai >= 1.5" class="col-md-6 col-lg-4 flex-column mb-5">
-                    <mat-card class="h-100 d-flex flex-column">
-                        <img mat-card-image src="/assets/Rectangle 27@2x.png" alt="">
-                        <mat-card-header>
-                            <mat-card-title class="font-accent text-center">
-                                Mapping the Process
-                            </mat-card-title>
-                        </mat-card-header>
-                        <mat-card-content class="flex-fill">
-                            <p>
-                                Ready to integrate AI/ML into your department's processes? Here's a map on how to do it right.
-                            </p>
-                        </mat-card-content>
-                    </mat-card>
-                </div>
-                <div *ngIf="surveyInput.intent == 'learn' || surveyInput.bias < 1.5" class="col-md-6 col-lg-4 flex-column mb-5">
-                    <mat-card class="h-100 d-flex flex-column">
-                        <img mat-card-image src="/assets/Rectangle -1.png" alt="">
-                        <mat-card-header>
-                            <mat-card-title class="font-accent text-center">
-                                Understanding Bias
-                            </mat-card-title>
-                        </mat-card-header>
-                        <mat-card-content class="flex-fill">
-                            <p>
-                                What does it mean for data to be biased? How does bias show up in AI/ML nodes?
-                            </p>
-                        </mat-card-content>
-                    </mat-card>
-                </div>
-                <div *ngIf="surveyInput.ai > 1.5" class="col-md-6 col-lg-4 flex-column mb-5">
-                    <mat-card class="h-100 d-flex flex-column">
-                        <img mat-card-image src="/assets/Rectangle -4.png" alt="">
-                        <mat-card-header>
-                            <mat-card-title class="font-accent text-center">
-                                Technical Tools
-                            </mat-card-title>
-                        </mat-card-header>
-                        <mat-card-content class="flex-fill">
-                            <p>
-                                Share these technical tools for addressing bias with your AI/ML engineers and partners.
-                            </p>
-                        </mat-card-content>
-                    </mat-card>
-                </div>
-                <div *ngIf="surveyInput.intent == 'learn'" class="col-md-6 col-lg-4 flex-column mb-5">
-                    <mat-card class="h-100 d-flex flex-column">
-                        <img mat-card-image src="/assets/Rectangle -3.png" alt="">
-                        <mat-card-header>
-                            <mat-card-title class="font-accent text-center">
-                                Case Studies
-                            </mat-card-title>
-                        </mat-card-header>
-                        <mat-card-content class="flex-fill">
-                            <p>
-                                Examples/case studies of states, cities, counties
-                            </p>
-                        </mat-card-content>
-                    </mat-card>
-                </div>
+    <section *ngIf="surveyInput && surveyInput.bias && surveyInput.ai"  class="container">
+        <div class="d-md-flex flex-wrap justify-content-evenly align-items-stretch">
+            <div *ngIf="surveyInput.ai >= 1.5" class="col-md-6 col-lg-4 flex-column mb-5">
+                <mat-card class="h-100 d-flex flex-column">
+                    <img mat-card-image src="/assets/Rectangle 27@2x.png" alt="">
+                    <mat-card-header>
+                        <mat-card-title class="font-accent text-center">
+                            Mapping the Process
+                        </mat-card-title>
+                    </mat-card-header>
+                    <mat-card-content class="flex-fill">
+                        <p>
+                            Ready to integrate AI/ML into your department's processes? Here's a map on how to do it right.
+                        </p>
+                    </mat-card-content>
+                </mat-card>
+            </div>
+            <div *ngIf="surveyInput.intent == 'learn' || surveyInput.bias < 1.5" class="col-md-6 col-lg-4 flex-column mb-5">
+                <mat-card class="h-100 d-flex flex-column">
+                    <img mat-card-image src="/assets/Rectangle -1.png" alt="">
+                    <mat-card-header>
+                        <mat-card-title class="font-accent text-center">
+                            Understanding Bias
+                        </mat-card-title>
+                    </mat-card-header>
+                    <mat-card-content class="flex-fill">
+                        <p>
+                            What does it mean for data to be biased? How does bias show up in AI/ML nodes?
+                        </p>
+                    </mat-card-content>
+                </mat-card>
+            </div>
+            <div *ngIf="surveyInput.ai > 1.5" class="col-md-6 col-lg-4 flex-column mb-5">
+                <mat-card class="h-100 d-flex flex-column">
+                    <img mat-card-image src="/assets/Rectangle -4.png" alt="">
+                    <mat-card-header>
+                        <mat-card-title class="font-accent text-center">
+                            Technical Tools
+                        </mat-card-title>
+                    </mat-card-header>
+                    <mat-card-content class="flex-fill">
+                        <p>
+                            Share these technical tools for addressing bias with your AI/ML engineers and partners.
+                        </p>
+                    </mat-card-content>
+                </mat-card>
+            </div>
+            <div *ngIf="surveyInput.intent == 'learn'" class="col-md-6 col-lg-4 flex-column mb-5">
+                <mat-card class="h-100 d-flex flex-column">
+                    <img mat-card-image src="/assets/Rectangle -3.png" alt="">
+                    <mat-card-header>
+                        <mat-card-title class="font-accent text-center">
+                            Case Studies
+                        </mat-card-title>
+                    </mat-card-header>
+                    <mat-card-content class="flex-fill">
+                        <p>
+                            Examples/case studies of states, cities, counties
+                        </p>
+                    </mat-card-content>
+                </mat-card>
             </div>
         </div>
     </section>
 </ng-template>
-<ng-container *ngIf="showSurvey === true; then survey else resources"></ng-container>
+<div class="container-fluid">
+    <div class="container mat-app-background theme-light padding-lg-top padding-lg-bottom">
+        <ng-container *ngIf="showSurvey === true; then survey else resources"></ng-container>
+    </div>
+</div>
