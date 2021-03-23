@@ -1,7 +1,9 @@
 import { NgModule } from '@angular/core';
-import { HttpClientModule } from "@angular/common/http";
+import { HttpClientModule, HttpClient } from "@angular/common/http";
 import { FormsModule, ReactiveFormsModule }   from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
+import { MarkdownModule } from 'ngx-markdown';
+
 import { AppRoutingModule } from './app-routing.module';
 import { MaterialModule } from './modules/material.module';
 import { AppComponent } from './app.component';
@@ -15,7 +17,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { XdIconComponent } from './components/xd-icon/xd-icon.component';
 import { DialogComponent } from './components/dialog/dialog.component';
 import { FormBuilder } from '@angular/forms';
-import { SurveyComponent } from './pages/resources/survey/survey.component';
+import { SurveyComponent } from './pages/survey/survey.component';
 
 @NgModule({
 	declarations: [
@@ -34,6 +36,7 @@ import { SurveyComponent } from './pages/resources/survey/survey.component';
 	imports: [
 		BrowserModule,
 		FormsModule, ReactiveFormsModule,
+        MarkdownModule.forRoot({ loader: HttpClient }),
 		AppRoutingModule,
 		HttpClientModule,
 		MaterialModule,
