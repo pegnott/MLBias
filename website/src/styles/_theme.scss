@@ -51,10 +51,11 @@ $dark-theme: mat-dark-theme((
 
 $light-foreground: map-get($light-theme, foreground);
 $light-background: map-get($light-theme, background);
+$light-background-color:map-get($light-background, background);
 $theme-background-light: (
 	status-bar:					map-get($light-background, status-bar),
 	app-bar:					map-get($light-background, app-bar),
-	background:				    white,
+	background:				   	white,
 	hover:	 					map-get($light-background, hover),
 	card:	   					map-get($light-background, card),
 	dialog:						map-get($light-background, dialog),
@@ -71,10 +72,8 @@ $theme-background-light: (
 
 html body .mat-button-base {
 	$elevation_color:map-get($light-foreground, elevation);
-	&.mat-raised-button { @include mat-elevation(8, $elevation_color, 0.23); }
-
+	&.mat-raised-button { @include mat-elevation(10, $elevation_color, 0.23); }
 }
-
 
 $theme-foreground-light: (
 	base:				map-get($light-foreground, base),
@@ -140,9 +139,9 @@ $border-radius:0.6rem;
 
 html { font-size:10px; }
 html, html body {
-    background:#fafafa;
+    //background:#fafafa;
     margin:0; padding:0;
-    width:100%; height:100%;
+    min-width:100%; min-height:100%;
 }
 
 html body .padding-lg-top  		{ padding-top:7rem }
@@ -174,8 +173,8 @@ html body .theme-gradient {
 }
 html body .dec-line-vertical {
     $width:2px;
-    $height:15rem;
-    $offset: $width * -1.5;
+    $height:12.3rem;
+    $offset: $height * -1.23;
     position:relative;
 
     &:before {
@@ -186,16 +185,28 @@ html body .dec-line-vertical {
         width:$width; height:$height;
     }
 	&.top:before { top:0.5em }
-	&.offset-top:before { top:-0.5em; }
+	&.offset-top:before { top:$offset; }
 	&.right:before { right:0 }
-	&.offset-right:before { right:$offset; }
+	&.offset-right:before { right:1.23em; }
 	&.bottom:before { bottom:0 }
-	&.offset-bottom:before {bottom:-0.5em; }
+	&.offset-bottom:before {bottom:$offset; }
 	&.left:before { left:0 }
-	&.offset-left:before { left:$offset; }
+	&.offset-left:before { left:1.23em; }
 	&.green:before { background-color: $color_green }
 	&.purple:before { background-color: $color_purple }
 	&.pink:before { background-color: $color_pink }
+
+	&.dotted {
+		&:before {
+			background-color:transparent;
+			border-left:0.23em $color_grey_light dotted;
+		}
+		&.green:before { border-color:$color_green; }
+		&.purple:before { border-color:$color_purple; }
+		&.pink:before { border-color:$color_pink; }
+	}
+
+
 }
 
 html body .dec-line {
