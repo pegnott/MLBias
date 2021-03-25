@@ -48,6 +48,7 @@ $dark-theme: mat-dark-theme((
 @include angular-material-theme($light-theme);
 .theme-dark {  @include angular-material-color($dark-theme) }
 
+
 $light-foreground: map-get($light-theme, foreground);
 $light-background: map-get($light-theme, background);
 $theme-background-light: (
@@ -67,10 +68,18 @@ $theme-background-light: (
 	disabled-list-option:		map-get($light-background, disabled-list-option),
 	tooltip: 					map-get($light-background, tooltip),
 );
+
+html body .mat-button-base {
+	$elevation_color:map-get($light-foreground, elevation);
+	&.mat-raised-button { @include mat-elevation(8, $elevation_color, 0.23); }
+
+}
+
+
 $theme-foreground-light: (
 	base:				map-get($light-foreground, base),
-	divider:			map-get($light-foreground, divider),
-	dividers:			map-get($light-foreground, dividers),
+	divider:			lighten(map-get($light-foreground, divider), 42%),
+	dividers:			lighten(map-get($light-foreground, dividers), 42%),
 	disabled:			map-get($light-foreground, disabled),
 	disabled-button:  	map-get($light-foreground, disabled-button),
 	disabled-text:		map-get($light-foreground, disabled-text),
@@ -123,18 +132,14 @@ $theme-background-medium: (
 		background: $theme-background-medium,
 	));
 }
-html body {
-	.theme-gradient {
-		background-image: linear-gradient(to bottom right, map-get($md-pink, 500), map-get($md-green, 500));
-	}
+
+html body .theme-gradient {
+	background-image: linear-gradient(to bottom right, map-get($md-pink, 500), map-get($md-green, 500));
 }
-
-
 $border-radius:0.6rem;
 
 html { font-size:10px; }
-html,
-html body {
+html, html body {
     background:#fafafa;
     margin:0; padding:0;
     width:100%; height:100%;
@@ -164,7 +169,6 @@ html body .padding-xl-left  	{ padding-left:10rem }
 }
 
 html body .font-accent { font-family: $custom-font-accent; }
-
 html body .theme-gradient {
     background-image: linear-gradient(to bottom right, map-get($md-pink, 500), map-get($md-green, 500));
 }
@@ -181,19 +185,14 @@ html body .dec-line-vertical {
         top:auto; right:auto; bottom:auto; left:auto;
         width:$width; height:$height;
     }
-
 	&.top:before { top:0.5em }
 	&.offset-top:before { top:-0.5em; }
-
 	&.right:before { right:0 }
 	&.offset-right:before { right:$offset; }
-
 	&.bottom:before { bottom:0 }
 	&.offset-bottom:before {bottom:-0.5em; }
-
 	&.left:before { left:0 }
 	&.offset-left:before { left:$offset; }
-
 	&.green:before { background-color: $color_green }
 	&.purple:before { background-color: $color_purple }
 	&.pink:before { background-color: $color_pink }
@@ -212,19 +211,14 @@ html body .dec-line {
 		height:$height;
 	}
 	$offset: $width * -1.5;
-
 	&.top:before { top:0.5em }
 	&.offset-top:before { top:-0.5em; }
-
 	&.right:before { right:0 }
 	&.offset-right:before { right:$offset; }
-
 	&.bottom:before { bottom:0 }
 	&.offset-bottom:before {bottom:-0.5em; }
-
 	&.left:before { left:0 }
 	&.offset-left:before { left:$offset; }
-
 	&.green:before { background-color: $color_green }
 	&.purple:before { background-color: $color_purple }
 	&.pink:before { background-color: $color_pink }
@@ -255,22 +249,20 @@ html body .mat-slider-thumb {
 	}
 }
 
-html body .mat-chip {
-    &.mat-standard-chip {
-        border:1px $color_purple solid;
-        border-radius:$border-radius;
-		min-height:3em;
-
-        &[selected] {
-            border-color:$color_pink;
-        }
+html body .mat-chip.mat-standard-chip {
+	// border:1px $color_purple solid;
+	// border-radius:$border-radius;
+	&[selected] {
+		border-color:$color_pink;
 	}
 }
 
-html body .mat-button-base {
-    border-radius:$border-radius;
-    &.mat-stroked-button { min-height:3em; }
+html body .mat-chip.mat-standard-chip,
+html body .mat-button-base.mat-stroked-button,
+html body .mat-button-base.mat-raised-button {
+	min-height:3em;
 }
+
 
 html body mat-card {
     border-radius:$border-radius;
