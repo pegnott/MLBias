@@ -8,7 +8,7 @@
                 Tools for serving communities better when leveraging AI/ML in public sector services
             </p>
         </div>
-		<div class="col-md-6 decoration"></div>
+		<div class="col-md-6 decoration" [@toggleClick]="isGreen" (mouseenter)="toggleIsCorrect()" (mouseleave)="toggleIsCorrect()"></div>
     </div>
 </section>
 <section class="container-fluid padding-lg-top padding-lg-bottom theme-light mat-app-background mat-typography">
@@ -21,7 +21,7 @@
                     drive impact in building ethical and equitable AI/ML for the communities you serve.
                 </p>
                 <button class="d-inline-block mt-5" mat-raised-button mat-stroked-button routerLink="/resources">
-                    Get directed to relevant resources
+                    Get <span class="d-none d-sm-inline">directed to relevant</span> resources
                     <mat-icon color="accent" class="ml-5 round-outline">chevron_right</mat-icon>
                 </button>
             </div>
@@ -31,7 +31,7 @@
 <section class="container-fluid pt-5 pb-5 theme-medium mat-app-background mat-typography">
     <div class="container">
         <h3 class="dec-line pink mb-5 bottom left offset-bottom ">Featured Resources</h3>
-        <div class="d-flex flex-wrap align-items-stretch">
+        <div class="d-flex flex-wrap pt-5 align-items-stretch mb-5">
             <div class="col-md-4 flex-column mb-5">
                 <mat-card class="h-100 d-flex flex-column">
 					<mat-card-content class="flex-fill d-flex flex-column justify-content-between">

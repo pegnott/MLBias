@@ -206,6 +206,18 @@ html body {
 	.font-body { font-family: $custom-font-body; }
 	.font-accent { font-family: $custom-font-accent; }
 	.theme-gradient { background-image: linear-gradient(to bottom right, map-get($md-pink, 500), map-get($md-green, 500)); }
+	.bg-dot-overlay {
+		position:relative;
+		&:before {
+			content: "";
+			position:absolute;
+			top:0; right:0; bottom:0; left:0;
+			z-index:0;
+			background: transparent;
+			background-image: radial-gradient(rgba(white, 0.12) 1px, transparent 0);
+			background-size: 4px 4px;
+		}
+	}
 }
 
 html body .mat-button-base {
