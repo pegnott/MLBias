@@ -1,4 +1,4 @@
-<section id="toolkit" class="container-fluid theme-gradient padding-xl-top padding-xl-bottom theme-dark mat-app-background">
+<section id="toolkit" class="container-fluid theme-gradient padding-xl-top padding-xl-bottom theme-dark mat-app-background mat-typography">
     <div class="container d-md-flex justify-content-start align-content-stretch dec-line-vertical top right">
         <div class="col-md-6  padding-lg-top padding-lg-bottom dec-line pink bottom right offset-bottom offset-right">
             <h1 class="h1">
@@ -11,7 +11,7 @@
 		<div class="col-md-6 decoration"></div>
     </div>
 </section>
-<section class="container-fluid padding-lg-top padding-lg-bottom">
+<section class="container-fluid padding-lg-top padding-lg-bottom theme-light mat-app-background mat-typography">
     <div class="container">
         <div class="d-flex justify-content-end">
             <div class="col-md-8 dec-line-vertical dotted top left offset-top offset-left">
@@ -28,16 +28,17 @@
         </div>
     </div>
 </section>
-<section class="container-fluid pt-5 pb-5 mat-app-background theme-medium">
+<section class="container-fluid pt-5 pb-5 theme-medium mat-app-background mat-typography">
     <div class="container">
         <h3 class="dec-line pink mb-5 bottom left offset-bottom ">Featured Resources</h3>
         <div class="d-flex flex-wrap align-items-stretch">
             <div class="col-md-4 flex-column mb-5">
                 <mat-card class="h-100 d-flex flex-column">
-                    <mat-card-content class="flex-fill">
-                        <h4 class="font-accent">
+					<mat-card-content class="flex-fill d-flex flex-column justify-content-between">
+						<h5 class="font-accent text-center mat-card-header-text">
 							Education Resources: Learning about Data, AI/ML and Bias
-						</h4>
+						</h5>
+                        <div class="text-center"><mat-icon>library_books</mat-icon></div>
                     </mat-card-content>
                     <mat-card-actions class="d-flex flex-row justify-content-end align-items-center">
                         <button mat-button>
@@ -48,10 +49,11 @@
             </div>
             <div class="col-md-4 flex-column mb-5">
                 <mat-card class="h-100 d-flex flex-column">
-                    <mat-card-content class="flex-fill">
-                        <h4 class="font-accent">
+                    <mat-card-content class="flex-fill d-flex flex-column justify-content-between">
+                        <h5 class="font-accent text-center">
                             Mapping Out How to Design Public Sector AI/ML
-                        </h4>
+                        </h5>
+						<div class="text-center"><mat-icon>model_training</mat-icon></div>
                     </mat-card-content>
                     <mat-card-actions class="d-flex flex-row justify-content-end align-items-center">
                         <button mat-button>
@@ -62,10 +64,11 @@
             </div>
             <div class="col-md-4 flex-column mb-5">
                 <mat-card class="h-100 d-flex flex-column">
-                    <mat-card-content class="flex-fill">
-                        <h4 class="font-accent">
+                    <mat-card-content class="flex-fill d-flex flex-column justify-content-between">
+                        <h5 class="font-accent text-center">
                             Technical Tools for Mitigating Bias
-                        </h4>
+                        </h5>
+						<div class="text-center"><mat-icon>code</mat-icon></div>
                     </mat-card-content>
                     <mat-card-actions class="d-flex flex-row justify-content-end align-items-center">
                         <button mat-button>

@@ -10,7 +10,7 @@ html body .dec-line {
 		width:$width;
 		height:$height;
 	}
-	$offset: $width * -1.5;
+	$offset: $width * -1.25;
 	&.top:before { top:0.5em }
 	&.offset-top:before { top:-0.5em; }
 	&.right:before { right:0 }
@@ -22,6 +22,10 @@ html body .dec-line {
 	&.green:before { background-color: $color_green }
 	&.purple:before { background-color: $color_purple }
 	&.pink:before { background-color: $color_pink }
+
+	&.wider:before {
+		width:$width * 1.5;
+	}
 }
 
 html body .dec-line-vertical {

@@ -9,19 +9,19 @@
 
 $typography: mat-typography-config(
 	$font-family:   $custom-font-body,
-	$display-4:	 	mat-typography-level(72px, 80px, 400),							// largest one-off font classes
-	$display-3:	 	mat-typography-level(64px, 72px, 400),							// largest one-off font classes
-	$display-2:		mat-typography-level(56px, 64px, 400),							// largest one-off font classes
-	$display-1:	 	mat-typography-level(48px, 56px, 400),							// largest one-off font classes
+	$display-4:	 	mat-typography-level(72px, 1.42, 400),						// largest one-off font classes
+	$display-3:	 	mat-typography-level(64px, 1.42, 400),						// largest one-off font classes
+	$display-2:		mat-typography-level(56px, 1.42, 400),						// largest one-off font classes
+	$display-1:	 	mat-typography-level(48px, 1.42, 400),						// largest one-off font classes
 
-	$headline:	 	mat-typography-level(48px, 60px, 700, $custom-font-accent), 	// h1 .h1 etc
-	$title:		 	mat-typography-level(32px, 40px, 700, $custom-font-accent),		// h2 .h2 etc
-	$subheading-2:  mat-typography-level(24px, 30px, 400), 							// h3 .h3 etc
-	$subheading-1:  mat-typography-level(20px, 25px, 400), 							// h4 .h4 etc
-	$body-2:		mat-typography-level(18px, 30px, 700),							// Bold body text
-	$body-1:		mat-typography-level(18px, 30px, 400),							// Base body text
-	$caption:		mat-typography-level(14px, 20px, 400),
-	$button:		mat-typography-level(18px, 48px, 700, $custom-font-accent),
+	$headline:	 	mat-typography-level(48px, 1.42, 700, $custom-font-accent), 	// h1 .h1 etc
+	$title:		 	mat-typography-level(32px, 1.42, 700, $custom-font-accent),	// h2 .h2 etc
+	$subheading-2:  mat-typography-level(24px, 1.42, 400), 						// h3 .h3 etc
+	$subheading-1:  mat-typography-level(20px, 1.42, 400), 							// h4 .h4 etc
+	$body-2:		mat-typography-level(18px, 1.56, 700),							// Bold body text
+	$body-1:		mat-typography-level(18px, 1.56, 400),							// Base body text
+	$caption:		mat-typography-level(14px, 1.25, 400),
+	$button:		mat-typography-level(18px, 1.25, 700, $custom-font-accent),
 	$input:			mat-typography-level(16px, 1.25, 400)
 );
 @include mat-core($typography);
@@ -44,13 +44,8 @@ $dark-theme: mat-dark-theme((
 		 warn: $theme-warn,
 	),
 ));
-
-@include angular-material-theme($light-theme);
-.theme-dark {  @include angular-material-color($dark-theme) }
-
 $light-foreground: map-get($light-theme, foreground);
 $light-background: map-get($light-theme, background);
-
 $theme-background-light: (
 	status-bar:					map-get($light-background, status-bar),
 	app-bar:					map-get($light-background, app-bar),
@@ -86,18 +81,20 @@ $theme-foreground-light: (
 	slider-off:			map-get($light-foreground, slider-off),
 	slider-off-active:	map-get($light-foreground, slider-off-active),
 );
-@include angular-material-theme((
-	primary: $theme-primary,
-	accent: $theme-accent,
-	warn: $theme-warn,
-	is-dark: false,
-	foreground: $theme-foreground-light,
-	background: $theme-background-light,
-));
 
+@include angular-material-theme($light-theme);
+.theme-light {
+	@include angular-material-theme((
+		primary: $theme-primary,
+		accent: $theme-accent,
+		warn: $theme-warn,
+		is-dark: false,
+		foreground: $theme-foreground-light,
+		background: $theme-background-light,
+	));
+}
 $dark-foreground: map-get($dark-theme, foreground);
 $dark-background: map-get($dark-theme, background);
-
 $theme-foreground-dark: (
 	base:				map-get($dark-foreground, base),
 	divider:			lighten(map-get($dark-foreground, divider), 42%),
@@ -162,7 +159,6 @@ $theme-background-medium: (
 	disabled-list-option:		map-get($light-background, disabled-list-option),
 	tooltip: 					map-get($light-background, tooltip),
 );
-
 .theme-medium {
 	@include angular-material-theme((
 		primary: $theme-primary,
@@ -178,7 +174,7 @@ html { font-size:10px; }
 html, html body {
     //background:#fafafa;
     margin:0; padding:0;
-    min-width:100%; min-height:100%;
+    min-width:100vw; min-height:100vh;
 }
 
 html body .padding-lg-top  		{ padding-top:7rem }
