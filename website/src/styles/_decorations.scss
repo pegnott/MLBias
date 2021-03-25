@@ -1,0 +1,61 @@
+html body .dec-line {
+	$width:3em;
+	$height:$line_thickness;
+	position:relative;
+	&:before {
+        font-size:1.5rem;
+		content:"";
+		position:absolute;
+		top:auto; right:auto; bottom:auto; left:auto;
+		width:$width;
+		height:$height;
+	}
+	$offset: $width * -1.5;
+	&.top:before { top:0.5em }
+	&.offset-top:before { top:-0.5em; }
+	&.right:before { right:0 }
+	&.offset-right:before { right:$offset; }
+	&.bottom:before { bottom:0 }
+	&.offset-bottom:before {bottom:-0.5em; }
+	&.left:before { left:0 }
+	&.offset-left:before { left:$offset; }
+	&.green:before { background-color: $color_green }
+	&.purple:before { background-color: $color_purple }
+	&.pink:before { background-color: $color_pink }
+}
+
+html body .dec-line-vertical {
+    $width:$line_thickness * 0.5;
+    $height:12.3rem;
+    $offset: $height * -1.23;
+    position:relative;
+
+    &:before {
+        content:"";
+        background-color:white;
+        position:absolute;
+        top:auto; right:auto; bottom:auto; left:auto;
+        width:$width; height:$height; max-height:42%;
+    }
+	&.top:before { top:0.5em }
+	&.offset-top:before { top:$offset; }
+	&.right:before { right:0 }
+	&.offset-right:before { right:1.23em; }
+	&.bottom:before { bottom:0 }
+	&.offset-bottom:before {bottom:$offset; }
+	&.left:before { left:0 }
+	&.offset-left:before { left:1.23em; }
+	&.green:before { background-color: $color_green }
+	&.purple:before { background-color: $color_purple }
+	&.pink:before { background-color: $color_pink }
+
+	&.dotted {
+		&:before {
+			background-color:transparent;
+			border-left:0.23em $color_grey_light dotted;
+		}
+		&.green:before { border-color:$color_green; }
+		&.purple:before { border-color:$color_purple; }
+		&.pink:before { border-color:$color_pink; }
+	}
+}

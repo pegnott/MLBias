@@ -9,7 +9,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
-// import { MatListModule } from '@angular/material/list';
+import { MatListModule } from '@angular/material/list';
+
 import { MatSliderModule } from '@angular/material/slider';
 import { MatStepperModule } from '@angular/material/stepper';
 // import { MatSidenavModule } from '@angular/material/sidenav';
@@ -27,7 +28,7 @@ const materialModules = [
     MatGridListModule,
 	MatIconModule,
 	MatInputModule,
-	// MatListModule,
+	MatListModule,
     // MatSidenavModule,
     MatSliderModule,
     MatStepperModule,
