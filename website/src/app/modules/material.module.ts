@@ -10,7 +10,7 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatListModule } from '@angular/material/list';
-
+import { MatMenuModule } from '@angular/material/menu';
 import { MatSliderModule } from '@angular/material/slider';
 import { MatStepperModule } from '@angular/material/stepper';
 // import { MatSidenavModule } from '@angular/material/sidenav';
@@ -29,6 +29,7 @@ const materialModules = [
 	MatIconModule,
 	MatInputModule,
 	MatListModule,
+	MatMenuModule,
     // MatSidenavModule,
     MatSliderModule,
     MatStepperModule,
