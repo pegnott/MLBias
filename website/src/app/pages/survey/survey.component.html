@@ -1,5 +1,5 @@
-<section class="container-fluid mb-0 padding-lg-top pb-5">
-	<div class="container mat-app-background theme-light">
+<section class="container-fluid">
+	<div class="container mat-app-background theme-light padding-lg-top pb-5">
 		<h1 class="text-center">
 			<span class="dec-line green top left offset-top">
 				Get Directed to Relevent Resources
@@ -8,7 +8,7 @@
 	</div>
 </section>
 <section #helper class="container-fluid">
-    <div class="container">
+    <div class="container mat-app-background theme-light">
         <form #form action="/resources" (ngSubmit)="form.submit()" method="GET" [formGroup]="formGroup">
             <mat-horizontal-stepper [linear]="true" #stepper>
                 <ng-template matStepperIcon="edit">
@@ -25,22 +25,24 @@
                         </label>
                         <div class="d-flex flex-row align-items-center mb-5">
                             <div class="flex-fill d-flex flex-column">
-                                <mat-chip-list color="warn" selectable="true" multiple="false" #intentSlider aria-label="" aria-orientation="vertical">
+                                <mat-chip-list selectable="true" multiple="false" #intentSlider aria-label="" aria-orientation="vertical">
                                     <mat-chip #learn="matChip"
-                                        mat-stroked-button mat-raised-button
-                                        color="warn" class="bg-light text-dark col justify-content-center"
+										color="warn"
+										class="col justify-content-center border bg-white text-dark"
                                         [attr.selected]="(intent.value == 'learn') ? true : null"
                                         (click)="learn.select(); formGroup.controls.intent.setValue('learn');">
                                         Learn
                                     </mat-chip>
                                     <mat-chip #build="matChip"
-                                        color="warn" class="bg-light text-dark col justify-content-center"
+										color="warn"
+										class="col justify-content-center border bg-white text-dark"
                                         [attr.selected]="(intent.value == 'build') ? true : null"
                                         (click)="build.select();  formGroup.controls.intent.setValue('build');">
                                         Build
                                     </mat-chip>
                                     <mat-chip #contribute="matChip"
-                                        color="warn" class="bg-light text-dark col justify-content-center"
+										color="warn"
+                                       	class="col justify-content-center border bg-white text-dark"
                                         [attr.selected]="(intent.value == 'contribute') ? true : null"
                                         (click)="contribute.select();  formGroup.controls.intent.setValue('contribute');">
                                         Contribute

@@ -50,7 +50,7 @@ $theme-background-light: (
 	status-bar:					map-get($light-background, status-bar),
 	app-bar:					map-get($light-background, app-bar),
 	background:				   	white,
-	hover:	 					map-get($light-background, hover),
+	hover:	 					white,
 	card:	   					map-get($light-background, card),
 	dialog:						map-get($light-background, dialog),
 	disabled-button:			map-get($light-background, disabled-button),
@@ -59,7 +59,7 @@ $theme-background-light: (
 	selected-button:			map-get($light-background, selected-button),
 	selected-disabled-button:	map-get($light-background, selected-disabled-button),
 	disabled-button-toggle:		map-get($light-background, disabled-button-toggle),
-	unselected-chip:			transparent,
+	unselected-chip:			rgba(white, 0),
 	disabled-list-option:		map-get($light-background, disabled-list-option),
 	tooltip: 					map-get($light-background, tooltip),
 );
@@ -125,7 +125,7 @@ $theme-background-dark: (
 	selected-button:			map-get($dark-background, selected-button),
 	selected-disabled-button:	map-get($dark-background, selected-disabled-button),
 	disabled-button-toggle:		map-get($dark-background, disabled-button-toggle),
-	unselected-chip:			map-get($dark-background, unselected-chip),
+	unselected-chip:			$color_purple,
 	disabled-list-option:		map-get($dark-background, disabled-list-option),
 	tooltip: 					map-get($dark-background, tooltip),
 );
@@ -140,15 +140,6 @@ $theme-background-dark: (
 		background: $theme-background-dark,
 	));
 }
-
-@include mat-chips-theme((
-    primary: $theme-primary,
-    accent: $theme-accent,
-    warn: $theme-warn,
-    is-dark: true,
-    foreground: $theme-foreground-dark,
-    background: $theme-background-dark,
-));
 /* MEDIUM THEME */
 $theme-background-medium: (
 	status-bar:					map-get($light-background, status-bar),
@@ -163,7 +154,7 @@ $theme-background-medium: (
 	selected-button:			map-get($light-background, selected-button),
 	selected-disabled-button:	map-get($light-background, selected-disabled-button),
 	disabled-button-toggle:		map-get($light-background, disabled-button-toggle),
-	unselected-chip:			map-get($light-background, unselected-chip),
+	unselected-chip:			rgba(white, 0),
 	disabled-list-option:		map-get($light-background, disabled-list-option),
 	tooltip: 					map-get($light-background, tooltip),
 );
@@ -180,7 +171,7 @@ $theme-background-medium: (
 
 html { font-size:10px; }
 html, html body {
-    //background:#fafafa;
+    background:#edeff0;
     margin:0; padding:0;
     min-width:100vw; min-height:100vh;
 }
@@ -228,11 +219,10 @@ html body {
 	}
 }
 
-html body .mat-button-base {
+html body .mat-raised-button {
 	$elevation_color:map-get($light-foreground, elevation);
-	&.mat-raised-button { @include mat-elevation(10, $elevation_color, 0.23); }
+	@include mat-elevation(10, $elevation_color, 0.23);
 }
-
 html body .mat-stepper-vertical {
 	.mat-step-label {
         flex-grow:1;
@@ -259,10 +249,9 @@ html body .mat-slider-thumb {
 }
 
 html body .mat-chip.mat-standard-chip {
-	// border:1px $color_purple solid;
-	// border-radius:$border-radius;
 	&[selected] {
-		border-color:$color_pink;
+		@extend .bg-white;
+		border-color:$color_pink !important;
 	}
 }
 
