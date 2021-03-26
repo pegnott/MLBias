@@ -14,12 +14,12 @@ $typography: mat-typography-config(
 	$display-2:		mat-typography-level(56px, 1.42, 400),						// largest one-off font classes
 	$display-1:	 	mat-typography-level(48px, 1.42, 400),						// largest one-off font classes
 
-	$headline:	 	mat-typography-level(48px, 1.42, 700, $custom-font-accent), 	// h1 .h1 etc
-	$title:		 	mat-typography-level(32px, 1.42, 700, $custom-font-accent),	// h2 .h2 etc
-	$subheading-2:  mat-typography-level(24px, 1.42, 400), 						// h3 .h3 etc
-	$subheading-1:  mat-typography-level(20px, 1.42, 400), 							// h4 .h4 etc
-	$body-2:		mat-typography-level(18px, 1.56, 700),							// Bold body text
-	$body-1:		mat-typography-level(18px, 1.56, 400),							// Base body text
+	$headline:	 	mat-typography-level(48px, 1.42, 700, $custom-font-accent), // h1 .mat-h1 etc
+	$title:		 	mat-typography-level(32px, 1.42, 700, $custom-font-accent),	// h2 .mat-h2 etc
+	$subheading-2:  mat-typography-level(24px, 1.42, 400), 						// h3 .mat-h3 etc
+	$subheading-1:  mat-typography-level(20px, 1.23, 400), 						// h4 .mat-h4 etc
+	$body-2:		mat-typography-level(18px, 1.56, 700),						// Bold body text
+	$body-1:		mat-typography-level(18px, 1.25, 400),						// Base body text
 	$caption:		mat-typography-level(14px, 1.25, 400),
 	$button:		mat-typography-level(18px, 1.25, 700, $custom-font-accent),
 	$input:			mat-typography-level(16px, 1.25, 400)
@@ -198,8 +198,6 @@ html body .padding-xl-left  	{ padding-left:10rem }
     //     .w-lg-#{$i} { width: #{$i}#{'%'} }
     // }
 }
-
-$border-radius:0.6rem;
 @import "decorations";
 html body {
 	.font-body { font-family: $custom-font-body; }
@@ -219,10 +217,77 @@ html body {
 	}
 }
 
-html body .mat-raised-button {
-	$elevation_color:map-get($light-foreground, elevation);
-	@include mat-elevation(10, $elevation_color, 0.23);
+html body .mat-standard-button {
+	&.mat-stroked-button,
+	&.mat-raised-button {
+		border-radius:$border-radius;
+		min-height:$button-height;
+	}
+
+	&.mat-raised-button {
+		$elevation_color:map-get($light-foreground, elevation);
+		@include mat-elevation(10, $elevation_color, 0.23);
+	}
 }
+
+// html body .mat-button-base.mat-stroked-button,
+// html body .mat-button-base.mat-raised-button,
+// html body .mat-chip.mat-standard-chip {
+// 	min-height:3em;
+// }
+
+html body mat-card {
+	border-radius: $border-radius;
+	.mat-card-header {
+		.mat-card-header-text { flex-grow:1 }
+	}
+	.mat-card-image {
+		&:first-child {
+			border-radius:$border-radius $border-radius 0 0;
+			//margin-top:$border-radius * 1;
+		}
+    }
+
+}
+
+html body .mat-chip.mat-standard-chip {
+	min-height:$button-height;
+	&[selected] {
+		@extend .bg-white;
+		border-color:$color_pink !important;
+	}
+}
+
+html body .mat-button-base:hover mat-icon.round-outline,
+html body mat-icon.round-outline:hover {
+    color:white !important;
+    &:before { background-color: $color_green; }
+}
+html body mat-icon {
+    &.round-outline {
+        font-size:2.8rem;
+        height:1em; width:1em;
+       	position:relative;
+        z-index:10;
+        &:before {
+            $border-width:0.08em;
+            $offset: $border-width * -0.25;
+
+            content:"";
+            position:absolute;
+            top:$offset; left:$offset;
+            width:100%; height:100%;
+            z-index:-1;
+
+            font-size:inherit;
+            border-width:$border-width;
+            border-style:solid;
+            border-color:map-get($md-green, 500);
+            border-radius:500px;
+        }
+    }
+}
+
 html body .mat-stepper-vertical {
 	.mat-step-label {
         flex-grow:1;
@@ -246,59 +311,6 @@ html body .mat-slider-thumb {
 		border:$border-width $color solid;
 		border-radius:100%;
 	}
-}
-
-html body .mat-chip.mat-standard-chip {
-	&[selected] {
-		@extend .bg-white;
-		border-color:$color_pink !important;
-	}
-}
-
-html body .mat-chip.mat-standard-chip,
-html body .mat-button-base.mat-stroked-button,
-html body .mat-button-base.mat-raised-button {
-	min-height:3em;
-}
-
-html body mat-card {
-    border-radius:$border-radius;
-
-    .mat-card-image:first-child {
-        border-radius:$border-radius $border-radius 0 0;
-    }
-    .mat-card-header-text { flex-grow:1 }
-}
-
-html body .mat-button-base:hover mat-icon.round-outline,
-html body mat-icon.round-outline:hover {
-    color:white !important;
-    &:before { background-color: $color_green; }
-}
-html body mat-icon {
-    &.round-outline {
-        font-size:2.8rem;
-        height:1em; width:1em;
-       	position:relative;
-        z-index:10;
-
-        &:before {
-            $border-width:0.08em;
-            $offset: $border-width * -0.25;
-
-            content:"";
-            position:absolute;
-            top:$offset; left:$offset;
-            width:100%; height:100%;
-            z-index:-1;
-
-            font-size:inherit;
-            border-width:$border-width;
-            border-style:solid;
-            border-color:map-get($md-green, 500);
-            border-radius:500px;
-        }
-    }
 }
 
 html body mat-slider {

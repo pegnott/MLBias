@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { SurveyService } from 'src/app/services/survey.service';
 @Component({
@@ -6,8 +6,14 @@ import { SurveyService } from 'src/app/services/survey.service';
 	templateUrl: './resources.component.html',
 	styleUrls: ['./resources.component.scss']
 })
-export class ResourcesComponent implements OnInit {
-    public showSurvey: boolean = true;
+export class ResourcesComponent implements OnInit, AfterViewInit {
+	@Input() public showAllResources: boolean = false;
+
+	// @Input() public intent:string;
+	// @Input() public ai:number;
+	// @Input() public bias:number;
+
+	public showSurvey: boolean = true;
     public defaults:any = this.surveyService.defaults;
     public surveyInput: any = {};
     public readme: any;
@@ -34,5 +40,12 @@ export class ResourcesComponent implements OnInit {
             });
 
     }
-    ngOnInit(): void {}
+    ngOnInit(): void {
+		if (this.showAllResources) {
+			this.showSurvey = false;
+		}
+	}
+	ngAfterViewInit(): void {
+
+	}
 }

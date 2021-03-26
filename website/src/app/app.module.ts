@@ -11,13 +11,14 @@ import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { HomeComponent } from './pages/home/home.component';
 import { JourneyComponent } from './pages/journey/journey.component';
-import { ResourcesComponent } from './pages/resources/resources.component';
+import { ResourcesComponent } from './components/resources/resources.component';
 import { PrivacyComponent } from './pages/privacy/privacy.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { XdIconComponent } from './components/xd-icon/xd-icon.component';
 import { DialogComponent } from './components/dialog/dialog.component';
 import { FormBuilder } from '@angular/forms';
-import { SurveyComponent } from './pages/survey/survey.component';
+import { SurveyComponent } from './components/survey/survey.component';
+import { LibraryComponent } from './pages/library/library.component';
 
 @NgModule({
 	declarations: [
@@ -30,7 +31,8 @@ import { SurveyComponent } from './pages/survey/survey.component';
 		PrivacyComponent,
 		XdIconComponent,
 		DialogComponent,
-		SurveyComponent
+		SurveyComponent,
+		LibraryComponent
 	],
 	exports: [],
 	imports: [

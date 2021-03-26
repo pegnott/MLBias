@@ -10,8 +10,8 @@ a, .mat-button {
 			&:after {
 				content:"";
 				position:absolute;
-				top:0; right:0; bottom:calc(((#{'1em'} + #{$line_thickness * 0.5}) * -1) + #{'1px'}); left:0;
-				border-bottom:$line_thickness * 0.75 $color_green solid;
+				top:0; right:0; bottom:calc(((#{'1em'} + #{$line-thickness * 0.5}) * -1) + #{'1px'}); left:0;
+				border-bottom:$line-thickness * 0.75 $color_green solid;
 			}
 		}
 	}

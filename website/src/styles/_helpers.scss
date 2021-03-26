@@ -12,4 +12,10 @@ $custom-font-body: Helvetica, sans-serif;
 $custom-font-accent: Merriweather, serif;
 
 
-$line_thickness:0.4em;
+$button-height:3em;
+$line-thickness:0.4em;
+$border-radius:1.2rem;
+
+.purple_overlay {
+	background-color:rgba($color_purple, 0.77);
+}

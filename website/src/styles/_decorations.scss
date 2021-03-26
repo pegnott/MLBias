@@ -1,6 +1,6 @@
 html body .dec-line {
 	$width:3em;
-	$height:$line_thickness;
+	$height:$line-thickness;
 	position:relative;
 	&:before {
         font-size:1.5rem;
@@ -29,7 +29,7 @@ html body .dec-line {
 }
 
 html body .dec-line-vertical {
-    $width:$line_thickness * 0.42;
+    $width:$line-thickness * 0.42;
     $height:10rem;
     $offset: $height * -1.23;
     position:relative;

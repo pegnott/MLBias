@@ -1,0 +1,108 @@
+
+<ng-template #survey><app-survey></app-survey></ng-template>
+<ng-template #personalized_resources_header>
+	<div class="header decoration container-fluid mat-app-background theme-dark padding-xl-top padding-xl-bottom">
+		<div class="container d-md-flex flex-row justify-content-center">
+			<h1 class="text-center">
+				<span class="dec-line green top left offset-top offset-left wider">
+					Your Personalized Resources
+				</span>
+			</h1>
+		</div>
+	</div>
+</ng-template>
+<ng-template #resources>
+	<section *ngIf="(showAllResources) || (surveyInput && surveyInput.bias && surveyInput.ai)"  class="container">
+		<div class="d-md-flex flex-wrap justify-content-evenly align-items-stretch">
+			<div *ngIf="(showAllResources) || (surveyInput.intent == 'learn' || surveyInput.bias < 1.5)" class="col-md-6 col-lg-4 flex-column mb-5">
+				<mat-card class="bg bg-code h-100 d-flex flex-column">
+					<mat-card-header class="mt-3">
+						<mat-card-title class="text-center">
+							<span class="font-accent mat-subheading-1 font-weight-bold">
+								Understanding AI/ML
+							</span>
+						</mat-card-title>
+					</mat-card-header>
+					<mat-card-content class="flex-fill">
+					</mat-card-content>
+				</mat-card>
+			</div>
+			<div *ngIf="(showAllResources) || (surveyInput.intent == 'learn' || surveyInput.bias < 1.5)" class="col-md-6 col-lg-4 flex-column mb-5">
+				<mat-card class="bg bg-protest  h-100 d-flex flex-column">
+					<mat-card-header class="mt-3">
+						<mat-card-title class="text-center">
+							<span class="font-accent mat-subheading-1 font-weight-bold">
+								Understanding AI and Bias
+							</span>
+						</mat-card-title>
+					</mat-card-header>
+					<mat-card-content class="flex-fill">
+						<p>
+							What does it mean for data to be biased? How does bias show up in AI/ML nodes?
+						</p>
+					</mat-card-content>
+				</mat-card>
+			</div>
+			<div *ngIf="(showAllResources) || (surveyInput.intent == 'learn' || surveyInput.bias < 1.5)" class="col-md-6 col-lg-4 flex-column mb-5">
+				<mat-card class="bg bg-notebooks h-100 d-flex flex-column">
+					<mat-card-header class="mt-3">
+						<mat-card-title class="text-center">
+							<span class="font-accent mat-subheading-1 font-weight-bold">
+								Understanding US Frameworks
+							</span>
+						</mat-card-title>
+					</mat-card-header>
+					<mat-card-content class="flex-fill">
+					</mat-card-content>
+				</mat-card>
+			</div>
+			<div *ngIf="(showAllResources) || (surveyInput.intent == 'learn' || surveyInput.bias < 1.5)" class="col-md-6 col-lg-4 flex-column mb-5">
+				<mat-card class="bg bg-globe h-100 d-flex flex-column">
+					<mat-card-header class="mt-3">
+						<mat-card-title class="text-center">
+							<span class="font-accent mat-subheading-1 font-weight-bold">
+								International Frameworks
+							</span>
+						</mat-card-title>
+					</mat-card-header>
+					<mat-card-content class="flex-fill">
+					</mat-card-content>
+				</mat-card>
+			</div>
+			<div *ngIf="(showAllResources) || (surveyInput.intent == 'learn' || surveyInput.bias < 1.5)" class="col-md-6 col-lg-4 flex-column mb-5">
+				<mat-card class="bg bg-industry h-100 d-flex flex-column">
+					<mat-card-header class="mt-3">
+						<mat-card-title class="text-center">
+							<span class="font-accent mat-subheading-1 font-weight-bold">
+								Case Study: DOL
+							</span>
+						</mat-card-title>
+					</mat-card-header>
+					<mat-card-content class="flex-fill">
+					</mat-card-content>
+				</mat-card>
+			</div>
+			<div *ngIf="(showAllResources) || (surveyInput.intent == 'learn' || surveyInput.bias < 1.5)" class="col-md-6 col-lg-4 flex-column mb-5">
+				<mat-card class="bg bg-books h-100 d-flex flex-column">
+					<mat-card-header class="mt-3">
+						<mat-card-title class="text-center">
+							<span class="font-accent mat-subheading-1 font-weight-bold">
+								Case Study: ____
+							</span>
+						</mat-card-title>
+					</mat-card-header>
+					<mat-card-content class="flex-fill">
+					</mat-card-content>
+				</mat-card>
+			</div>
+		</div>
+	</section>
+</ng-template>
+<ng-template #showresources>
+	<ng-container *ngIf="!showAllResources">
+		<ng-container *ngIf="personalized_resources_header; then personalized_resources_header"></ng-container>
+	</ng-container>
+	<ng-container *ngIf="resources; then resources"></ng-container>
+</ng-template>
+<ng-container *ngIf="showSurvey; then survey else showresources"></ng-container>
+<!-- <ng-container *ngIf="showSurvey === true; then survey else resources"></ng-container> -->
