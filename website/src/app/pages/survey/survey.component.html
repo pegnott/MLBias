@@ -27,6 +27,7 @@
                             <div class="flex-fill d-flex flex-column">
                                 <mat-chip-list color="warn" selectable="true" multiple="false" #intentSlider aria-label="" aria-orientation="vertical">
                                     <mat-chip #learn="matChip"
+                                        mat-stroked-button mat-raised-button
                                         color="warn" class="bg-light text-dark col justify-content-center"
                                         [attr.selected]="(intent.value == 'learn') ? true : null"
                                         (click)="learn.select(); formGroup.controls.intent.setValue('learn');">
@@ -81,11 +82,11 @@
                         <input class="d-none" matInput name="ai" id="ai" #ai formControlName="ai">
                     </mat-form-field>
                     <div class="d-flex flex-row flex-nowrap justify-content-between">
-                        <button type="button" mat-stroked-button matStepperPrevious>
+                        <button type="button" mat-stroked-button mat-raised-button matStepperPrevious>
 							<mat-icon color="accent" class="mr-5 round-outline">chevron_left</mat-icon>
 							Back
 						</button>
-                        <button type="button" mat-stroked-button matStepperNext>
+                        <button type="button" mat-stroked-button mat-raised-button matStepperNext>
 							Next
 							<mat-icon color="accent" class="ml-5 round-outline">chevron_right</mat-icon>
 						</button>
@@ -111,11 +112,11 @@
                         <input class="d-none" matInput name="bias" id="bias" #bias formControlName="bias" required>
                     </mat-form-field>
                     <div class="d-flex flex-row flex-nowrap justify-content-between">
-                        <button type="button" mat-stroked-button matStepperPrevious>
+                        <button type="button" mat-stroked-button mat-raised-button matStepperPrevious>
 							<mat-icon color="accent" class="mr-5 round-outline">chevron_left</mat-icon>
 							Back
 						</button>
-                        <button type="submit" mat-stroked-button >
+                        <button type="submit" mat-stroked-button mat-raised-button>
 							Next
 							<mat-icon color="accent" class="ml-5 round-outline">chevron_right</mat-icon>
 						</button>

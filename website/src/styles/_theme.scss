@@ -141,6 +141,14 @@ $theme-background-dark: (
 	));
 }
 
+@include mat-chips-theme((
+    primary: $theme-primary,
+    accent: $theme-accent,
+    warn: $theme-warn,
+    is-dark: true,
+    foreground: $theme-foreground-dark,
+    background: $theme-background-dark,
+));
 /* MEDIUM THEME */
 $theme-background-medium: (
 	status-bar:					map-get($light-background, status-bar),
@@ -264,7 +272,6 @@ html body .mat-button-base.mat-raised-button {
 	min-height:3em;
 }
 
-
 html body mat-card {
     border-radius:$border-radius;
 
@@ -302,10 +309,6 @@ html body mat-icon {
             border-color:map-get($md-green, 500);
             border-radius:500px;
         }
-        // &:hover {
-        //     color:white !important;
-        //     &:before { background-color: $color_green; }
-        // }
     }
 }
 
