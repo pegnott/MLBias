@@ -1,7 +1,5 @@
 <ng-template #navigation>
-	<button mat-menu-item routerLink="/home" [routerLinkActive]="['current']"><span class="text">Home</span></button>
-    <button mat-menu-item routerLink="/journey" [routerLinkActive]="['current']"><span class="text">Journey</span></button>
-    <button mat-menu-item routerLink="/resources" [routerLinkActive]="['current']"><span class="text">Resources</span></button>
+	
 </ng-template>
 <mat-toolbar color="primary">
 	<button mat-icon-button routerLink="/">
@@ -9,10 +7,13 @@
         <span class="pl-3">Bias Toolkit</span>
     </button>
     <div class="flex-fill"></div>
-     <!--<a mat-button routerLink="/tutorial">Tutorial</a>
-    <a mat-button routerLink="/tools">Tools</a> -->
-	<button mat-button [matMenuTriggerFor]="menu">Menu</button>
+    <button mat-button [matMenuTriggerFor]="menu" class="d-md-none">Menu</button>
 	<mat-menu #menu="matMenu" color="primary">
-		<ng-container *ngIf="navigation then navigation"></ng-container>
+        <button mat-menu-item routerLink="/home" [routerLinkActive]="['current']"><span class="text">Home</span></button>
+        <button mat-menu-item routerLink="/journey" [routerLinkActive]="['current']"><span class="text">Journey</span></button>
+        <button mat-menu-item routerLink="/resources" [routerLinkActive]="['current']"><span class="text">Resources</span></button>
 	</mat-menu>
+    <button class="d-none d-md-block" mat-button routerLink="/home" [routerLinkActive]="['current']"><span class="text">Home</span></button>
+    <button class="d-none d-md-block" mat-button routerLink="/journey" [routerLinkActive]="['current']"><span class="text">Journey</span></button>
+    <button class="d-none d-md-block" mat-button routerLink="/resources" [routerLinkActive]="['current']"><span class="text">Resources</span></button>
 </mat-toolbar>
