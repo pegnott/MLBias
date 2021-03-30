@@ -1,35 +1,14 @@
-// $container-max-widths: (
-//   sm: 90vw,
-//   md: 600px,
-//   lg: 768px,
-//   xl: 1024px
-// ) !default;
 @import 'helpers';
 @import '~@angular/material/theming';
-
-$typography: mat-typography-config(
-	$font-family:   $custom-font-body,
-	$display-4:	 	mat-typography-level(72px, 1.42, 400),						// largest one-off font classes
-	$display-3:	 	mat-typography-level(64px, 1.42, 400),						// largest one-off font classes
-	$display-2:		mat-typography-level(56px, 1.42, 400),						// largest one-off font classes
-	$display-1:	 	mat-typography-level(48px, 1.42, 400),						// largest one-off font classes
-
-	$headline:	 	mat-typography-level(48px, 1.42, 700, $custom-font-accent), // h1 .mat-h1 etc
-	$title:		 	mat-typography-level(32px, 1.42, 700, $custom-font-accent),	// h2 .mat-h2 etc
-	$subheading-2:  mat-typography-level(24px, 1.42, 400), 						// h3 .mat-h3 etc
-	$subheading-1:  mat-typography-level(20px, 1.23, 400), 						// h4 .mat-h4 etc
-	$body-2:		mat-typography-level(18px, 1.56, 700),						// Bold body text
-	$body-1:		mat-typography-level(18px, 1.25, 400),						// Base body text
-	$caption:		mat-typography-level(14px, 1.25, 400),
-	$button:		mat-typography-level(18px, 1.25, 700, $custom-font-accent),
-	$input:			mat-typography-level(16px, 1.25, 400)
-);
-@include mat-core($typography);
-@include angular-material-typography($typography);
 
 $theme-primary:	mat-palette($md-purple);
 $theme-accent:	mat-palette($md-green);
 $theme-warn:	mat-palette($md-pink);
+
+$color_primary:map-get($md-purple, 500);
+$color_accent:map-get($md-green, 500);
+$color_warn:map-get($md-pink, 500);
+
 $light-theme:	mat-light-theme((
 	color: (
 		primary: $theme-primary,
@@ -39,9 +18,9 @@ $light-theme:	mat-light-theme((
 ));
 $dark-theme: mat-dark-theme((
 	color: (
-		 primary: $theme-primary,
-		 accent: $theme-accent,
-		 warn: $theme-warn,
+		 primary:	$theme-primary,
+		 accent:	$theme-accent,
+		 warn: 		$theme-warn,
 	),
 ));
 $light-foreground: map-get($light-theme, foreground);
@@ -63,7 +42,6 @@ $theme-background-light: (
 	disabled-list-option:		map-get($light-background, disabled-list-option),
 	tooltip: 					map-get($light-background, tooltip),
 );
-
 $theme-foreground-light: (
 	base:				map-get($light-foreground, base),
 	divider:			lighten(map-get($light-foreground, divider), 42%),
@@ -95,6 +73,7 @@ $theme-foreground-light: (
 }
 $dark-foreground: map-get($dark-theme, foreground);
 $dark-background: map-get($dark-theme, background);
+
 $theme-foreground-dark: (
 	base:				map-get($dark-foreground, base),
 	divider:			lighten(map-get($dark-foreground, divider), 42%),
@@ -168,12 +147,32 @@ $theme-background-medium: (
 		background: $theme-background-medium,
 	));
 }
+$typography: mat-typography-config(
+	$font-family:   $custom-font-body,
+	$display-4:	 	mat-typography-level(72px, 1.42, 400),						// largest one-off font classes
+	$display-3:	 	mat-typography-level(64px, 1.42, 400),						// largest one-off font classes
+	$display-2:		mat-typography-level(56px, 1.42, 400),						// largest one-off font classes
+	$display-1:	 	mat-typography-level(48px, 1.42, 400),						// largest one-off font classes
+
+	$headline:	 	mat-typography-level(48px, 1.42, 700, $custom-font-accent), // h1 .mat-h1 etc
+	$title:		 	mat-typography-level(32px, 1.42, 700, $custom-font-accent),	// h2 .mat-h2 etc
+	$subheading-2:  mat-typography-level(24px, 1.42, 400), 						// h3 .mat-h3 etc
+	$subheading-1:  mat-typography-level(20px, 1.23, 400), 						// h4 .mat-h4 etc
+	$body-2:		mat-typography-level(18px, 1.56, 700),						// Bold body text
+	$body-1:		mat-typography-level(18px, 1.25, 400),						// Base body text
+	$caption:		mat-typography-level(14px, 1.25, 400),
+	$button:		mat-typography-level(18px, 1.25, 700, $custom-font-accent),
+	$input:			mat-typography-level(16px, 1.25, 400)
+);
+@include mat-core($typography);
+@include angular-material-typography($typography);
 
 html { font-size:10px; }
 html, html body {
     background:#edeff0;
     margin:0; padding:0;
     min-width:100vw; min-height:100vh;
+
 }
 
 html body .padding-lg-top  		{ padding-top:7rem }
@@ -215,85 +214,24 @@ html body {
 			background-size: 4px 4px;
 		}
 	}
-}
 
-html body .mat-standard-button {
-	&.mat-stroked-button,
-	&.mat-raised-button {
-		border-radius:$border-radius;
-		min-height:$button-height;
-	}
+	.bg-primary { background-color:$color_primary !important }
+	.text-primary { color: $color_primary !important }
 
-	&.mat-raised-button {
-		$elevation_color:map-get($light-foreground, elevation);
-		@include mat-elevation(10, $elevation_color, 0.23);
-	}
-}
+	.bg-accent { background-color:$color_accent !important }
+	.text-accent { color: $color_accent !important }
 
-// html body .mat-button-base.mat-stroked-button,
-// html body .mat-button-base.mat-raised-button,
-// html body .mat-chip.mat-standard-chip {
-// 	min-height:3em;
-// }
-
-html body mat-card {
-	border-radius: $border-radius;
-	.mat-card-header {
-		.mat-card-header-text { flex-grow:1 }
-	}
-	.mat-card-image {
-		&:first-child {
-			border-radius:$border-radius $border-radius 0 0;
-			//margin-top:$border-radius * 1;
-		}
-    }
+	.bg-warn { background-color:$color_warn !important }
+	.text-warn { color: $color_warn !important }
 
 }
+@import "button";
+@import "card";
+@import "icon";
+@import "slider";
+@import "stepper";
 
-html body .mat-chip.mat-standard-chip {
-	min-height:$button-height;
-	&[selected] {
-		@extend .bg-white;
-		border-color:$color_pink !important;
-	}
-}
-
-html body .mat-button-base:hover mat-icon.round-outline,
-html body mat-icon.round-outline:hover {
-    color:white !important;
-    &:before { background-color: $color_green; }
-}
-html body mat-icon {
-    &.round-outline {
-        font-size:2.8rem;
-        height:1em; width:1em;
-       	position:relative;
-        z-index:10;
-        &:before {
-            $border-width:0.08em;
-            $offset: $border-width * -0.25;
-
-            content:"";
-            position:absolute;
-            top:$offset; left:$offset;
-            width:100%; height:100%;
-            z-index:-1;
-
-            font-size:inherit;
-            border-width:$border-width;
-            border-style:solid;
-            border-color:map-get($md-green, 500);
-            border-radius:500px;
-        }
-    }
-}
-
-html body .mat-stepper-vertical {
-	.mat-step-label {
-        flex-grow:1;
-		em { display:block; }
-	}
-}
+//	COMMON THINGS	//
 
 html body .mat-step-icon.mat-step-icon-state-edit,
 html body .mat-slider-thumb {
@@ -311,22 +249,4 @@ html body .mat-slider-thumb {
 		border:$border-width $color solid;
 		border-radius:100%;
 	}
-}
-
-html body mat-slider {
-    font-size:2rem;
-	height:1em;
-    $track-height:0.33;
-    * { font-size:inherit }
-
-	&.mat-slider-horizontal .mat-slider-track-wrapper {
-		margin-top:calc(#{"1em"} * #{$track-height * -0.33333333});
-		height: calc(#{"1em"} * #{$track-height});
-		border-radius: 100vh;
-	}
-    &.mat-slider-horizontal {
-        .mat-slider-track-background,
-        .mat-slider-track-fill { height: 100% }
-        .mat-slider-track-fill { background-color: $color_pink }
-    }
 }

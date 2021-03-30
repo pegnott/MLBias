@@ -1,0 +1,11 @@
+html body mat-card {
+	border-radius: $border-radius;
+
+	.mat-card-header .mat-card-header-text { flex-grow:1 }
+
+	.mat-card-image {
+		&:first-child {
+			border-radius:$border-radius $border-radius 0 0;
+		}
+    }
+}

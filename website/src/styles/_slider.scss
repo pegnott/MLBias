@@ -1,0 +1,17 @@
+html body mat-slider {
+    font-size:2rem;
+	height:1em;
+    $track-height:0.33;
+    * { font-size:inherit }
+
+	&.mat-slider-horizontal .mat-slider-track-wrapper {
+		margin-top:calc(#{"1em"} * #{$track-height * -0.33333333});
+		height: calc(#{"1em"} * #{$track-height});
+		border-radius: 100vh;
+	}
+    &.mat-slider-horizontal {
+        .mat-slider-track-background,
+        .mat-slider-track-fill { height: 100% }
+        .mat-slider-track-fill { background-color: $color_pink }
+    }
+}

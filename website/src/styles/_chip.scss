@@ -1,0 +1,7 @@
+html body .mat-chip.mat-standard-chip {
+	min-height:$button-height;
+	&[selected] {
+		@extend .bg-white;
+		border-color:$color_pink !important;
+	}
+}

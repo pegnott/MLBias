@@ -1,0 +1,12 @@
+html body {
+	.mat-stroked-button,
+	.mat-raised-button {
+		border-radius:$border-radius;
+		min-height:$button-height;
+	}
+
+	.mat-raised-button {
+		$elevation_color:map-get($light-foreground, elevation);
+		@include mat-elevation(10, $elevation_color, 0.23);
+	}
+}

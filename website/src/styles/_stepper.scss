@@ -1,0 +1,15 @@
+html body .mat-stepper-vertical {
+	&[color=warn] {
+		// + .mat-step-label .mat-step-label-text
+		.mat-step-icon-state-edit ~ .mat-step-label .mat-step-text-label {
+			border:1px yellowgreen solid;
+		}
+		//.mat-step-label-selected,
+		//  { color:$color_warn;	}
+	}
+
+	.mat-step-header .mat-step-label {
+		flex-grow:1;
+		em { display:block; }
+	}
+}
