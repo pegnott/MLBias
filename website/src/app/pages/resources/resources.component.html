@@ -1,0 +1,25 @@
+<!-- <app-resource-list [showAllResources]="true"></app-resource-list>
+<app-survey></app-survey> -->
+
+<div class="container-fluid header mat-app-background theme-dark padding-xl-top padding-xl-bottom">
+	<div class="container">
+		<h1 class="text-center decoration">
+			<span class="dec-line green top left offset-top offset-left wider">
+				Resources
+			</span>
+		</h1>
+		<p>
+			Morbi mattis ullamcorper velit. Sed hendrerit. Phasellus consectetuer vestibulum elit. Praesent metus tellus, elementum eu, semper a, adipiscing nec, purus. In auctor lobortis lacus.
+		</p>
+	</div>
+</div>
+<div class="container-fluid">
+	<div class="container padding-lg-top padding-lg-bottom">
+		<ng-container *ngIf="showAllResources">
+			<button mat-raised-button mat-stroked-button>
+
+			</button>
+		</ng-container>
+		<app-resource-list [showAllResources]="showAllResources" [surveyInput]="surveyInput"></app-resource-list>
+	</div>
+</div>
