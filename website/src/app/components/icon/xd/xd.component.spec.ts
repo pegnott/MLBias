@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { XdIconComponent } from './xd-icon.component';
+import { XdIconComponent } from './xd.component';
 
 describe('XdIconComponent', () => {
   let component: XdIconComponent;
