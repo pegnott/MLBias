@@ -149,20 +149,20 @@ $theme-background-medium: (
 }
 $typography: mat-typography-config(
 	$font-family:   $custom-font-body,
-	$display-4:	 	mat-typography-level(72px, 1.42, 400),						// largest one-off font classes
-	$display-3:	 	mat-typography-level(64px, 1.42, 400),						// largest one-off font classes
-	$display-2:		mat-typography-level(56px, 1.42, 400),						// largest one-off font classes
-	$display-1:	 	mat-typography-level(48px, 1.42, 400),						// largest one-off font classes
+	$display-4:	 	mat-typography-level(72px, 1.30, 400),						// largest one-off font classes
+	$display-3:	 	mat-typography-level(64px, 1.30, 400),						// largest one-off font classes
+	$display-2:		mat-typography-level(56px, 1.30, 400),						// largest one-off font classes
+	$display-1:	 	mat-typography-level(48px, 1.30, 400),						// largest one-off font classes
 
-	$headline:	 	mat-typography-level(48px, 1.42, 700, $custom-font-accent), // h1 .mat-h1 etc
-	$title:		 	mat-typography-level(32px, 1.42, 700, $custom-font-accent),	// h2 .mat-h2 etc
-	$subheading-2:  mat-typography-level(24px, 1.42, 400), 						// h3 .mat-h3 etc
+	$headline:	 	mat-typography-level(48px, 1.30, 700, $custom-font-accent), // h1 .mat-h1 etc
+	$title:		 	mat-typography-level(32px, 1.30, 700, $custom-font-accent),	// h2 .mat-h2 etc
+	$subheading-2:  mat-typography-level(24px, 1.30, 400), 						// h3 .mat-h3 etc
 	$subheading-1:  mat-typography-level(20px, 1.23, 400), 						// h4 .mat-h4 etc
-	$body-2:		mat-typography-level(18px, 1.56, 700),						// Bold body text
-	$body-1:		mat-typography-level(18px, 1.25, 400),						// Base body text
-	$caption:		mat-typography-level(14px, 1.25, 400),
-	$button:		mat-typography-level(18px, 1.25, 700, $custom-font-accent),
-	$input:			mat-typography-level(16px, 1.25, 400)
+	$body-2:		mat-typography-level(18px, 1.42, 700),						// Bold body text
+	$body-1:		mat-typography-level(18px, 1.42, 400),						// Base body text
+	$caption:		mat-typography-level(14px, 1.23, 400),
+	$button:		mat-typography-level(18px, 1.23, 700, $custom-font-accent),
+	$input:			mat-typography-level(16px, 1.23, 400)
 );
 @include mat-core($typography);
 @include angular-material-typography($typography);
