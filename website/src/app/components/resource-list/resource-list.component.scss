@@ -1,0 +1,26 @@
+@import "../../../styles/helpers";
+.bg {
+	$offset:1.6rem;
+	$bg-height:7.7777777em;
+
+	&.mat-card {
+		overflow: hidden;
+		&.bg-code:before { background-image:url("/assets/Understanding AI_ML.jpg"); }
+		&.bg-protest:before { background-image:url("/assets/guillaume-issaly-BOstzXNCej8-unsplash.png"); }
+		&.bg-notebooks:before { background-image:url("/assets/Understanding US Frameworks.jpg"); }
+		&.bg-globe:before { background-image:url("/assets/pexels-pixabay-269633.png"); }
+		&.bg-industry:before { background-image:url("/assets/scott-blake-s9XDWLJ_LyE-unsplash.png"); }
+		&.bg-books:before { background-image:url("/assets/Case Study-2.jpg"); }
+
+		&:before {
+			content:"";
+			box-sizing:content-box;
+			margin-top:$offset * -1; padding-top:$offset;
+			margin-right:$offset * -1; padding-right:$offset;
+			margin-left:$offset * -1; padding-left:$offset;
+			width:100%; height:$bg-height;
+			background-size:cover;
+			background-position:center center;
+		}
+	}
+}
