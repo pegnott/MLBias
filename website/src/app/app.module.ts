@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { HttpClientModule, HttpClient } from "@angular/common/http";
-import { FormsModule, ReactiveFormsModule }   from '@angular/forms';
+import { FormsModule, ReactiveFormsModule, FormBuilder }   from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { MarkdownModule } from 'ngx-markdown';
 
@@ -11,14 +11,17 @@ import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { HomeComponent } from './pages/home/home.component';
 import { JourneyComponent } from './pages/journey/journey.component';
-import { ResourcesComponent } from './components/resources/resources.component';
-import { PrivacyComponent } from './pages/privacy/privacy.component';
+import { ResourcesComponent } from './pages/resources/resources.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { XdIconComponent } from './components/xd-icon/xd-icon.component';
 import { DialogComponent } from './components/dialog/dialog.component';
-import { FormBuilder } from '@angular/forms';
 import { SurveyComponent } from './components/survey/survey.component';
 import { LibraryComponent } from './pages/library/library.component';
+import { ResourceListComponent } from './components/resource-list/resource-list.component';
+
+import {
+	NextIconComponent,
+	XdIconComponent
+} from './components/icons';
 
 @NgModule({
 	declarations: [
@@ -28,11 +31,13 @@ import { LibraryComponent } from './pages/library/library.component';
 		HomeComponent,
 		JourneyComponent,
 		ResourcesComponent,
-		PrivacyComponent,
 		XdIconComponent,
 		DialogComponent,
 		SurveyComponent,
-		LibraryComponent
+		ResourceListComponent,
+		LibraryComponent,
+		ResourceListComponent,
+		NextIconComponent
 	],
 	exports: [],
 	imports: [

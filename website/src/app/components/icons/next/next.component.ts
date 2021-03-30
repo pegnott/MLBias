@@ -5,4 +5,4 @@ import { Component, OnInit } from '@angular/core';
 	templateUrl: './next.component.html',
 	styleUrls: ['./next.component.scss']
 })
-export class NextComponent {}
+export class NextIconComponent {}
