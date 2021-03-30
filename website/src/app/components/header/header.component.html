@@ -3,19 +3,19 @@
 </ng-template>
 <mat-toolbar color="primary">
 	<button mat-icon-button routerLink="/">
-        <app-xd-icon></app-xd-icon>
+        <app-icon-xd></app-icon-xd>
         <span class="pl-3">Bias Toolkit</span>
     </button>
     <div class="flex-fill"></div>
     <button mat-button [matMenuTriggerFor]="menu" class="d-md-none">Menu</button>
 	<mat-menu #menu="matMenu" color="primary">
         <button mat-menu-item routerLink="/home" [routerLinkActive]="['current']"><span class="text">Home</span></button>
-        <button mat-menu-item routerLink="/journey" [routerLinkActive]="['current']"><span class="text">Journey</span></button>
+        <!-- <button mat-menu-item routerLink="/journey" [routerLinkActive]="['current']"><span class="text">Journey</span></button> -->
 		<button mat-menu-item routerLink="/resources" [routerLinkActive]="['current']"><span class="text">Resources</span></button>
-		<button mat-menu-item routerLink="/library" [routerLinkActive]="['current']"><span class="text">Library</span></button>
+		<!-- <button mat-menu-item routerLink="/library" [routerLinkActive]="['current']"><span class="text">Library</span></button> -->
 	</mat-menu>
     <button class="d-none d-md-block" mat-button routerLink="/home" [routerLinkActive]="['current']"><span class="text">Home</span></button>
-    <button class="d-none d-md-block" mat-button routerLink="/journey" [routerLinkActive]="['current']"><span class="text">Journey</span></button>
+    <!-- <button class="d-none d-md-block" mat-button routerLink="/journey" [routerLinkActive]="['current']"><span class="text">Journey</span></button> -->
 	<button class="d-none d-md-block" mat-button routerLink="/resources" [routerLinkActive]="['current']"><span class="text">Resources</span></button>
-	<button class="d-none d-md-block" mat-button routerLink="/library" [routerLinkActive]="['current']"><span class="text">Library</span></button>
+	<!-- <button class="d-none d-md-block" mat-button routerLink="/library" [routerLinkActive]="['current']"><span class="text">Library</span></button> -->
 </mat-toolbar>
