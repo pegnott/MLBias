@@ -1,7 +1,26 @@
-{{ showAllResources | json }}
-{{ surveyInput | json }}
+<!-- {{ showAllResources | json }}
+{{ surveyInput | json }} -->
 <section *ngIf="(showAllResources) || (surveyInput && surveyInput.bias && surveyInput.ai)"  class="container">
 	<div class="d-md-flex flex-wrap justify-content-evenly align-items-stretch">
+		<!-- <div *ngIf="showAllResources" class="col-md-12 flex-column mb-5">
+			<mat-card class="bg bg-code h-100 d-flex flex-column">
+				<mat-card-header class="mt-3">
+					<mat-card-title class="text-center">
+						<span class="font-accent mat-subheading-1 font-weight-bold">
+							Get Directed to relevant resources
+						</span>
+					</mat-card-title>
+				</mat-card-header>
+				<mat-card-content class="flex-fill">
+				</mat-card-content>
+				<mat-card-actions>
+					<button mat-raised-button mat-stroked-button routerLink="/resources">
+						<span>CALL TO ACTION</span>
+						<app-icon-next></app-icon-next>
+					</button>
+				</mat-card-actions>
+			</mat-card>
+		</div> -->
 		<div *ngIf="(showAllResources) || (surveyInput.intent == 'learn' || surveyInput.bias < 1.5)" class="col-md-6 col-lg-4 flex-column mb-5">
 			<mat-card class="bg bg-code h-100 d-flex flex-column">
 				<mat-card-header class="mt-3">

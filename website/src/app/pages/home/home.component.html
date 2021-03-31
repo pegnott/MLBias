@@ -1,12 +1,13 @@
 <section id="toolkit" class="container-fluid theme-gradient padding-xl-top padding-xl-bottom theme-dark mat-app-background mat-typography">
     <div class="container d-md-flex justify-content-start align-content-stretch dec-line-vertical top right">
         <div class="col-md-6  padding-lg-top padding-lg-bottom dec-line pink bottom right offset-bottom offset-right">
-            <h1 class="h1">
+            <h1>
                 AI/ML Anti-Bias Toolkit
+
+				<small class="d-block font-body font-weight-normal mat-subheading-1">
+					Tools for serving communities better when leveraging AI/ML in public sector services
+				</small>
             </h1>
-            <p>
-                Tools for serving communities better when leveraging AI/ML in public sector services
-            </p>
         </div>
         <!-- [@toggleClick]="isGreen" (mouseenter)="toggleIsCorrect()" (mouseleave)="toggleIsCorrect()" -->
 		<div class="col-md-6 decoration"></div>
@@ -17,13 +18,13 @@
         <div class="d-flex justify-content-end">
             <div class="col-md-8 dec-line-vertical dotted top left offset-top offset-left">
                 <h2>Building AI/ML Right</h2>
-                <p class="dec-line green top left offset-left">
+                <p class="mat-subheading-1 dec-line green top left offset-left">
                     Whether you are a city analytics lead, a state chief data officer, or federal agency director, this toolkit offers the tools for you to
                     drive impact in building ethical and equitable AI/ML for the communities you serve.
                 </p>
                 <button class="d-inline-block mt-5" mat-raised-button mat-stroked-button routerLink="/resources">
                     <span>Get <span class="d-none d-sm-inline">directed to relevant</span> resources</span>
-                    <mat-icon color="accent" class="ml-5 round-outline">chevron_right</mat-icon>
+                    <app-icon-next></app-icon-next>
                 </button>
             </div>
         </div>
@@ -34,16 +35,22 @@
         <h3 class="dec-line pink mb-5 bottom left offset-bottom ">Featured Resources</h3>
         <div class="d-flex flex-wrap pt-5 align-items-stretch mb-5">
             <div class="col-md-4 flex-column mb-5">
-                <mat-card class="h-100 d-flex flex-column">
-					<mat-card-content class="flex-fill d-flex flex-column justify-content-between">
-						<h5 class="font-accent text-center mat-card-header-text">
-							Education Resources: Learning about Data, AI/ML and Bias
-						</h5>
-                        <div class="text-center mat-display-2"><mat-icon style="font-size:inherit">library_books</mat-icon></div>
+                <mat-card class="h-100 d-flex flex-column text-center">
+					<mat-card-header>
+						<mat-icon>folder</mat-icon>
+						<mat-icon>earth</mat-icon>
+					</mat-card-header>
+					<mat-card-content class="flex-fill d-flex flex-column justify-content-end">
+						<h4 class="font-accent text-center mat-card-header-text">
+							International Resources
+						</h4>
+						<p>
+							about data, AI/ML, and Bias
+						</p>
                     </mat-card-content>
                     <mat-card-actions class="d-flex flex-row justify-content-end align-items-center">
                         <button mat-button>
-                            <mat-icon color="accent" class="round-outline">chevron_right</mat-icon>
+                            <app-icon-next></app-icon-next>
                         </button>
                     </mat-card-actions>
                 </mat-card>
@@ -51,14 +58,14 @@
             <div class="col-md-4 flex-column mb-5">
                 <mat-card class="h-100 d-flex flex-column">
                     <mat-card-content class="flex-fill d-flex flex-column justify-content-between">
-                        <h5 class="font-accent text-center">
-                            Mapping Out How to Design Public Sector AI/ML
-                        </h5>
+                        <h4 class="font-accent text-center">
+                            International Resources
+                        </h4>
 						<div class="text-center mat-display-2"><mat-icon style="font-size:inherit">model_training</mat-icon></div>
                     </mat-card-content>
                     <mat-card-actions class="d-flex flex-row justify-content-end align-items-center">
                         <button mat-button>
-                            <mat-icon color="accent" class="round-outline">chevron_right</mat-icon>
+                            <app-icon-next></app-icon-next>
                         </button>
                     </mat-card-actions>
                 </mat-card>
@@ -66,14 +73,14 @@
             <div class="col-md-4 flex-column mb-5">
                 <mat-card class="h-100 d-flex flex-column">
                     <mat-card-content class="flex-fill d-flex flex-column justify-content-between">
-                        <h5 class="font-accent text-center">
+                        <h4 class="font-accent text-center">
                             Technical Tools for Mitigating Bias
-                        </h5>
+                        </h4>
 						<div class="text-center mat-display-2"><mat-icon style="font-size:inherit">code</mat-icon></div>
                     </mat-card-content>
                     <mat-card-actions class="d-flex flex-row justify-content-end align-items-center">
                         <button mat-button>
-                            <mat-icon color="accent" class="round-outline">chevron_right</mat-icon>
+                            <app-icon-next></app-icon-next>
                         </button>
                     </mat-card-actions>
                 </mat-card>
