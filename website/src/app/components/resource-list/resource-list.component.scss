@@ -1,26 +1,54 @@
 @import "../../../styles/helpers";
-.bg {
-	$offset:1.6rem;
-	$bg-height:7.7777777em;
 
-	&.mat-card {
-		overflow: hidden;
-		&.bg-code:before { background-image:url("/assets/Understanding AI_ML.jpg"); }
-		&.bg-protest:before { background-image:url("/assets/guillaume-issaly-BOstzXNCej8-unsplash.png"); }
-		&.bg-notebooks:before { background-image:url("/assets/Understanding US Frameworks.jpg"); }
-		&.bg-globe:before { background-image:url("/assets/pexels-pixabay-269633.png"); }
-		&.bg-industry:before { background-image:url("/assets/scott-blake-s9XDWLJ_LyE-unsplash.png"); }
-		&.bg-books:before { background-image:url("/assets/Case Study-2.jpg"); }
+#resources {
+	.resource {
+		@extend .flex-column;
+		@extend .col-md-6;
+		@extend .col-lg-4;
+		@extend .mb-5;
 
-		&:before {
-			content:"";
-			box-sizing:content-box;
-			margin-top:$offset * -1; padding-top:$offset;
-			margin-right:$offset * -1; padding-right:$offset;
-			margin-left:$offset * -1; padding-left:$offset;
-			width:100%; height:$bg-height;
-			background-size:cover;
-			background-position:center center;
+		&.large { @extend .col-lg-8 }
+	}
+	.mat-card {
+		border-radius: $border-radius;
+		padding:2.3rem;
+
+		@extend .h-100;
+		@extend .d-flex;
+		@extend .flex-column;
+
+		.mat-card-header {
+			.mat-chip {
+				text-transform:uppercase;
+				font-weight:normal;
+			}
 		}
+	}
+}
+
+.offset-background {
+	position:relative;
+
+	> * { position:relative; z-index:1; }
+
+	&:before {
+		content:"";
+		position:absolute;
+		top:0; right:0; bottom:0; left:-150vw;
+		background-color:inherit;
+		z-index:0;
+		border:inherit;
+		border-radius:inherit;
+		box-shadow: inherit;
+	}
+}
+
+#survey-call-to-action {
+	.mat-chip-list .mat-chip:first-child {
+		@extend .offset-background;
+		&:before { z-index: -1;}
+	}
+	.mat-card {
+		@extend .offset-background;
 	}
 }

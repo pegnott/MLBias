@@ -8,6 +8,9 @@ import { Component, Input, OnInit } from '@angular/core';
 export class ResourceListComponent implements OnInit {
 	@Input() public showAllResources: boolean = false;
 	@Input() public surveyInput: any;
+	public resources = [
+
+	]
 	constructor() { }
 	ngOnInit(): void { 	}
 

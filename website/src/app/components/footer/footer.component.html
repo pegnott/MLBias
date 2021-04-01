@@ -1,18 +1,20 @@
 <section class="container-fluid theme-dark mat-app-background mat-typography">
 	<div class="container pt-5 pb-5 ">
 		<div class="d-flex flex-column flex-sm-row align-items-stretch">
-			<div class="order-2 order-md-0 flex-fill">
+			<div class="order-2 order-md-0 flex-grow-1">
 				<a mat-icon-button href="" class="d-block">
 					<app-icon-xd></app-icon-xd>
 					<span class="font-body pl-3">xD | U.S. Census Bureau</span>
 				</a>
 			</div>
-			<mat-nav-list dense class="order-1 order-md-2 dec-line-vertical green top left">
-				<a mat-list-item routerLink="">About</a>
-				<a mat-list-item routerLink="">Our Partners</a>
-				<a mat-list-item routerLink="">Contact Us</a>
-				<a mat-list-item routerLink="">Privacy Policy</a>
-			</mat-nav-list>
+			<div class="flex-grow-1 order-1 order-md-2 dec-line-vertical green top left">
+				<mat-nav-list dense>
+					<a mat-list-item routerLink="">About</a>
+					<a mat-list-item routerLink="">Our Partners</a>
+					<a mat-list-item routerLink="">Contact Us</a>
+					<a mat-list-item routerLink="">Privacy Policy</a>
+				</mat-nav-list>
+			</div>
 			<div class="order-0 order-md-3">
 				<h5>Give Us Feedback</h5>
 			</div>

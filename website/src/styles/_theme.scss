@@ -147,6 +147,75 @@ $theme-background-medium: (
 		background: $theme-background-medium,
 	));
 }
+
+
+
+
+/* LIGHTPINK THEME */
+$color_lightpink:#f8f0fc;
+$color_darkblue:#384259;
+
+$pink-theme-primary:	mat-palette($md-darkblue);
+$pink-theme-accent:		mat-palette($md-green);
+$pink-theme-warn:		mat-palette($md-lightpink);
+
+$pink-theme: mat-light-theme((
+	color: (
+		 primary:	$pink-theme-primary,
+		 accent:	$pink-theme-accent,
+		 warn: 		$pink-theme-warn,
+	),
+));
+
+$pink-theme-foreground: map-get($pink-theme, foreground);
+$pink-theme-background: map-get($pink-theme, background);
+
+$theme-foreground-lightpink: (
+	base:				$color_darkblue,
+	divider:			map-get($pink-theme-foreground, divider),
+	dividers:			map-get($pink-theme-foreground, dividers),
+	disabled:			map-get($pink-theme-foreground, disabled),
+	disabled-button:  	map-get($pink-theme-foreground, disabled-button),
+	disabled-text:		map-get($pink-theme-foreground, disabled-text),
+	elevation:			map-get($pink-theme-foreground, elevation),
+	hint-text:			map-get($pink-theme-foreground, hint-text),
+	secondary-text:		map-get($pink-theme-foreground, secondary-text),
+	icon:				map-get($pink-theme-foreground, icon),
+	icons:				map-get($pink-theme-foreground, icons),
+	text:				map-get($pink-theme-foreground, text),
+	slider-min:			map-get($pink-theme-foreground, slider-min),
+	slider-off:			map-get($pink-theme-foreground, slider-off),
+	slider-off-active:	map-get($pink-theme-foreground, slider-off-active),
+);
+$theme-background-lightpink: (
+	status-bar:					map-get($pink-theme-background, status-bar),
+	app-bar:					map-get($pink-theme-background, app-bar),
+	background:					$color_lightpink,
+	hover:	 					map-get($pink-theme-background, hover),
+	card:	   					$color_lightpink,
+	dialog:						map-get($pink-theme-background, dialog),
+	disabled-button:			map-get($pink-theme-background, disabled-button),
+	raised-button:				map-get($pink-theme-background, raised-button),
+	focused-button:				map-get($pink-theme-background, focused-button),
+	selected-button:			map-get($pink-theme-background, selected-button),
+	selected-disabled-button:	map-get($pink-theme-background, selected-disabled-button),
+	disabled-button-toggle:		map-get($pink-theme-background, disabled-button-toggle),
+	unselected-chip:			white,
+	disabled-list-option:		map-get($light-background, disabled-list-option),
+	tooltip: 					map-get($light-background, tooltip),
+);
+
+.theme-lightpink {
+	@include angular-material-theme((
+		primary: $pink-theme-primary,
+		accent:  $pink-theme-accent,
+		warn: $pink-theme-warn,
+		is-dark: false,
+		foreground: $theme-foreground-lightpink,
+		background: $theme-background-lightpink,
+	));
+}
+
 $typography: mat-typography-config(
 	$font-family:   $custom-font-body,
 	$display-4:	 	mat-typography-level(72px, 1.30, 400),						// largest one-off font classes

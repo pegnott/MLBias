@@ -1,29 +1,82 @@
 <!-- {{ showAllResources | json }}
 {{ surveyInput | json }} -->
 <section *ngIf="(showAllResources) || (surveyInput && surveyInput.bias && surveyInput.ai)"  class="container">
-	<div class="d-md-flex flex-wrap justify-content-evenly align-items-stretch">
-		<!-- <div *ngIf="showAllResources" class="col-md-12 flex-column mb-5">
-			<mat-card class="bg bg-code h-100 d-flex flex-column">
-				<mat-card-header class="mt-3">
-					<mat-card-title class="text-center">
+	<div id="resources" class="d-md-flex flex-wrap justify-content-evenly align-items-stretch">
+		<div *ngIf="showAllResources" id="survey-call-to-action" class="resource theme-lightpink">
+			<mat-card>
+				<mat-card-header>
+					<mat-chip-list aria-label="tags">
+						<mat-chip class="text-accent">New</mat-chip>
+					</mat-chip-list>
+					<mat-card-title class="flex-fill">
 						<span class="font-accent mat-subheading-1 font-weight-bold">
-							Get Directed to relevant resources
+							Bias Your Results
 						</span>
 					</mat-card-title>
 				</mat-card-header>
 				<mat-card-content class="flex-fill">
+					<p>
+						Filter the resources on this page by taking our 60-second quiz
+					</p>
 				</mat-card-content>
 				<mat-card-actions>
-					<button mat-raised-button mat-stroked-button routerLink="/resources">
-						<span>CALL TO ACTION</span>
-						<app-icon-next></app-icon-next>
+					<button class="text-light" color="primary" mat-raised-button routerLink="/resources">
+						<span>Take the Quiz</span>
 					</button>
 				</mat-card-actions>
 			</mat-card>
-		</div> -->
-		<div *ngIf="(showAllResources) || (surveyInput.intent == 'learn' || surveyInput.bias < 1.5)" class="col-md-6 col-lg-4 flex-column mb-5">
+		</div>
+		<div class="resource large">
+			<mat-card>
+				<mat-card-header>
+					<mat-chip-list aria-label="tags">
+						<mat-chip>Data</mat-chip>
+					</mat-chip-list>
+					<mat-card-title>
+						<span class="font-accent mat-h2 font-weight-bold">
+							Understanding Your Data
+						</span>
+					</mat-card-title>
+				</mat-card-header>
+				<mat-card-content class="flex-fill w-lg-75">
+					<p>
+						Vestibulum fringilla pede sit amet augue. Donec elit libero, sodales nec, volutpat a, suscipit non, turpis. Fusce a quam. Proin magna.
+					</p>
+				</mat-card-content>
+				<mat-card-actions>
+					<button class="" mat-raised-button mat-stroked-button routerLink="/resources">
+						<span>Open Resource</span>
+					</button>
+				</mat-card-actions>
+			</mat-card>
+		</div>
+		<ng-template #resource>
+			<div class="resource">
+				<mat-card>
+					<mat-card-header>
+						<mat-chip-list aria-label="tags">
+							<mat-chip>Techniques</mat-chip>
+						</mat-chip-list>
+						<mat-card-title>
+							<span class="font-accent mat-subheading-1 font-weight-bold">
+								Advanced Bias Evaluation
+							</span>
+						</mat-card-title>
+					</mat-card-header>
+					<mat-card-content class="flex-fill">
+						<p>
+							Vivamus in erat ut urna cursus vestibulum. Praesent turpis.
+						</p>
+					</mat-card-content>
+				</mat-card>
+			</div>
+		</ng-template>
+		<ng-container *ngFor="let item of [].constructor(3); let i = index">
+			<ng-container *ngIf="resource; then resource"></ng-container>
+		</ng-container>
+		<!-- <div *ngIf="(showAllResources) || (surveyInput.intent == 'learn' || surveyInput.bias < 1.5)" class="resource">
 			<mat-card class="bg bg-code h-100 d-flex flex-column">
-				<mat-card-header class="mt-3">
+				<mat-card-header>
 					<mat-card-title class="text-center">
 						<span class="font-accent mat-subheading-1 font-weight-bold">
 							Understanding AI/ML
@@ -33,10 +86,10 @@
 				<mat-card-content class="flex-fill">
 				</mat-card-content>
 			</mat-card>
-		</div>
-		<div *ngIf="(showAllResources) || (surveyInput.intent == 'learn' && surveyInput.bias < 1.5)" class="col-md-6 col-lg-4 flex-column mb-5">
+		</div> -->
+		<!-- <div *ngIf="(showAllResources) || (surveyInput.intent == 'learn' && surveyInput.bias < 1.5)" class="resource">
 			<mat-card class="bg bg-protest  h-100 d-flex flex-column">
-				<mat-card-header class="mt-3">
+				<mat-card-header>
 					<mat-card-title class="text-center">
 						<span class="font-accent mat-subheading-1 font-weight-bold">
 							Understanding AI and Bias
@@ -50,9 +103,9 @@
 				</mat-card-content>
 			</mat-card>
 		</div>
-		<div *ngIf="(showAllResources) || (surveyInput.intent == 'learn' && surveyInput.bias < 1.5)" class="col-md-6 col-lg-4 flex-column mb-5">
+		<div *ngIf="(showAllResources) || (surveyInput.intent == 'learn' && surveyInput.bias < 1.5)" class="resource">
 			<mat-card class="bg bg-notebooks h-100 d-flex flex-column">
-				<mat-card-header class="mt-3">
+				<mat-card-header>
 					<mat-card-title class="text-center">
 						<span class="font-accent mat-subheading-1 font-weight-bold">
 							Understanding US Frameworks
@@ -63,9 +116,9 @@
 				</mat-card-content>
 			</mat-card>
 		</div>
-		<div *ngIf="(showAllResources) || (surveyInput.intent == 'learn' || surveyInput.bias < 1.5)" class="col-md-6 col-lg-4 flex-column mb-5">
+		<div *ngIf="(showAllResources) || (surveyInput.intent == 'learn' || surveyInput.bias < 1.5)" class="resource">
 			<mat-card class="bg bg-globe h-100 d-flex flex-column">
-				<mat-card-header class="mt-3">
+				<mat-card-header>
 					<mat-card-title class="text-center">
 						<span class="font-accent mat-subheading-1 font-weight-bold">
 							International Frameworks
@@ -76,9 +129,9 @@
 				</mat-card-content>
 			</mat-card>
 		</div>
-		<div *ngIf="(showAllResources) || (surveyInput.intent == 'learn' || surveyInput.bias < 1.5)" class="col-md-6 col-lg-4 flex-column mb-5">
+		<div *ngIf="(showAllResources) || (surveyInput.intent == 'learn' || surveyInput.bias < 1.5)" class="resource">
 			<mat-card class="bg bg-industry h-100 d-flex flex-column">
-				<mat-card-header class="mt-3">
+				<mat-card-header>
 					<mat-card-title class="text-center">
 						<span class="font-accent mat-subheading-1 font-weight-bold">
 							Case Study: DOL
@@ -89,9 +142,9 @@
 				</mat-card-content>
 			</mat-card>
 		</div>
-		<div *ngIf="(showAllResources) || (surveyInput.intent == 'learn' || surveyInput.bias < 1.5)" class="col-md-6 col-lg-4 flex-column mb-5">
+		<div *ngIf="(showAllResources) || (surveyInput.intent == 'learn' || surveyInput.bias < 1.5)" class="resource">
 			<mat-card class="bg bg-books h-100 d-flex flex-column">
-				<mat-card-header class="mt-3">
+				<mat-card-header>
 					<mat-card-title class="text-center">
 						<span class="font-accent mat-subheading-1 font-weight-bold">
 							Case Study: ____
@@ -101,6 +154,6 @@
 				<mat-card-content class="flex-fill">
 				</mat-card-content>
 			</mat-card>
-		</div>
+		</div> -->
 	</div>
 </section>

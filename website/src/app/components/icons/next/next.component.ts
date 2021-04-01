@@ -1,8 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
 	selector: 'app-icon-next',
 	templateUrl: './next.component.html',
 	styleUrls: ['./next.component.scss']
 })
-export class NextIconComponent {}
+export class NextIconComponent {
+	@Input() color:string = "";
+}
