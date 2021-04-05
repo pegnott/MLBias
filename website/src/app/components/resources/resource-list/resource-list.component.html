@@ -1,3 +1,8 @@
+
+<!-- <code><pre><small>!{{ surveyInput | json }}!</small></pre></code><hr>
+<code><pre><small>!{{ surveyInput | json }}!</small></pre></code><hr> -->
+
+
 <section class="container">
 	<div id="resources" class="d-md-flex flex-wrap justify-content-evenly align-items-stretch">
 		<div id="survey-call-to-action" class="resource theme-lightpink col-md-6 col-lg-4">
@@ -24,7 +29,8 @@
 				</mat-card-actions>
 			</mat-card>
 		</div>
-		<div class="resource col-md-6 col-lg-8">
+		
+        <div class="resource col-md-6 col-lg-8">
 			<mat-card>
 				<mat-card-header>
 					<mat-chip-list aria-label="tags">
@@ -37,18 +43,35 @@
 					</mat-card-title>
 				</mat-card-header>
 				<mat-card-content class="flex-fill w-lg-75">
-					<p>
-						Vestibulum fringilla pede sit amet augue. Donec elit libero, sodales nec, volutpat a, suscipit non, turpis. Fusce a quam. Proin magna.
-					</p>
+                    <code><pre><small>!{{ surveyInput | json }}!</small></pre></code><hr>
+                    <code><pre><small>{{ formatTopic('ai') }}: {{ humanReadableLevel(surveyInput.ai) }}</small></pre></code><hr>
+                    <code><pre><small>{{ formatTopic('bias') }}: {{ humanReadableLevel(surveyInput.bias) }}</small></pre></code><hr>
+                    <!-- <mat-tab-group>
+                        <mat-tab label="Readme.md">
+                            <markdown [src]="readMes.default"></markdown>
+                        </mat-tab>
+                        <mat-tab label="Readmes">
+                            <code><pre><small>{{ readMes | json }}</small></pre></code>
+                        </mat-tab>
+                        <mat-tab label="Survey Response">
+                            <code><pre><small>{{ surveyInput | json }}</small></pre></code>
+                        </mat-tab>
+                    </mat-tab-group> -->
 				</mat-card-content>
 				<mat-card-actions>
-					<button class="" mat-raised-button mat-stroked-button routerLink="/resources">
+					<a class="" mat-raised-button mat-stroked-button href="{{endPoints?.default}}">
 						<span>Open Resource</span>
-					</button>
+                    </a>
 				</mat-card-actions>
 			</mat-card>
 		</div>
-		<ng-template #resourceCard>
+
+        <ng-container *ngIf="featuredTopics.length">
+            <!-- <div *ngFor="let topic of featuredTopics" class="resource col-md-6 col-lg-4" >
+                <app-resource-card [topic]="humanReadableLevel(surveyInput[topic]) + ' ' + formatTopic(topic)  + ' Evaluation'" [readme]="readMes[topic]" [endpoint]="endPoints[topic]"></app-resource-card>
+            </div> -->
+        </ng-container>
+        <ng-template #resourceCard>
 			<mat-card>
 				<mat-card-header>
 					<mat-chip-list aria-label="tags">
@@ -61,7 +84,7 @@
 					</mat-card-title> -->
 				</mat-card-header>
 				<mat-card-content class="flex-fill">
-					<h3>Advanced Bias Evaluation</h3>
+					<h3>{{ humanReadableLevel(surveyInput.bias) }} Bias Evaluation</h3>
 					<p>
 						Vivamus in erat ut urna cursus vestibulum. Praesent turpis.
 					</p>
@@ -74,17 +97,12 @@
 			</mat-card>
 		</ng-template>
 
-		<ng-container *ngFor="let item of [].constructor(3); let i = index">
-			<div class="resource col-md-6 col-lg-4">
-				<ng-container *ngIf="resourceCard; then resourceCard"></ng-container>
-			</div>
-		</ng-container>
-
-		<ng-container *ngFor="let item of [].constructor(10); let i = index">
+	
+		<!-- <ng-container *ngFor="let item of [].constructor(10); let i = index">
 			<div class="resource list col-12">
 				<ng-container *ngIf="resourceCard; then resourceCard"></ng-container>
 			</div>
-		</ng-container>
+		</ng-container> -->
 
 		<!-- <div *ngIf="(showAllResources) || (surveyInput.intent == 'learn' || surveyInput.bias < 1.5)" class="resource">
 			<mat-card class="bg bg-code h-100 d-flex flex-column">

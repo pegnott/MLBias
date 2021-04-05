@@ -16,13 +16,14 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DialogComponent } from './components/dialog/dialog.component';
 import { SurveyComponent } from './components/survey/survey.component';
 import { LibraryComponent } from './pages/library/library.component';
-import { ResourceListComponent } from './components/resource-list/resource-list.component';
+import { ResourceListComponent } from './components/resources/resource-list/resource-list.component';
 
 import {
 	NextIconComponent,
 	PrevComponent,
 	XdIconComponent
 } from './components/icons';
+import { ResourceCardComponent } from './components/resources/resource-card/resource-card.component';
 
 @NgModule({
 	declarations: [
@@ -39,7 +40,8 @@ import {
 		LibraryComponent,
 		ResourceListComponent,
 		NextIconComponent,
-		PrevComponent
+		PrevComponent,
+		ResourceCardComponent
 	],
 	exports: [],
 	imports: [

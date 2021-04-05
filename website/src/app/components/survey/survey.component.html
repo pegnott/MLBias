@@ -9,7 +9,9 @@
 </section>
 <section #helper class="container-fluid">
     <div class="container mat-app-background theme-light">
-        <form #form action="/resources" (ngSubmit)="form.submit()" method="GET" [formGroup]="formGroup">
+        AI: {{ aiSlider.value }} <br>
+        BIAS: {{ biasSlider.value }} <br>
+        <form #form action="/resources" (ngSubmit)="submitSurvey(form)" method="GET" [formGroup]="formGroup">
             <mat-horizontal-stepper [linear]="true" #stepper>
                 <ng-template matStepperIcon="edit">
                     <mat-icon>check</mat-icon>

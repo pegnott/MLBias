@@ -14,13 +14,7 @@ export class SurveyComponent implements OnInit {
 	constructor(
         private surveyService: SurveyService,
         private route: ActivatedRoute,
-	) {
-        this.route.queryParams.subscribe(params => {
-            Object.keys(params).forEach((name:any) => {
-                let value:string = params[name];
-            });
-        });
-    }
+	) { }
 	ngOnInit(): void {
         this.formGroup = new FormGroup({
             intent:	new FormControl(this.defaults.intent, Validators.required),
@@ -28,4 +22,9 @@ export class SurveyComponent implements OnInit {
             bias: new FormControl(this.defaults.bias, Validators.required)
         });
 	}
+
+    public submitSurvey(form:any) {
+        console.log(form); 
+        form.submit();
+    }
 }
