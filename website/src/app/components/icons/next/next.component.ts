@@ -5,6 +5,4 @@ import { Component, Input } from '@angular/core';
 	templateUrl: './next.component.html',
 	styleUrls: ['./next.component.scss']
 })
-export class NextIconComponent {
-	@Input() color:string = "";
-}
+export class NextIconComponent {}

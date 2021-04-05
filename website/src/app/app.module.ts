@@ -20,6 +20,7 @@ import { ResourceListComponent } from './components/resource-list/resource-list.
 
 import {
 	NextIconComponent,
+	PrevComponent,
 	XdIconComponent
 } from './components/icons';
 
@@ -37,7 +38,8 @@ import {
 		ResourceListComponent,
 		LibraryComponent,
 		ResourceListComponent,
-		NextIconComponent
+		NextIconComponent,
+		PrevComponent
 	],
 	exports: [],
 	imports: [
