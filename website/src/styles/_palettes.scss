@@ -99,6 +99,7 @@ $md-green: (
 );
 
 /* For use in src/lib/core/theming/_palette.scss */
+/* For use in src/lib/core/theming/_palette.scss */
 $md-lightpink: (
     50 : #fefdff,
     100 : #fdfbfe,
@@ -134,19 +135,19 @@ $md-lightpink: (
 
 $md-darkblue: (
     50 : #e7e8eb,
-    100 : #c3c6cd,
-    200 : #9ca1ac,
-    300 : #747b8b,
-    400 : #565e72,
-    500 : #384259,
-    600 : #323c51,
-    700 : #2b3348,
-    800 : #242b3e,
-    900 : #171d2e,
-    A100 : #7196ff,
-    A200 : #3e71ff,
-    A400 : #0b4bff,
-    A700 : #003ff1,
+    100 : #c3c6ce,
+    200 : #9ba0ad,
+    300 : #737a8c,
+    400 : #555e73,
+    500 : #37415a,
+    600 : #313b52,
+    700 : #2a3248,
+    800 : #232a3f,
+    900 : #161c2e,
+    A100 : #7094ff,
+    A200 : #3d6eff,
+    A400 : #0a47ff,
+    A700 : #003cf0,
     contrast: (
         50 : #000000,
         100 : #000000,
@@ -162,5 +163,38 @@ $md-darkblue: (
         A200 : #ffffff,
         A400 : #ffffff,
         A700 : #ffffff,
+    )
+);
+
+$md-lightgreen: (
+    50 : #f9fefd,
+    100 : #f0fbfa,
+    200 : #e6f9f6,
+    300 : #dbf7f2,
+    400 : #d4f5f0,
+    500 : #ccf3ed,
+    600 : #c7f1eb,
+    700 : #c0efe8,
+    800 : #b9ede5,
+    900 : #adeae0,
+    A100 : #ffffff,
+    A200 : #ffffff,
+    A400 : #ffffff,
+    A700 : #ffffff,
+    contrast: (
+        50 : #000000,
+        100 : #000000,
+        200 : #000000,
+        300 : #000000,
+        400 : #000000,
+        500 : #000000,
+        600 : #000000,
+        700 : #000000,
+        800 : #000000,
+        900 : #000000,
+        A100 : #000000,
+        A200 : #000000,
+        A400 : #000000,
+        A700 : #000000,
     )
 );

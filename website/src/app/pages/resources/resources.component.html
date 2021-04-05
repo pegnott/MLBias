@@ -1,5 +1,9 @@
-<!-- <app-resource-list [showAllResources]="true"></app-resource-list>
-<app-survey></app-survey> -->
+<ng-template #resources>
+	<app-resource-list [showAllResources]="showAllResources" [surveyInput]="surveyInput"></app-resource-list>
+</ng-template>
+<ng-template #survey>
+	<app-survey></app-survey>
+</ng-template>
 <!-- <div class="container-fluid header mat-app-background theme-dark padding-xl-top padding-xl-bottom">
 	<div class="container">
 		<h1 class="text-center decoration">
@@ -18,11 +22,6 @@
 </div> -->
 <div class="container-fluid">
 	<div class="container padding-lg-top padding-lg-bottom">
-		<!-- <ng-container *ngIf="showAllResources">
-			<button mat-raised-button mat-stroked-button>
-
-			</button>
-		</ng-container> -->
-		<app-resource-list [showAllResources]="showAllResources" [surveyInput]="surveyInput"></app-resource-list>
+		<ng-container *ngIf="showSurvey; then survey; else resources"></ng-container>
 	</div>
 </div>

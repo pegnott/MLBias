@@ -1,5 +1,13 @@
-// html body .mat-button-base:hover mat-icon.round-outline,
-// html body mat-icon.round-outline:hover {
-//     color:white !important;
-//     &:before { background-color: $color_green; }
-// }
+.mat-icon,
+[mat-icon] {
+	&[color=primary]	{ color:$color_primary !important; }
+	&[color=accent]		{ color:$color_accent; }
+	&[color=warn]		{ color:$color_warn; }
+
+	@include iconSizer($icon_dimension:1em);
+	&.round { border-radius:100vw; }
+	&.thick-border {
+		border-width:$icon-border-width !important;
+		border-style:solid !important;
+	}
+}

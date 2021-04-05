@@ -3,14 +3,12 @@
         <div class="col-md-6  padding-lg-top padding-lg-bottom dec-line pink bottom right offset-bottom offset-right">
             <h1>
                 AI/ML Anti-Bias Toolkit
-
 				<small class="d-block font-body font-weight-normal mat-subheading-1">
 					Tools for serving communities better when leveraging AI/ML in public sector services
 				</small>
             </h1>
         </div>
-        <!-- [@toggleClick]="isGreen" (mouseenter)="toggleIsCorrect()" (mouseleave)="toggleIsCorrect()" -->
-		<div class="col-md-6 decoration"></div>
+        <div class="col-md-6 decoration"></div>
     </div>
 </section>
 <section class="container-fluid padding-lg-top padding-lg-bottom theme-light mat-app-background mat-typography">
@@ -22,9 +20,13 @@
                     Whether you are a city analytics lead, a state chief data officer, or federal agency director, this toolkit offers the tools for you to
                     drive impact in building ethical and equitable AI/ML for the communities you serve.
                 </p>
-                <button class="d-inline-block mt-5" mat-raised-button mat-stroked-button routerLink="/resources">
+                <button
+						class="d-inline-block mt-5"
+						mat-raised-button mat-stroked-button
+						routerLink="/quiz"
+						aria-label="">
                     <span>Get <span class="d-none d-sm-inline">directed to relevant</span> resources</span>
-                    <app-icon-next></app-icon-next>
+                    <mat-icon color="accent" class="round thick-border"><app-icon-next></app-icon-next></mat-icon>
                 </button>
             </div>
         </div>
@@ -36,52 +38,62 @@
         <div class="d-flex flex-wrap pt-5 align-items-stretch mb-5">
             <div class="col-md-4 flex-column mb-5">
                 <mat-card class="h-100 d-flex flex-column text-center">
-					<mat-card-header>
-						<mat-icon>folder</mat-icon>
-						<mat-icon>earth</mat-icon>
+					<mat-card-header class="justify-content-center mt-5 mb-5">
+						<mat-icon color="warn">public</mat-icon>
+						<mat-icon>folder_open</mat-icon>
 					</mat-card-header>
 					<mat-card-content class="flex-fill d-flex flex-column justify-content-end">
-						<h4 class="font-accent text-center mat-card-header-text">
+						<h4 class="font-accent">
 							International Resources
 						</h4>
 						<p>
-							about data, AI/ML, and Bias
+							about data, AI/ML, and bias
 						</p>
                     </mat-card-content>
                     <mat-card-actions class="d-flex flex-row justify-content-end align-items-center">
-                        <button mat-button>
-                            <app-icon-next></app-icon-next>
-                        </button>
+						<button mat-mini-fab aria-label="" color="accent" class="bg-light thick-border">
+							<mat-icon color="accent"><app-icon-next></app-icon-next></mat-icon>
+						</button>
                     </mat-card-actions>
                 </mat-card>
             </div>
             <div class="col-md-4 flex-column mb-5">
-                <mat-card class="h-100 d-flex flex-column">
+				<mat-card class="h-100 d-flex flex-column text-center">
+					<mat-card-header class="justify-content-center mt-5 mb-5">
+						<mat-icon>content_copy</mat-icon>
+						<mat-icon color="warn">search</mat-icon>
+					</mat-card-header>
                     <mat-card-content class="flex-fill d-flex flex-column justify-content-between">
-                        <h4 class="font-accent text-center">
-                            International Resources
+                        <h4 class="font-accent">
+                            Case Studies
                         </h4>
-						<div class="text-center mat-display-2"><mat-icon style="font-size:inherit">model_training</mat-icon></div>
+						<p>
+							about data, AI/ML, and bias
+						</p>
                     </mat-card-content>
                     <mat-card-actions class="d-flex flex-row justify-content-end align-items-center">
-                        <button mat-button>
-                            <app-icon-next></app-icon-next>
-                        </button>
+						<button mat-mini-fab aria-label="" color="accent" class="bg-light thick-border">
+							<mat-icon color="accent"><app-icon-next></app-icon-next></mat-icon>
+						</button>
                     </mat-card-actions>
                 </mat-card>
             </div>
             <div class="col-md-4 flex-column mb-5">
-                <mat-card class="h-100 d-flex flex-column">
+                <mat-card class="h-100 d-flex flex-column text-center">
+					<mat-card-header class="justify-content-center mt-5 mb-5">
+						<mat-icon color="warn">chevron_left</mat-icon>
+						<mat-icon>view_list</mat-icon>
+						<mat-icon color="warn">chevron_right</mat-icon>
+					</mat-card-header>
                     <mat-card-content class="flex-fill d-flex flex-column justify-content-between">
-                        <h4 class="font-accent text-center">
+                        <h4 class="font-accent">
                             Technical Tools for Mitigating Bias
                         </h4>
-						<div class="text-center mat-display-2"><mat-icon style="font-size:inherit">code</mat-icon></div>
                     </mat-card-content>
                     <mat-card-actions class="d-flex flex-row justify-content-end align-items-center">
-                        <button mat-button>
-                            <app-icon-next></app-icon-next>
-                        </button>
+						<button mat-mini-fab aria-label="" color="accent" class="bg-light thick-border">
+							<mat-icon color="accent"><app-icon-next></app-icon-next></mat-icon>
+						</button>
                     </mat-card-actions>
                 </mat-card>
             </div>

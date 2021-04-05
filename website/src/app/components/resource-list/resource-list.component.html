@@ -1,8 +1,6 @@
-<!-- {{ showAllResources | json }}
-{{ surveyInput | json }} -->
-<section *ngIf="(showAllResources) || (surveyInput && surveyInput.bias && surveyInput.ai)"  class="container">
+<section class="container">
 	<div id="resources" class="d-md-flex flex-wrap justify-content-evenly align-items-stretch">
-		<div *ngIf="showAllResources" id="survey-call-to-action" class="resource theme-lightpink">
+		<div id="survey-call-to-action" class="resource theme-lightpink col-md-6 col-lg-4">
 			<mat-card>
 				<mat-card-header>
 					<mat-chip-list aria-label="tags">
@@ -14,19 +12,19 @@
 						</span>
 					</mat-card-title>
 				</mat-card-header>
-				<mat-card-content class="flex-fill">
+				<mat-card-content>
 					<p>
 						Filter the resources on this page by taking our 60-second quiz
 					</p>
 				</mat-card-content>
 				<mat-card-actions>
-					<button class="text-light" color="primary" mat-raised-button routerLink="/resources">
+					<button class="text-light" color="primary" mat-raised-button routerLink="/quiz">
 						<span>Take the Quiz</span>
 					</button>
 				</mat-card-actions>
 			</mat-card>
 		</div>
-		<div class="resource large">
+		<div class="resource col-md-6 col-lg-8">
 			<mat-card>
 				<mat-card-header>
 					<mat-chip-list aria-label="tags">
@@ -50,35 +48,44 @@
 				</mat-card-actions>
 			</mat-card>
 		</div>
-		<ng-template #resource>
-			<div class="resource">
-				<mat-card>
-					<mat-card-header>
-						<mat-chip-list aria-label="tags">
-							<mat-chip>Techniques</mat-chip>
-						</mat-chip-list>
-						<mat-card-title>
-							<span class="font-accent mat-subheading-1 font-weight-bold">
-								Advanced Bias Evaluation
-							</span>
-						</mat-card-title>
-					</mat-card-header>
-					<mat-card-content class="flex-fill">
-						<p>
-							Vivamus in erat ut urna cursus vestibulum. Praesent turpis.
-						</p>
-					</mat-card-content>
-					<mat-card-actions>
-						<button class="" mat-raised-button mat-stroked-button routerLink="/resources">
-							<span>Open Resource</span>
-						</button>
-					</mat-card-actions>
-				</mat-card>
-			</div>
+		<ng-template #resourceCard>
+			<mat-card>
+				<mat-card-header>
+					<mat-chip-list aria-label="tags">
+						<mat-chip>Techniques</mat-chip>
+					</mat-chip-list>
+					<!-- <mat-card-title>
+						<span class="font-accent mat-subheading-1 font-weight-bold">
+							Advanced Bias Evaluation
+						</span>
+					</mat-card-title> -->
+				</mat-card-header>
+				<mat-card-content class="flex-fill">
+					<h3>Advanced Bias Evaluation</h3>
+					<p>
+						Vivamus in erat ut urna cursus vestibulum. Praesent turpis.
+					</p>
+				</mat-card-content>
+				<mat-card-actions>
+					<button class="" mat-raised-button mat-stroked-button routerLink="/resources">
+						<span>Open Resource</span>
+					</button>
+				</mat-card-actions>
+			</mat-card>
 		</ng-template>
+
 		<ng-container *ngFor="let item of [].constructor(3); let i = index">
-			<ng-container *ngIf="resource; then resource"></ng-container>
+			<div class="resource col-md-6 col-lg-4">
+				<ng-container *ngIf="resourceCard; then resourceCard"></ng-container>
+			</div>
 		</ng-container>
+
+		<ng-container *ngFor="let item of [].constructor(10); let i = index">
+			<div class="resource list col-12">
+				<ng-container *ngIf="resourceCard; then resourceCard"></ng-container>
+			</div>
+		</ng-container>
+
 		<!-- <div *ngIf="(showAllResources) || (surveyInput.intent == 'learn' || surveyInput.bias < 1.5)" class="resource">
 			<mat-card class="bg bg-code h-100 d-flex flex-column">
 				<mat-card-header>

@@ -1,12 +1,54 @@
-html body {
-	.mat-stroked-button,
-	.mat-raised-button {
+html body  {
+	[mat-raised-button], .mat-raised-button { @extend #{$elevation}; }
+	[mat-stroked-button], .mat-stroked-button,
+	[mat-raised-button], .mat-raised-button {
 		border-radius:$border-radius;
 		min-height:$button-height;
+		line-height:$button-height;
+		padding-right: 2.4rem;
+		padding-left: 3.6rem;
+
+		.mat-button-wrapper {
+			.mat-icon:first-child { @extend .mr-3; }
+			.mat-icon:last-child { @extend .ml-3; }
+		}
 	}
 
-	.mat-raised-button {
-		$elevation_color:map-get($light-foreground, elevation);
-		@include mat-elevation(10, $elevation_color, 0.23);
+	.mat-button-base {
+		.mat-button-wrapper {
+			mat-icon { @include iconSizer($icon_dimension:2.8rem); }
+		}
+
+		&:hover .mat-button-wrapper .mat-icon {
+			color:white !important;
+			&[color=primary] { background-color:$color_primary !important;  }
+			&[color=accent] { background-color:$color_accent !important; }
+			&[color=warn] { background-color:$color_warn !important; }
+		}
+
+		&.mat-mini-fab {
+			@include iconSizer($icon_dimension:$icon-font-size);
+			.mat-button-wrapper { padding:0; }
+			.mat-icon { border-radius:100vw; }
+
+			&.thick-border {
+				@extend .mat-elevation-z0;
+				border-width:$icon-border-width !important;
+				border-style:solid !important;
+
+				&[color=primary] {
+					border-color:$color_primary !important;
+					&:hover { background-color:$color_primary !important; }
+				}
+				&[color=accent] {
+					border-color:$color_accent !important;
+					&:hover { background-color:$color_accent !important; }
+				}
+				&[color=warn] {
+					border-color:$color_warn !important;
+					&:hover { background-color:$color_warn !important; }
+				}
+			}
+		}
 	}
 }

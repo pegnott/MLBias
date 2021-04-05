@@ -3,22 +3,41 @@
 #resources {
 	.resource {
 		@extend .flex-column;
-		@extend .col-md-6;
-		@extend .col-lg-4;
+		// @extend .col-md-6;
+		// @extend .col-lg-4;
 		@extend .mb-5;
 
-		&.large { @extend .col-lg-8 }
+		//&.large { @extend .col-lg-8 }
+
+		&.list {
+			display:table !important;
+			table-layout: auto;
+
+			.mat-card {
+				display:table-row !important;
+
+				> * {
+					display:table-cell !important;
+					@extend .p-4;
+
+					&:first-child { width:1%; }
+					&:last-child { text-align:center }
+
+
+					vertical-align: top;
+					text-align:left;
+				}
+			}
+		}
 	}
 	.mat-card {
-		border-radius: $border-radius;
-		padding:2.3rem;
-
 		@extend .h-100;
 		@extend .d-flex;
 		@extend .flex-column;
 
 		.mat-card-header {
 			.mat-chip {
+				border-radius: $border-radius;
 				text-transform:uppercase;
 				font-weight:normal;
 			}
