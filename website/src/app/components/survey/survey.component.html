@@ -9,9 +9,7 @@
 </section>
 <section #helper class="container-fluid">
     <div class="container mat-app-background theme-light">
-        AI: {{ aiSlider.value }} <br>
-        BIAS: {{ biasSlider.value }} <br>
-        <form #form action="/resources" (ngSubmit)="submitSurvey(form)" method="GET" [formGroup]="formGroup">
+        <form #form action="/resources" (ngSubmit)="form.submit()" method="GET" [formGroup]="formGroup">
             <mat-horizontal-stepper [linear]="true" #stepper>
                 <ng-template matStepperIcon="edit">
                     <mat-icon>check</mat-icon>
@@ -23,7 +21,7 @@
                     <mat-form-field class="d-block">
                         <label for="intent" class="d-block mat-h4 text-center">
                             I want to...
-                            <input class="d-none" matInput name="intent" id="intent" #intent formControlName="intent" required>
+                            <input class="NOPEd-none" matInput name="intent" id="intent" #intent formControlName="intent" required>
                         </label>
                         <div class="d-flex flex-row align-items-center mb-5">
                             <div class="flex-fill d-flex flex-column">
@@ -64,26 +62,28 @@
                     <h3 class="text-center">
                         What is your current knowledge base about AI/ML?
                     </h3>
+
+					<!-- (change)="formGroup.controls.ai.setValue(($event.value) ? $event.value.toString() : defaults.ai)" -->
                     <mat-form-field class="d-block">
                         <mat-slider #aiSlider
 							class="d-block w-100" color="warn"
-							(change)="formGroup.controls.ai.setValue(($event.value) ? $event.value.toString() : defaults.ai)"
+							(valueChange)="ai.value = ($event) ? $event : defaults.ai"
 							min="0" max="3"
 							step="0.5"
 							value="0.5">
 						</mat-slider>
                         <div class="row text-center mb-5">
-                            <label class="col" (click)="aiSlider.value = 0.5">
+							<label class="col" (click)="aiSlider.value = 0.5; ai.value = aiSlider.value.toString();">
                                 I'm new here! Let's start with definitions and concepts
                             </label>
-                            <label class="col"  (click)="aiSlider.value = 1.5">
+                            <label class="col"  (click)="aiSlider.value = 1.5; ai.value = aiSlider.value.toString();">
                                 I've had some exposure, let's talk about applications and context
                             </label>
-                            <label class="col"  (click)="aiSlider.value = 2.5">
+                            <label class="col"  (click)="aiSlider.value = 2.5; ai.value = aiSlider.value.toString();">
                                 I'm using AI/ML in my daily work and I'm here to get the latest info
                             </label>
                         </div>
-                        <input class="d-none" matInput name="ai" id="ai" #ai formControlName="ai">
+						<input class="NOPEd-none" type="number" matInput name="ai" id="ai" #ai formControlName="ai">
                     </mat-form-field>
                     <div class="d-flex flex-row flex-nowrap justify-content-between">
                         <button type="button" mat-stroked-button mat-raised-button matStepperPrevious>
@@ -101,19 +101,25 @@
                         What is your current knowledge base about ML Ethics?
                     </h3>
                     <mat-form-field class="d-block">
-                        <mat-slider #biasSlider (change)="formGroup.controls.bias.setValue(($event.value) ? $event.value.toString() : defaults.bias)" class="d-block w-100" color="warn" min="0" max="3" step="0.5" value="0.5"></mat-slider>
+						<mat-slider #biasSlider
+							class="d-block w-100"
+							(valueChange)="bias.value = ($event) ? $event : defaults.bias"
+							color="warn"
+							min="0" max="3"
+							step="0.5" value="0.5">
+						</mat-slider>
                         <div class="row text-center mb-5">
-                            <label class="col" (click)="biasSlider.value = 0.5">
+                            <label class="col" (click)="biasSlider.value = 0.5; bias.value = biasSlider.value.toString();">
                                 I'm new here! Let's start with concepts and background
                             </label>
-                            <label class="col" (click)="biasSlider.value = 1.5">
+                            <label class="col" (click)="biasSlider.value = 1.5; bias.value = biasSlider.value.toString();">
                                 I've had some exposure but would like to go deeper
                             </label>
-                            <label class="col" (click)="biasSlider.value = 2.5">
+                            <label class="col" (click)="biasSlider.value =  2.5; bias.value = biasSlider.value.toString();">
                                 I am knowledgeable and would like to see new tools and techniques or new white or research papers relevent to government settings
                             </label>
                         </div>
-                        <input class="d-none" matInput name="bias" id="bias" #bias formControlName="bias" required>
+                        <input class="NOPEd-none" matInput name="bias" id="bias" #bias formControlName="bias" required>
                     </mat-form-field>
                     <div class="d-flex flex-row flex-nowrap justify-content-between">
                         <button type="button" mat-stroked-button mat-raised-button matStepperPrevious>

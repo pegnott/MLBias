@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { MatInput } from '@angular/material/input';
+import { MatSlider, MatSliderChange } from '@angular/material/slider';
 import { ActivatedRoute } from '@angular/router';
 import { SurveyService } from 'src/app/services/survey.service';
 @Component({
@@ -22,9 +24,4 @@ export class SurveyComponent implements OnInit {
             bias: new FormControl(this.defaults.bias, Validators.required)
         });
 	}
-
-    public submitSurvey(form:any) {
-        console.log(form); 
-        form.submit();
-    }
 }

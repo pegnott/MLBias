@@ -1,8 +1,3 @@
-
-<!-- <code><pre><small>!{{ surveyInput | json }}!</small></pre></code><hr>
-<code><pre><small>!{{ surveyInput | json }}!</small></pre></code><hr> -->
-
-
 <section class="container">
 	<div id="resources" class="d-md-flex flex-wrap justify-content-evenly align-items-stretch">
 		<div id="survey-call-to-action" class="resource theme-lightpink col-md-6 col-lg-4">
@@ -29,7 +24,7 @@
 				</mat-card-actions>
 			</mat-card>
 		</div>
-		
+
         <div class="resource col-md-6 col-lg-8">
 			<mat-card>
 				<mat-card-header>
@@ -43,15 +38,10 @@
 					</mat-card-title>
 				</mat-card-header>
 				<mat-card-content class="flex-fill w-lg-75">
-                    <code><pre><small>!{{ surveyInput | json }}!</small></pre></code><hr>
-                    <code><pre><small>{{ formatTopic('ai') }}: {{ humanReadableLevel(surveyInput.ai) }}</small></pre></code><hr>
-                    <code><pre><small>{{ formatTopic('bias') }}: {{ humanReadableLevel(surveyInput.bias) }}</small></pre></code><hr>
-                    <!-- <mat-tab-group>
+					<code><pre><small>{{ surveyInput | json }}</small></pre></code>
+					<!-- <mat-tab-group>
                         <mat-tab label="Readme.md">
                             <markdown [src]="readMes.default"></markdown>
-                        </mat-tab>
-                        <mat-tab label="Readmes">
-                            <code><pre><small>{{ readMes | json }}</small></pre></code>
                         </mat-tab>
                         <mat-tab label="Survey Response">
                             <code><pre><small>{{ surveyInput | json }}</small></pre></code>
@@ -65,13 +55,19 @@
 				</mat-card-actions>
 			</mat-card>
 		</div>
+		<div *ngFor="let mdFile of map[humanReadableSurvey.intent].ai" class="resource col-md-6 col-lg-4">
+			<!-- <small><pre><code>{{ githubEntryPoints.raw }}{{ humanReadableSurvey.intent }}/{{ humanReadableSurvey.ai }}/{{ mdFile }}.md</code></pre></small> -->
 
-        <ng-container *ngIf="featuredTopics.length">
-            <!-- <div *ngFor="let topic of featuredTopics" class="resource col-md-6 col-lg-4" >
-                <app-resource-card [topic]="humanReadableLevel(surveyInput[topic]) + ' ' + formatTopic(topic)  + ' Evaluation'" [readme]="readMes[topic]" [endpoint]="endPoints[topic]"></app-resource-card>
-            </div> -->
-        </ng-container>
-        <ng-template #resourceCard>
+			<app-resource-card markdownFile="{{ githubEntryPoints.raw }}{{ humanReadableSurvey.intent }}/{{ humanReadableSurvey.ai}}/{{ mdFile }}"></app-resource-card>
+			<!-- <app-resource-card [topic]="'HI'" markdownFile="{{ githubEntryPoints.raw }}{{ humanReadableSurvey.intent }}/{{ humanReadableLevel(humanReadableSurvey.ai)}}/{{ mdFile }}"></app-resource-card> -->
+		</div>
+
+		<div *ngFor="let mdFile of map[humanReadableSurvey.intent].bias" class="resource col-md-6 col-lg-4">
+			<!-- <app-resource-card [topic]="'HI'" markdownFile="{{ githubEntryPoints.raw }}{{ humanReadableSurvey.intent }}/{{ humanReadableLevel(humanReadableSurvey.bias)}}/{{ mdFile }}"></app-resource-card> -->
+		</div>
+        <!-- <app-resource-card [topic]="humanReadableLevel(surveyInput[topic]) + ' ' + formatTopic(topic)  + ' Evaluation'" [readme]="readMes[topic]" [endpoint]="endPoints[topic]"></app-resource-card> -->
+
+		<ng-template #resourceCard>
 			<mat-card>
 				<mat-card-header>
 					<mat-chip-list aria-label="tags">
@@ -97,7 +93,7 @@
 			</mat-card>
 		</ng-template>
 
-	
+
 		<!-- <ng-container *ngFor="let item of [].constructor(10); let i = index">
 			<div class="resource list col-12">
 				<ng-container *ngIf="resourceCard; then resourceCard"></ng-container>

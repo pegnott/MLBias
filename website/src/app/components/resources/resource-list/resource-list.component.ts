@@ -1,3 +1,4 @@
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
@@ -8,20 +9,52 @@ import { Component, Input, OnInit } from '@angular/core';
 export class ResourceListComponent implements OnInit {
 	@Input() public showAllResources: boolean = false;
 	@Input() public surveyInput: any;
-    
+
     public humanReadableSurvey: any = {};
     public fileName:string = 'Readme.md';
-    public readMes: any =  {};
+    public markdownFiles: string[] =  [];
+
     public endPoints: any = {};
-    public githubBases: any = {
+	public githubEntryPoints: any = {
         default: 'https://github.com/XDgov/MLBias/tree/main/',
         raw: 'https://raw.githubusercontent.com/XDgov/MLBias/main/',
     }
+
+	//public aiEntryPoint:string = this.githubEntryPoints.raw;
+
     public featuredTopics: string[] = [];
-    constructor() { }
-    
-	ngOnInit(): void { 	
-        console.log(this.surveyInput)
+
+	public levels:any =  {
+		// Pretty : For Github Filename
+		Advanced: 'Advanced',
+		Intermediate: 'Intermed',
+		Beginner:	'Beginner'
+	}
+
+	public map: any = {
+		Learn: {
+			ai: new Array("Readme", "Books", "Datasets", "ExternalTooling", "FramworkOverview", "Papers"),
+			bias: new Array("MLEthics_Reading")
+		},
+		Build: {
+			ai: new Array("Readme"),
+			bias: new Array("DataTools"),
+		}
+	}
+
+
+
+	// public mapper:any = {
+	// 	learn: {
+	// 		Beginner: 'https://raw.githubusercontent.com/XDgov/MLBias/main/Learn/Beginner_MLEthics_reading.md',
+	// 		Intermediate: 'https://raw.githubusercontent.com/XDgov/MLBias/main/Learn/Intermed_MLEthics_Reading.md',
+	// 		Advanced: 'https://raw.githubusercontent.com/XDgov/MLBias/main/Learn/Advanced_MLEthics_Reading.md'
+	// 	},
+	// }
+    constructor(
+		private http:HttpClient
+	) { }
+	ngOnInit(): void {
         if (this.surveyInput) {
             Object.keys(this.surveyInput).forEach(name => {
                 let value = this.surveyInput[name];
@@ -33,8 +66,27 @@ export class ResourceListComponent implements OnInit {
                 }
                 this.humanReadableSurvey[name] = value;
             });
-            this.readMes = this.githubUrlsFromSurvey(`${this.githubBases.raw}${this.humanReadableSurvey.intent}`, true);
-            this.endPoints = this.githubUrlsFromSurvey(`${this.githubBases.default}${this.humanReadableSurvey.intent}`);
+			let intent = this.humanReadableSurvey.intent;
+			let aiScore = this.humanReadableSurvey.ai;
+			let biasScore = this.humanReadableSurvey.bias;
+
+			this.map[intent].ai.forEach((f:any) => {
+				let fileUrl = `${this.githubEntryPoints.raw}${intent}/${aiScore}/${f}.md`;
+				this.http
+						.get(fileUrl, { headers: new HttpHeaders().set('Accept', 'text/plain'), responseType: 'text'})
+						.subscribe(
+							response => {
+								this.markdownFiles.push(response);
+								console.log(response);
+							},
+							error => console.error(error))
+				console.log(fileUrl);
+				// this.markdownFiles[f] = `${this.githubEntryPoints.raw}`
+				// console.log(f);
+			})
+			//console.log(this.humanReadableSurvey);
+            // this.readMes = this.githubUrlsFromSurvey(`${this.githubBases.raw}${this.humanReadableSurvey.intent}`, true);
+            // this.endPoints = this.githubUrlsFromSurvey(`${this.githubBases.default}${this.humanReadableSurvey.intent}`);
         }
     }
     public humanReadableLevel(level:number) {
@@ -49,19 +101,47 @@ export class ResourceListComponent implements OnInit {
         return topic;
     }
 
-    private githubUrlsFromSurvey(url:string, defaultFile:boolean = false) {
-        let filename = (defaultFile) ? `/${this.fileName}` : ``;
-        let urls:any = {};
-        urls.default =  `${url}${filename}`;
-        Object.keys(this.surveyInput).forEach((name:string) => {
-            if (name !== 'intent') {
-                urls[name] = `${url}/${this.humanReadableSurvey[name]}${filename}`;
-            }            
-        });
-        // let otherResources:string[] = ['Papers.md'];
-        // otherResources.forEach((type:string) => {
-        //     let resourceUrl = `${url}/${type}`;
-        // });
-        return urls;
+	public githubUrlsFromSurvey(filename?:string) {
+		let url = this.githubEntryPoints.default;
+		if (filename) {
+			url = this.githubEntryPoints.raw;
+		}
+		let intent = this.humanReadableSurvey.intent;
+		let aiLevel = this.humanReadableSurvey.ai;
+		let biasLevel = this.humanReadableSurvey.bias;
+
+
+
+		// let thing = `${url}${intent}/`;
+		// console.log(thing);
+		// return thing;
+		// //let url = `${this.githubBases.raw}`;
+
+
+
+        // // let filename = (defaultFile) ? `/${this.fileName}` : ``;
+        // // let urls:any = {};
+        // // urls.default =  `${url}${filename}`;
+        // // Object.keys(this.surveyInput).forEach((name:string) => {
+        // //     if (name !== 'intent') {
+        // //         urls[name] = `${url}/${this.humanReadableSurvey[name]}${filename}`;
+        // //     }
+        // // });
     }
+
+    // private githubUrlsFromSurvey(url:string, defaultFile:boolean = false) {
+    //     let filename = (defaultFile) ? `/${this.fileName}` : ``;
+    //     let urls:any = {};
+    //     urls.default =  `${url}${filename}`;
+    //     Object.keys(this.surveyInput).forEach((name:string) => {
+    //         if (name !== 'intent') {
+    //             urls[name] = `${url}/${this.humanReadableSurvey[name]}${filename}`;
+    //         }
+    //     });
+    //     // let otherResources:string[] = ['Papers.md'];
+    //     // otherResources.forEach((type:string) => {
+    //     //     let resourceUrl = `${url}/${type}`;
+    //     // });
+    //     return urls;
+    // }
 }
