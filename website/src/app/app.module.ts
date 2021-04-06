@@ -26,6 +26,7 @@ import {
 import { ResourceCardComponent } from './components/resources/resource-card/resource-card.component';
 import { BuildComponent } from './components/survey/build/build.component';
 import { LearnComponent } from './components/survey/learn/learn.component';
+import { ContributeComponent } from './pages/contribute/contribute.component';
 
 @NgModule({
 	declarations: [
@@ -45,7 +46,8 @@ import { LearnComponent } from './components/survey/learn/learn.component';
 		PrevComponent,
 		ResourceCardComponent,
 		BuildComponent,
-		LearnComponent
+		LearnComponent,
+		ContributeComponent
 	],
 	exports: [],
 	imports: [

@@ -1,1 +1,72 @@
-<p>build works!</p>
+<div class="container-fluid theme-light">
+	<div class="container">
+		<div class="d-flex flex-column border">
+			<h2 class="text-center">
+				Where would you like to begin with your build?
+			</h2>
+			<label class="d-block mat-h4 text-center">
+				Let's start with&hellip;
+			</label>
+			<div class="d-flex flex-row flex-wrap align-items-center mb-5">
+				<div class="flex-fill d-flex flex-column">
+					<mat-chip-list selectable="true" multiple="false" #intentSlider aria-label="" aria-orientation="vertical">
+						<mat-chip class="col justify-content-center border bg-white text-dark mat-stroked-button mat-raised-button"
+							#evaluateData="matChip" color="warn">
+							Help me understand and evaluate my data
+						</mat-chip>
+						<mat-chip class="col justify-content-center border bg-white text-dark mat-stroked-button mat-raised-button"
+							#biasInPipeline="matChip" color="warn">
+							Show me where I might find bias along the ML pipeline
+						</mat-chip>
+						<mat-chip class="col justify-content-center border bg-white text-dark mat-stroked-button mat-raised-button"
+							#buyBuild="matChip" color="warn">
+							Help me make a buy/build decision
+						</mat-chip>
+						<mat-chip class="col justify-content-center border bg-white text-dark mat-stroked-button mat-raised-button"
+							#modelDeployment="matChip" color="warn">
+							Walk me through model deployment and beyond
+						</mat-chip>
+					</mat-chip-list>
+					<!-- <mat-chip-list selectable="true" multiple="false" #intentSlider aria-label="" aria-orientation="vertical">
+						<mat-chip #learn="matChip"
+							color="warn"
+							class="col justify-content-center border bg-white text-dark mat-stroked-button mat-raised-button"
+							[attr.selected]="(intent.value == 'learn') ? true : null"
+							(click)="learn.select(); formGroup.controls.intent.setValue('learn');">
+							Learn
+						</mat-chip>
+						<mat-chip #build="matChip"
+							color="warn"
+							class="col justify-content-center border bg-white text-dark mat-stroked-button mat-raised-button"
+							[attr.selected]="(intent.value == 'build') ? true : null"
+							(click)="build.select();  formGroup.controls.intent.setValue('build');">
+							Build
+						</mat-chip>
+						<mat-chip #contribute="matChip"
+							color="warn"
+							class="col justify-content-center border bg-white text-dark mat-stroked-button mat-raised-button"
+							[attr.selected]="(intent.value == 'contribute') ? true : null"
+							(click)="contribute.select();  formGroup.controls.intent.setValue('contribute');">
+							Contribute
+						</mat-chip>
+					</mat-chip-list> -->
+				</div>
+			</div>
+			<!-- <mat-sidenav-container>
+				<mat-sidenav opened="true">
+					<mat-nav-list>
+						<button mat-list-item>HI!</button>
+						<button mat-list-item>HI!</button>
+						<button mat-list-item>HI!</button>
+						<button mat-list-item>HI!</button>
+						<button mat-list-item>HI!</button>
+					</mat-nav-list>
+				</mat-sidenav>
+				<mat-sidenav-content>
+					Main
+
+				</mat-sidenav-content>
+			</mat-sidenav-container> -->
+		</div>
+	</div>
+</div>
