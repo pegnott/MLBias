@@ -10,47 +10,48 @@
 <section #helper class="container-fluid">
     <div class="container mat-app-background theme-light">
         <form #form action="/resources" (ngSubmit)="form.submit()" method="GET" [formGroup]="formGroup">
+			<mat-form-field class="d-none">
+				<input matInput name="intent" id="intent" #intent formControlName="intent" type="text" required>
+				<input matInput name="ai" id="ai" #ai formControlName="ai" type="number" required>
+				<input matInput name="bias" id="bias" #bias formControlName="bias" type="number" required>
+			</mat-form-field>
             <mat-horizontal-stepper [linear]="true" #stepper>
-                <ng-template matStepperIcon="edit">
-                    <mat-icon>check</mat-icon>
-                </ng-template>
+                <ng-template matStepperIcon="edit"><mat-icon>check</mat-icon></ng-template>
+
                 <mat-step label="Tell us about..." [stepControl]="formGroup.controls.intent">
                     <h2 class="text-center">
                         What brings you to the Toolkit?
                     </h2>
-                    <mat-form-field class="d-block">
-                        <label for="intent" class="d-block mat-h4 text-center">
-                            I want to...
-                            <input class="NOPEd-none" matInput name="intent" id="intent" #intent formControlName="intent" required>
-                        </label>
-                        <div class="d-flex flex-row align-items-center mb-5">
-                            <div class="flex-fill d-flex flex-column">
-                                <mat-chip-list selectable="true" multiple="false" #intentSlider aria-label="" aria-orientation="vertical">
-                                    <mat-chip #learn="matChip"
-										color="warn"
-										class="col justify-content-center border bg-white text-dark mat-stroked-button mat-raised-button"
-                                        [attr.selected]="(intent.value == 'learn') ? true : null"
-                                        (click)="learn.select(); formGroup.controls.intent.setValue('learn');">
-                                        Learn
-                                    </mat-chip>
-                                    <mat-chip #build="matChip"
-										color="warn"
-										class="col justify-content-center border bg-white text-dark mat-stroked-button mat-raised-button"
-                                        [attr.selected]="(intent.value == 'build') ? true : null"
-                                        (click)="build.select();  formGroup.controls.intent.setValue('build');">
-                                        Build
-                                    </mat-chip>
-                                    <mat-chip #contribute="matChip"
-										color="warn"
-                                       	class="col justify-content-center border bg-white text-dark mat-stroked-button mat-raised-button"
-                                        [attr.selected]="(intent.value == 'contribute') ? true : null"
-                                        (click)="contribute.select();  formGroup.controls.intent.setValue('contribute');">
-                                        Contribute
-                                    </mat-chip>
-                                </mat-chip-list>
-                            </div>
-                        </div>
-                    </mat-form-field>
+					<label class="d-block mat-h4 text-center">
+						I want to...
+					</label>
+					<div class="d-flex flex-row align-items-center mb-5">
+						<div class="flex-fill d-flex flex-column">
+							<mat-chip-list selectable="true" multiple="false" #intentSlider aria-label="" aria-orientation="vertical">
+								<mat-chip #learn="matChip"
+									color="warn"
+									class="col justify-content-center border bg-white text-dark mat-stroked-button mat-raised-button"
+									[attr.selected]="(intent.value == 'learn') ? true : null"
+									(click)="learn.select(); formGroup.controls.intent.setValue('learn');">
+									Learn
+								</mat-chip>
+								<mat-chip #build="matChip"
+									color="warn"
+									class="col justify-content-center border bg-white text-dark mat-stroked-button mat-raised-button"
+									[attr.selected]="(intent.value == 'build') ? true : null"
+									(click)="build.select();  formGroup.controls.intent.setValue('build');">
+									Build
+								</mat-chip>
+								<mat-chip #contribute="matChip"
+									color="warn"
+									class="col justify-content-center border bg-white text-dark mat-stroked-button mat-raised-button"
+									[attr.selected]="(intent.value == 'contribute') ? true : null"
+									(click)="contribute.select();  formGroup.controls.intent.setValue('contribute');">
+									Contribute
+								</mat-chip>
+							</mat-chip-list>
+						</div>
+					</div>
                     <div class="d-flex flex-row flex-nowrap justify-content-end">
                         <button type="button" mat-raised-button mat-stroked-button matStepperNext>
 							Next
@@ -58,80 +59,43 @@
 						</button>
                     </div>
                 </mat-step>
-                <mat-step label="AI/ML"  [stepControl]="formGroup.controls.ai">
-                    <h3 class="text-center">
-                        What is your current knowledge base about AI/ML?
-                    </h3>
 
-					<!-- (change)="formGroup.controls.ai.setValue(($event.value) ? $event.value.toString() : defaults.ai)" -->
-                    <mat-form-field class="d-block">
-                        <mat-slider #aiSlider
-							class="d-block w-100" color="warn"
-							(valueChange)="ai.value = ($event) ? $event : defaults.ai"
-							min="0" max="3"
-							step="0.5"
-							value="0.5">
-						</mat-slider>
-                        <div class="row text-center mb-5">
-							<label class="col" (click)="aiSlider.value = 0.5; ai.value = aiSlider.value.toString();">
-                                I'm new here! Let's start with definitions and concepts
-                            </label>
-                            <label class="col"  (click)="aiSlider.value = 1.5; ai.value = aiSlider.value.toString();">
-                                I've had some exposure, let's talk about applications and context
-                            </label>
-                            <label class="col"  (click)="aiSlider.value = 2.5; ai.value = aiSlider.value.toString();">
-                                I'm using AI/ML in my daily work and I'm here to get the latest info
-                            </label>
-                        </div>
-						<input class="NOPEd-none" type="number" matInput name="ai" id="ai" #ai formControlName="ai">
-                    </mat-form-field>
-                    <div class="d-flex flex-row flex-nowrap justify-content-between">
-                        <button type="button" mat-stroked-button mat-raised-button matStepperPrevious>
+				<mat-step  label="AI/ML"  [stepControl]="formGroup.controls.ai">
+					<app-learn step="ai" (valueChanged)="ai.value = $event.toString()"></app-learn>
+					<div class="d-flex flex-row flex-nowrap justify-content-between">
+						<button type="button" mat-stroked-button mat-raised-button matStepperPrevious>
 							<mat-icon color="accent" class="round thick-border"><app-icon-prev></app-icon-prev></mat-icon>
 							Back
 						</button>
-                        <button type="button" mat-stroked-button mat-raised-button matStepperNext>
+						<button type="button" mat-stroked-button mat-raised-button  matStepperNext>
 							Next
 							<mat-icon color="accent" class="round thick-border"><app-icon-next></app-icon-next></mat-icon>
 						</button>
-                    </div>
-                </mat-step>
-                <mat-step label="ML Ethics"  [stepControl]="formGroup.controls.bias">
-                    <h3 class="text-center">
-                        What is your current knowledge base about ML Ethics?
-                    </h3>
-                    <mat-form-field class="d-block">
-						<mat-slider #biasSlider
-							class="d-block w-100"
-							(valueChange)="bias.value = ($event) ? $event : defaults.bias"
-							color="warn"
-							min="0" max="3"
-							step="0.5" value="0.5">
-						</mat-slider>
-                        <div class="row text-center mb-5">
-                            <label class="col" (click)="biasSlider.value = 0.5; bias.value = biasSlider.value.toString();">
-                                I'm new here! Let's start with concepts and background
-                            </label>
-                            <label class="col" (click)="biasSlider.value = 1.5; bias.value = biasSlider.value.toString();">
-                                I've had some exposure but would like to go deeper
-                            </label>
-                            <label class="col" (click)="biasSlider.value =  2.5; bias.value = biasSlider.value.toString();">
-                                I am knowledgeable and would like to see new tools and techniques or new white or research papers relevent to government settings
-                            </label>
-                        </div>
-                        <input class="NOPEd-none" matInput name="bias" id="bias" #bias formControlName="bias" required>
-                    </mat-form-field>
-                    <div class="d-flex flex-row flex-nowrap justify-content-between">
-                        <button type="button" mat-stroked-button mat-raised-button matStepperPrevious>
+					</div>
+				</mat-step>
+
+				<mat-step label="ML Ethics"  [stepControl]="formGroup.controls.bias">
+
+					<app-learn step="bias" (valueChanged)="bias.value = $event.toString()"></app-learn>
+
+					<div class="d-flex flex-row flex-nowrap justify-content-between">
+						<button type="button" mat-stroked-button mat-raised-button matStepperPrevious>
 							<mat-icon color="accent" class="round thick-border"><app-icon-prev></app-icon-prev></mat-icon>
 							Back
 						</button>
-                        <button type="submit" mat-stroked-button mat-raised-button>
+						<button (type)="(intent.value === 'learn') ? 'submit' : 'button'" mat-stroked-button mat-raised-button>
 							Next
 							<mat-icon color="accent" class="round thick-border"><app-icon-next></app-icon-next></mat-icon>
 						</button>
-                    </div>
+					</div>
+
+				</mat-step>
+
+
+				<mat-step *ngIf="intent.value === 'build'" label="Build"  [stepControl]="formGroup.controls.ai">
+					<app-build></app-build>
                 </mat-step>
+
             </mat-horizontal-stepper>
         </form>
     </div>

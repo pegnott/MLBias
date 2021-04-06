@@ -12,7 +12,7 @@ import { SurveyService } from 'src/app/services/survey.service';
 export class SurveyComponent implements OnInit {
     public defaults:any = this.surveyService.defaults;
     public values: any = this.defaults;
-    public formGroup: FormGroup;
+    public formGroup: FormGroup = this.surveyService.formGroup;
 	constructor(
         private surveyService: SurveyService,
         private route: ActivatedRoute,

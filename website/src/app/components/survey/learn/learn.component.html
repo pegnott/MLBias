@@ -1,0 +1,44 @@
+<ng-container *ngIf="step ==='ai'">
+	<h3 class="text-center">
+		What is your current knowledge base about AI/ML?
+	</h3>
+	<mat-slider #aiSlider color="warn"
+		class="d-block w-100"
+		min="0" max="3"
+		step="0.5"
+		value="{{ defaults.ai }}">
+	</mat-slider>
+	<div class="row text-center mb-5">
+		<label class="col" (click)="updateControls(0.5, [aiSlider])">
+			I'm new here! Let's start with definitions and concepts
+		</label>
+		<label class="col"   (click)="updateControls(1.5, [aiSlider])">
+			I've had some exposure, let's talk about applications and context
+		</label>
+		<label class="col"  (click)="updateControls(2.5, [aiSlider])">
+			I'm using AI/ML in my daily work and I'm here to get the latest info
+		</label>
+	</div>
+</ng-container>
+<ng-container *ngIf="step ==='bias'">
+	<h3 class="text-center">
+		What is your current knowledge base about ML Ethics?
+	</h3>
+	<mat-slider #biasSlider color="warn"
+		class="d-block w-100"
+		min="0" max="3"
+		step="0.5"
+		value="{{ defaults.bias }}">
+	</mat-slider>
+	<div class="row text-center mb-5">
+		<label class="col" (click)="updateControls(0.5, [biasSlider])">
+			I'm new here! Let's start with concepts and background
+		</label>
+		<label class="col" (click)="updateControls(1.5, [biasSlider])">
+			I've had some exposure but would like to go deeper
+		</label>
+		<label class="col" (click)="updateControls(2.5, [biasSlider])">
+			I am knowledgeable and would like to see new tools and techniques or new white or research papers relevent to government settings
+		</label>
+	</div>
+</ng-container>

@@ -24,6 +24,8 @@ import {
 	XdIconComponent
 } from './components/icons';
 import { ResourceCardComponent } from './components/resources/resource-card/resource-card.component';
+import { BuildComponent } from './components/survey/build/build.component';
+import { LearnComponent } from './components/survey/learn/learn.component';
 
 @NgModule({
 	declarations: [
@@ -41,7 +43,9 @@ import { ResourceCardComponent } from './components/resources/resource-card/reso
 		ResourceListComponent,
 		NextIconComponent,
 		PrevComponent,
-		ResourceCardComponent
+		ResourceCardComponent,
+		BuildComponent,
+		LearnComponent
 	],
 	exports: [],
 	imports: [
