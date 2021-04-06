@@ -24,162 +24,22 @@
 				</mat-card-actions>
 			</mat-card>
 		</div>
-
-        <div class="resource col-md-6 col-lg-8">
-			<mat-card>
-				<mat-card-header>
-					<mat-chip-list aria-label="tags">
-						<mat-chip>Data</mat-chip>
-					</mat-chip-list>
-					<mat-card-title>
-						<span class="font-accent mat-h2 font-weight-bold">
-							Understanding Your Data
-						</span>
-					</mat-card-title>
-				</mat-card-header>
-				<mat-card-content class="flex-fill w-lg-75">
-					<code><pre><small>{{ surveyInput | json }}</small></pre></code>
-					<!-- <mat-tab-group>
-                        <mat-tab label="Readme.md">
-                            <markdown [src]="readMes.default"></markdown>
-                        </mat-tab>
-                        <mat-tab label="Survey Response">
-                            <code><pre><small>{{ surveyInput | json }}</small></pre></code>
-                        </mat-tab>
-                    </mat-tab-group> -->
-				</mat-card-content>
-				<mat-card-actions>
-					<a class="" mat-raised-button mat-stroked-button href="{{endPoints?.default}}">
-						<span>Open Resource</span>
-                    </a>
-				</mat-card-actions>
-			</mat-card>
-		</div>
-		<div *ngFor="let mdFile of map[humanReadableSurvey.intent].ai" class="resource col-md-6 col-lg-4">
-			<!-- <small><pre><code>{{ githubEntryPoints.raw }}{{ humanReadableSurvey.intent }}/{{ humanReadableSurvey.ai }}/{{ mdFile }}.md</code></pre></small> -->
-
-			<app-resource-card markdownFile="{{ githubEntryPoints.raw }}{{ humanReadableSurvey.intent }}/{{ humanReadableSurvey.ai}}/{{ mdFile }}"></app-resource-card>
-			<!-- <app-resource-card [topic]="'HI'" markdownFile="{{ githubEntryPoints.raw }}{{ humanReadableSurvey.intent }}/{{ humanReadableLevel(humanReadableSurvey.ai)}}/{{ mdFile }}"></app-resource-card> -->
+        <div id="readme" class="resource col-md-6 col-lg-8">
+			<app-resource-card
+				markdownFile="{{ githubEntryPoints.raw }}{{ humanReadableSurvey.intent }}/{{ humanReadableSurvey.ai}}/Readme"
+				[tags]="[humanReadableSurvey.intent, humanReadableSurvey.ai]">
+			</app-resource-card>
 		</div>
 
-		<div *ngFor="let mdFile of map[humanReadableSurvey.intent].bias" class="resource col-md-6 col-lg-4">
-			<!-- <app-resource-card [topic]="'HI'" markdownFile="{{ githubEntryPoints.raw }}{{ humanReadableSurvey.intent }}/{{ humanReadableLevel(humanReadableSurvey.bias)}}/{{ mdFile }}"></app-resource-card> -->
-		</div>
-        <!-- <app-resource-card [topic]="humanReadableLevel(surveyInput[topic]) + ' ' + formatTopic(topic)  + ' Evaluation'" [readme]="readMes[topic]" [endpoint]="endPoints[topic]"></app-resource-card> -->
-
-		<ng-template #resourceCard>
-			<mat-card>
-				<mat-card-header>
-					<mat-chip-list aria-label="tags">
-						<mat-chip>Techniques</mat-chip>
-					</mat-chip-list>
-					<!-- <mat-card-title>
-						<span class="font-accent mat-subheading-1 font-weight-bold">
-							Advanced Bias Evaluation
-						</span>
-					</mat-card-title> -->
-				</mat-card-header>
-				<mat-card-content class="flex-fill">
-					<h3>{{ humanReadableLevel(surveyInput.bias) }} Bias Evaluation</h3>
-					<p>
-						Vivamus in erat ut urna cursus vestibulum. Praesent turpis.
-					</p>
-				</mat-card-content>
-				<mat-card-actions>
-					<button class="" mat-raised-button mat-stroked-button routerLink="/resources">
-						<span>Open Resource</span>
-					</button>
-				</mat-card-actions>
-			</mat-card>
-		</ng-template>
-
-
-		<!-- <ng-container *ngFor="let item of [].constructor(10); let i = index">
-			<div class="resource list col-12">
-				<ng-container *ngIf="resourceCard; then resourceCard"></ng-container>
+		<ng-container *ngIf="humanReadableSurvey.intent">
+			<div *ngFor="let mdFile of map[humanReadableSurvey.intent].ai" class="resource list col-12">
+				<app-resource-card
+					markdownFile="{{ githubEntryPoints.raw }}{{ humanReadableSurvey.intent }}/{{ humanReadableSurvey.ai}}/{{ mdFile }}"
+					[tags]="[humanReadableSurvey.intent, humanReadableSurvey.ai]"
+					[title]="mdFile"
+					[classes]="['h-100 w-100 list']">
+				</app-resource-card>
 			</div>
-		</ng-container> -->
-
-		<!-- <div *ngIf="(showAllResources) || (surveyInput.intent == 'learn' || surveyInput.bias < 1.5)" class="resource">
-			<mat-card class="bg bg-code h-100 d-flex flex-column">
-				<mat-card-header>
-					<mat-card-title class="text-center">
-						<span class="font-accent mat-subheading-1 font-weight-bold">
-							Understanding AI/ML
-						</span>
-					</mat-card-title>
-				</mat-card-header>
-				<mat-card-content class="flex-fill">
-				</mat-card-content>
-			</mat-card>
-		</div> -->
-		<!-- <div *ngIf="(showAllResources) || (surveyInput.intent == 'learn' && surveyInput.bias < 1.5)" class="resource">
-			<mat-card class="bg bg-protest  h-100 d-flex flex-column">
-				<mat-card-header>
-					<mat-card-title class="text-center">
-						<span class="font-accent mat-subheading-1 font-weight-bold">
-							Understanding AI and Bias
-						</span>
-					</mat-card-title>
-				</mat-card-header>
-				<mat-card-content class="flex-fill">
-					<p>
-						What does it mean for data to be biased? How does bias show up in AI/ML nodes?
-					</p>
-				</mat-card-content>
-			</mat-card>
-		</div>
-		<div *ngIf="(showAllResources) || (surveyInput.intent == 'learn' && surveyInput.bias < 1.5)" class="resource">
-			<mat-card class="bg bg-notebooks h-100 d-flex flex-column">
-				<mat-card-header>
-					<mat-card-title class="text-center">
-						<span class="font-accent mat-subheading-1 font-weight-bold">
-							Understanding US Frameworks
-						</span>
-					</mat-card-title>
-				</mat-card-header>
-				<mat-card-content class="flex-fill">
-				</mat-card-content>
-			</mat-card>
-		</div>
-		<div *ngIf="(showAllResources) || (surveyInput.intent == 'learn' || surveyInput.bias < 1.5)" class="resource">
-			<mat-card class="bg bg-globe h-100 d-flex flex-column">
-				<mat-card-header>
-					<mat-card-title class="text-center">
-						<span class="font-accent mat-subheading-1 font-weight-bold">
-							International Frameworks
-						</span>
-					</mat-card-title>
-				</mat-card-header>
-				<mat-card-content class="flex-fill">
-				</mat-card-content>
-			</mat-card>
-		</div>
-		<div *ngIf="(showAllResources) || (surveyInput.intent == 'learn' || surveyInput.bias < 1.5)" class="resource">
-			<mat-card class="bg bg-industry h-100 d-flex flex-column">
-				<mat-card-header>
-					<mat-card-title class="text-center">
-						<span class="font-accent mat-subheading-1 font-weight-bold">
-							Case Study: DOL
-						</span>
-					</mat-card-title>
-				</mat-card-header>
-				<mat-card-content class="flex-fill">
-				</mat-card-content>
-			</mat-card>
-		</div>
-		<div *ngIf="(showAllResources) || (surveyInput.intent == 'learn' || surveyInput.bias < 1.5)" class="resource">
-			<mat-card class="bg bg-books h-100 d-flex flex-column">
-				<mat-card-header>
-					<mat-card-title class="text-center">
-						<span class="font-accent mat-subheading-1 font-weight-bold">
-							Case Study: ____
-						</span>
-					</mat-card-title>
-				</mat-card-header>
-				<mat-card-content class="flex-fill">
-				</mat-card-content>
-			</mat-card>
-		</div> -->
+		</ng-container>
 	</div>
 </section>

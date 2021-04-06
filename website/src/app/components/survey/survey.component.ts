@@ -16,7 +16,7 @@ export class SurveyComponent implements OnInit {
 	) {	}
 	ngOnInit(): void {
 		this.formGroup = new FormGroup({
-            intent:	new FormControl(this.defaults.intent, Validators.required),
+            intent:	new FormControl(this.defaults.intent.default, Validators.required),
             ai: new FormControl(this.defaults.ai, Validators.required),
             bias: new FormControl(this.defaults.bias, Validators.required)
         });

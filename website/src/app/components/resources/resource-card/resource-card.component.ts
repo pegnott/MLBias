@@ -7,23 +7,23 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./resource-card.component.scss']
 })
 export class ResourceCardComponent implements OnInit {
-    @Input() public topic:string;
+    @Input() public title:string;
+	@Input() public tags:string[];
     @Input() public markdownFile:string;
+	@Input() public classes:string[] = [];
     @Input() public endpoint:string;
 
+	public markdownContent:string;
 	constructor(
+		private http:HttpClient
 	) { }
-
     ngOnInit(): void {
-        // this.http.get(`${this.markdownFile}.md`, {
+		// this.http.get(`${this.markdownFile}.md`, {
 		// 	headers: new HttpHeaders().set('Accept', 'text/plain'),
 		// 	responseType: 'text',
 		// }).subscribe(
-		// 	console.log,
-		// 	error => {
-		// 		console.error(error);
-		// 		this.OK = false;
-		// 	}
+		// 	(content:string) => this.markdownContent = content,
+		// 	(error) => console.error(error)
 		// )
     }
 }

@@ -1,0 +1,38 @@
+@import '../../../../styles/helpers';
+
+:host {
+	display:block;
+	width:100%;
+	border:1px purple solid;
+}
+mat-card {
+	mat-card-content { overflow:hidden; }
+
+	&.list {
+		//d-flex flex-row align-items-center
+		@extend .d-flex;
+		@extend .flex-row;
+		@extend .align-items-center;
+
+		//border:1px purple solid;
+		// width:100%;
+		// display:table-row !important;
+		// background-color:purple;
+
+		> * {
+			border:1px green solid;
+			height:100%;
+
+			// display:table-cell !important;
+			// border:1px palevioletred solid;
+			// @extend .p-4;
+
+			// &:first-child { width:20%; }
+			// &:last-child { text-align:center }
+
+
+			// vertical-align: top;
+			// text-align:left;
+		}
+	}
+}

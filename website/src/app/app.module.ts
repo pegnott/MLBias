@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { HttpClientModule, HttpClient } from "@angular/common/http";
 import { FormsModule, ReactiveFormsModule, FormBuilder }   from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
@@ -14,9 +14,9 @@ import { JourneyComponent } from './pages/journey/journey.component';
 import { ResourcesComponent } from './pages/resources/resources.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DialogComponent } from './components/dialog/dialog.component';
-import { SurveyComponent } from './components/survey/survey.component';
+
 import { LibraryComponent } from './pages/library/library.component';
-import { ResourceListComponent } from './components/resources/resource-list/resource-list.component';
+
 
 import {
 	NextIconComponent,
@@ -24,11 +24,19 @@ import {
 	XdIconComponent
 } from './components/icons';
 import { ResourceCardComponent } from './components/resources/resource-card/resource-card.component';
-import { BuildComponent } from './components/survey/build/build.component';
-import { LearnComponent } from './components/survey/learn/learn.component';
+import { ResourceListComponent } from './components/resources/resource-list/resource-list.component';
+
+import { SurveyComponent } from './components/survey/survey.component';
+import { BuildSurveyComponent } from './components/survey/build/build.component';
+import { LearnSurveyComponent } from './components/survey/learn/learn.component';
+
+
+import { LearnComponent } from './pages/learn/learn.component';
+import { BuildComponent } from './pages/build/build.component';
 import { ContributeComponent } from './pages/contribute/contribute.component';
 
 @NgModule({
+	bootstrap: [AppComponent],
 	declarations: [
 		AppComponent,
 		HeaderComponent,
@@ -38,7 +46,7 @@ import { ContributeComponent } from './pages/contribute/contribute.component';
 		ResourcesComponent,
 		XdIconComponent,
 		DialogComponent,
-		SurveyComponent,
+		SurveyComponent, BuildSurveyComponent, LearnSurveyComponent,
 		ResourceListComponent,
 		LibraryComponent,
 		ResourceListComponent,
@@ -62,6 +70,6 @@ import { ContributeComponent } from './pages/contribute/contribute.component';
 	providers: [
 		FormBuilder,
 	],
-	bootstrap: [AppComponent]
+	schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
 })
 export class AppModule { }

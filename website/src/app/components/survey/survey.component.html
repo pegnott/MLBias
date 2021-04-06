@@ -73,14 +73,14 @@
                     </div>
                 </mat-step>
 				<mat-step  label="AI/ML"  [stepControl]="formGroup.controls.ai">
-					<app-learn step="ai" (valueChanged)="ai.value = $event.toString()"></app-learn>
+					<app-survey-learn step="ai" (valueChanged)="ai.value = $event.toString()"></app-survey-learn>
 					<div class="d-flex flex-row flex-nowrap justify-content-between">
 						<ng-container *ngIf="back; then back"></ng-container>
 						<ng-container *ngIf="next; then next"></ng-container>
 					</div>
 				</mat-step>
 				<mat-step label="ML Ethics"  [stepControl]="formGroup.controls.bias">
-					<app-learn step="bias" (valueChanged)="bias.value = $event.toString()"></app-learn>
+					<app-survey-learn step="bias" (valueChanged)="bias.value = $event.toString()"></app-survey-learn>
 					<div class="d-flex flex-row flex-nowrap justify-content-between">
 						<ng-container *ngIf="back; then back"></ng-container>
 						<ng-container *ngIf="submit; then submit"></ng-container>

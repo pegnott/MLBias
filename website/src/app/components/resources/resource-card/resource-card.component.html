@@ -1,17 +1,19 @@
-<mat-card>
+<mat-card class="{{ classes.join(' ')}}">
+	<!-- *ngIf="markdownContent" -->
     <mat-card-header>
-        <mat-chip-list aria-label="tags">
-            <!-- <mat-chip>Techniques</mat-chip> -->
-        </mat-chip-list>
-        <mat-card-title>
-            <span *ngIf="topic" class="font-accent mat-subheading-1 font-weight-bold">{{ topic }}</span>
+		<mat-card-title *ngIf="title">
+            <span class="font-accent mat-subheading-1 font-weight-bold">{{ title }}</span>
         </mat-card-title>
     </mat-card-header>
     <mat-card-content class="flex-fill">
-		<span *ngIf="!topic" class="font-accent body-1 font-weight-normal">
+		<!-- {{ markdownContent }} -->
+		<!-- <span *ngIf="!title" class="font-accent body-1 font-weight-normal">
 			<small style="font-size:0.6rem;">{{ markdownFile }}.md</small>
-		</span>
-		<markdown *ngIf="markdownFile" src="{{ markdownFile }}.md"></markdown>
+		</span> -->
+		<mat-chip-list aria-label="tags">
+            <mat-chip *ngFor="let tag of tags">{{tag}}</mat-chip>
+        </mat-chip-list>
+		<!-- <markdown *ngIf="markdownFile" src="{{ markdownFile }}.md"></markdown> -->
     </mat-card-content>
     <mat-card-actions>
         <a *ngIf="endpoint" mat-raised-button mat-stroked-button href="{{ endpoint }}">

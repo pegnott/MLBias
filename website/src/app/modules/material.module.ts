@@ -13,7 +13,7 @@ import { MatListModule } from '@angular/material/list';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatSliderModule } from '@angular/material/slider';
 import { MatStepperModule } from '@angular/material/stepper';
-// import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatSidenavModule } from '@angular/material/sidenav';
 // import { MatTableModule } from '@angular/material/table';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -30,7 +30,7 @@ const materialModules = [
 	MatInputModule,
 	MatListModule,
 	MatMenuModule,
-    // MatSidenavModule,
+    MatSidenavModule,
     MatSliderModule,
     MatStepperModule,
 	// MatTableModule,
