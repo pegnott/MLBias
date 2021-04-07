@@ -12,7 +12,6 @@
     </mat-card-header>
     <mat-card-content>
         <ng-container *ngIf="list; then listTitle"></ng-container>
-        yy
         <markdown *ngIf="markdownFile" (ready)="onReady()" src="{{github.entryPoints.raw}}{{markdownFile}}.md"></markdown> 
     </mat-card-content>
     <mat-card-actions *ngIf="showActions" class="text-right">
