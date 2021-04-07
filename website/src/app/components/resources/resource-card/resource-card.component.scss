@@ -15,8 +15,6 @@
             align-items: start;
             
             > * {
-                margin:0; padding:0;
-                
                 .mat-chip-list { margin-bottom:0 !important; }
                 
                 &.mat-card-content { @extend .flex-fill }
