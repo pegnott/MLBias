@@ -21,7 +21,7 @@ import {
 	XdIconComponent
 } from './components/icons';
 
-import { ResourceComponent } from './components/resources/resource/resource.component';
+import { ResourceComponent } from './components/resource/resource.component';
 import { ResourcesComponent } from './components/resources/resources.component';
 import { SurveyComponent } from './components/survey/survey.component';
 import { SurveyBuildComponent } from './components/survey/build/build.component';
