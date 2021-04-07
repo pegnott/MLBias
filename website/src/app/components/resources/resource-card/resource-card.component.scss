@@ -1,38 +1,33 @@
 @import '../../../../styles/helpers';
 
-:host {
-	display:block;
-	width:100%;
-	border:1px purple solid;
+:host.list {
+    @extend .d-block;
+    @extend .mb-4;
+
+    .mat-card {
+        width:100%;
+        display:flex !important;
+        flex-direction:row !important;
+        align-items: start;
+        
+        > * {
+            margin:0;
+            padding:0;
+            
+            mat-chip-list {  margin-bottom:0 !important; }
+            
+            &.mat-card-content { @extend .flex-fill }
+            &:not(:first-child):not(:last-child) { 
+                
+                @extend .mr-3; 
+                @extend .ml-3; 
+            }
+
+
+            // &:last-child { @extend .pr-5; }
+        }
+    }
 }
 mat-card {
-	mat-card-content { overflow:hidden; }
-
-	&.list {
-		//d-flex flex-row align-items-center
-		@extend .d-flex;
-		@extend .flex-row;
-		@extend .align-items-center;
-
-		//border:1px purple solid;
-		// width:100%;
-		// display:table-row !important;
-		// background-color:purple;
-
-		> * {
-			border:1px green solid;
-			height:100%;
-
-			// display:table-cell !important;
-			// border:1px palevioletred solid;
-			// @extend .p-4;
-
-			// &:first-child { width:20%; }
-			// &:last-child { text-align:center }
-
-
-			// vertical-align: top;
-			// text-align:left;
-		}
-	}
+	//mat-card-content { overflow:hidden; }
 }

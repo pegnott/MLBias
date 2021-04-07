@@ -22,7 +22,7 @@ export class ResourceListComponent implements OnInit {
     public featuredTopics: string[] = [];
 	public map: any = {
 		Learn: {
-			ai: new Array("Books", "Datasets", "ExternalTooling", "FramworkOverview", "Papers"),
+			ai: new Array("Books", "Datasets", "ExternalTooling", "FrameworkOverview", "Papers"),
 			//bias: new Array("MLEthics_Reading")
 		},
 		Build: {
