@@ -1,0 +1,26 @@
+$theme-background-medium: (
+	status-bar:					map-get($light-background, status-bar),
+	app-bar:					map-get($light-background, app-bar),
+	background:					#edeff0,
+	hover:	 					map-get($light-background, hover),
+	card:	   					map-get($light-background, card),
+	dialog:						map-get($light-background, dialog),
+	disabled-button:			map-get($light-background, disabled-button),
+	raised-button:				map-get($light-background, raised-button),
+	focused-button:				map-get($light-background, focused-button),
+	selected-button:			map-get($light-background, selected-button),
+	selected-disabled-button:	map-get($light-background, selected-disabled-button),
+	disabled-button-toggle:		map-get($light-background, disabled-button-toggle),
+	unselected-chip:			rgba(white, 0),
+	disabled-list-option:		map-get($light-background, disabled-list-option),
+	tooltip: 					map-get($light-background, tooltip),
+);
+
+@include angular-material-theme((
+    primary: $theme-primary,
+    accent: $theme-accent,
+    warn: $theme-warn,
+    is-dark: false,
+    foreground: $theme-foreground-light,
+    background: $theme-background-medium,
+));

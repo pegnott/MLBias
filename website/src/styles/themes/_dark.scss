@@ -1,0 +1,52 @@
+$dark-theme: mat-dark-theme((
+	color: (
+		 primary:	$theme-primary,
+		 accent:	$theme-accent,
+		 warn: 		$theme-warn,
+	),
+));
+$dark-foreground: map-get($dark-theme, foreground);
+$dark-background: map-get($dark-theme, background);
+$theme-foreground-dark: (
+	base:				map-get($dark-foreground, base),
+	divider:			lighten(map-get($dark-foreground, divider), 42%),
+	dividers:			lighten(map-get($dark-foreground, dividers), 42%),
+	disabled:			map-get($dark-foreground, disabled),
+	disabled-button:  	map-get($dark-foreground, disabled-button),
+	disabled-text:		map-get($dark-foreground, disabled-text),
+	elevation:			map-get($dark-foreground, elevation),
+	hint-text:			map-get($dark-foreground, hint-text),
+	secondary-text:		map-get($dark-foreground, secondary-text),
+	icon:				$color_green,
+	icons:				$color_green,
+	text:				map-get($dark-foreground, text),
+	slider-min:			map-get($dark-foreground, slider-min),
+	slider-off:			map-get($dark-foreground, slider-off),
+	slider-off-active:	map-get($dark-foreground, slider-off-active),
+);
+$theme-background-dark: (
+	status-bar:					map-get($dark-background, status-bar),
+	app-bar:					map-get($dark-background, app-bar),
+	background:					$color_purple,
+	hover:	 					map-get($dark-background, hover),
+	card:	   					map-get($dark-background, card),
+	dialog:						map-get($dark-background, dialog),
+	disabled-button:			map-get($dark-background, disabled-button),
+	raised-button:				map-get($dark-background, raised-button),
+	focused-button:				map-get($dark-background, focused-button),
+	selected-button:			map-get($dark-background, selected-button),
+	selected-disabled-button:	map-get($dark-background, selected-disabled-button),
+	disabled-button-toggle:		map-get($dark-background, disabled-button-toggle),
+	unselected-chip:			$color_purple,
+	disabled-list-option:		map-get($dark-background, disabled-list-option),
+	tooltip: 					map-get($dark-background, tooltip),
+);
+
+@include angular-material-theme((
+    primary: $theme-primary,
+    accent: $theme-accent,
+    warn: $theme-warn,
+    is-dark: true,
+    foreground: $theme-foreground-dark,
+    background: $theme-background-dark,
+));

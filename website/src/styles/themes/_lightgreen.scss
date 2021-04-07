@@ -1,0 +1,58 @@
+
+$green-theme-primary:	mat-palette($md-purple);
+$green-theme-accent:	mat-palette($md-green);
+$green-theme-warn:		mat-palette($md-pink);
+
+$green-theme: mat-light-theme((
+	color: (
+		 primary:	$green-theme-primary,
+		 accent:	$green-theme-accent,
+		 warn: 		$green-theme-warn,
+	),
+));
+
+$green-theme-foreground: map-get($green-theme, foreground);
+$green-theme-background: map-get($green-theme, background);
+
+$theme-foreground-lightgreen: (
+	divider:			map-get($green-theme-foreground, divider),
+	dividers:			map-get($green-theme-foreground, dividers),
+	disabled:			map-get($green-theme-foreground, disabled),
+	disabled-button:  	map-get($green-theme-foreground, disabled-button),
+	disabled-text:		map-get($green-theme-foreground, disabled-text),
+	elevation:			map-get($green-theme-foreground, elevation),
+	hint-text:			map-get($green-theme-foreground, hint-text),
+	secondary-text:		map-get($green-theme-foreground, secondary-text),
+	icon:				map-get($green-theme-foreground, icon),
+	icons:				map-get($green-theme-foreground, icons),
+	text:				map-get($green-theme-foreground, text),
+	slider-min:			map-get($green-theme-foreground, slider-min),
+	slider-off:			map-get($green-theme-foreground, slider-off),
+	slider-off-active:	map-get($green-theme-foreground, slider-off-active),
+);
+$theme-background-lightgreen: (
+	status-bar:					map-get($green-theme-background, status-bar),
+	app-bar:					map-get($green-theme-background, app-bar),
+	background:					map-get($md-lightgreen, 500),
+	hover:	 					map-get($green-theme-background, hover),
+	card:	   					white,
+	dialog:						map-get($green-theme-background, dialog),
+	disabled-button:			map-get($green-theme-background, disabled-button),
+	raised-button:				map-get($green-theme-background, raised-button),
+	focused-button:				map-get($green-theme-background, focused-button),
+	selected-button:			map-get($green-theme-background, selected-button),
+	selected-disabled-button:	map-get($green-theme-background, selected-disabled-button),
+	disabled-button-toggle:		map-get($green-theme-background, disabled-button-toggle),
+	unselected-chip:			map-get($md-lightgreen, 500),
+	disabled-list-option:		map-get($light-background, disabled-list-option),
+	tooltip: 					map-get($light-background, tooltip),
+);
+
+@include angular-material-theme((
+    primary: $green-theme-primary,
+    accent:  $green-theme-accent,
+    warn: $green-theme-warn,
+    is-dark: false,
+    foreground: $theme-foreground-lightgreen,
+    background: $theme-background-lightgreen,
+));
