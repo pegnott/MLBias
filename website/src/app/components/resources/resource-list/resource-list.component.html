@@ -35,7 +35,7 @@
 		</div>
 
 		<ng-container *ngIf="humanReadableSurvey.intent">
-			<div *ngFor="let mdFile of map[humanReadableSurvey.intent].ai" class="resource list theme-lightgreen col-12">
+			<div *ngFor="let mdFile of markdownFiles[humanReadableSurvey.intent]" class="resource list theme-lightgreen col-12">
 				<app-resource-card
 					markdownFile="{{ humanReadableSurvey.intent }}/{{ humanReadableSurvey.ai}}/{{ mdFile }}"
 					[tags]="[humanReadableSurvey.intent, humanReadableSurvey.ai]"

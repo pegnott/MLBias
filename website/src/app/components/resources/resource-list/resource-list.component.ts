@@ -12,20 +12,13 @@ export class ResourceListComponent implements OnInit {
 
     public humanReadableSurvey: any = {};
     public fileName:string = 'Readme.md';
-    public markdownFiles: string[] =  [];
 
     public endPoints: any = {};
 	public featuredTopics: string[] = [];
-	public map: any = {
-		Learn: {
-			ai: new Array("Books", "Datasets", "ExternalTooling", "FrameworkOverview", "Papers"),
-			//bias: new Array("MLEthics_Reading")
-		},
-		Build: {
-			//ai: new Array("BuildversusBuy", "Model_Explainability", "Results_Interpretation"),
-			//bias: new Array("DataTools"),
-		}
-	}
+	public markdownFiles: any = {
+		Learn: new Array("Books", "Datasets", "ExternalTooling", "FrameworkOverview", "Papers"),
+		Build: new Array("BuildversusBuy", "Deployment_Retrain", "MachineLearningPipeline", "Model_Explainability", "Results_Interpretation"),
+	};
     constructor(
 		private http:HttpClient
 	) { }
@@ -42,25 +35,24 @@ export class ResourceListComponent implements OnInit {
                 }
                 this.humanReadableSurvey[name] = value;
             });
-			let intent = this.humanReadableSurvey.intent || null;
-			let aiScore = this.humanReadableSurvey.ai || null;
-			let biasScore = this.humanReadableSurvey.bias || null;
-			if (intent) this.map[intent].ai.forEach((f:any) => {
-				let fileUrl = `${intent}/${aiScore}/${f}.md`;
-				// this.http
-				// 		.get(fileUrl, { headers: new HttpHeaders().set('Accept', 'text/plain'), responseType: 'text'})
-				// 		.subscribe(
-				// 			response => {
-				// 				this.markdownFiles.push(response);
-				// 				console.log(response);
-				// 			},
-				// 			error => console.error(error))
-				// console.log(fileUrl);
-				// this.markdownFiles[f] = `${this.githubEntryPoints.raw}`
-				// console.log(f);
-			})
-			//console.log(this.humanReadableSurvey);
-            // this.readMes = this.githubUrlsFromSurvey(`${this.githubBases.raw}${this.humanReadableSurvey.intent}`, true);
+			// let intent = this.humanReadableSurvey.intent || null;
+			// let aiScore = this.humanReadableSurvey.ai || null;
+			// let biasScore = this.humanReadableSurvey.bias || null;
+			// if (intent) this.markdownFiles[intent].forEach((f:any) => {
+			// 	let fileUrl = `${intent}/${aiScore}/${f}.md`;
+			// 	// this.http
+			// 	// 		.get(fileUrl, { headers: new HttpHeaders().set('Accept', 'text/plain'), responseType: 'text'})
+			// 	// 		.subscribe(
+			// 	// 			response => {
+			// 	// 				this.markdownFiles.push(response);
+			// 	// 				console.log(response);
+			// 	// 			},
+			// 	// 			error => console.error(error))
+			// 	// console.log(fileUrl);
+			// 	// this.markdownFiles[f] = `${this.githubEntryPoints.raw}`
+			// 	// console.log(f);
+			// })
+			// this.readMes = this.githubUrlsFromSurvey(`${this.githubBases.raw}${this.humanReadableSurvey.intent}`, true);
             // this.endPoints = this.githubUrlsFromSurvey(`${this.githubBases.default}${this.humanReadableSurvey.intent}`);
         }
     }
