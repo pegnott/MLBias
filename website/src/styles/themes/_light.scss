@@ -27,8 +27,8 @@ $theme-background-light: (
 );
 $theme-foreground-light: (
 	base:				map-get($light-foreground, base),
-	divider:			lighten(map-get($light-foreground, divider), 42%),
-	dividers:			lighten(map-get($light-foreground, dividers), 42%),
+	divider:			map-get($md-purple, 500),
+	dividers:			map-get($md-purple, 500),
 	disabled:			map-get($light-foreground, disabled),
 	disabled-button:  	map-get($light-foreground, disabled-button),
 	disabled-text:		map-get($light-foreground, disabled-text),

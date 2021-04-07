@@ -15,8 +15,8 @@ $green-theme-foreground: map-get($green-theme, foreground);
 $green-theme-background: map-get($green-theme, background);
 
 $theme-foreground-lightgreen: (
-	divider:			map-get($green-theme-foreground, divider),
-	dividers:			map-get($green-theme-foreground, dividers),
+	divider:			map-get($md-purple, 500),
+	dividers:			map-get($md-purple, 500),
 	disabled:			map-get($green-theme-foreground, disabled),
 	disabled-button:  	map-get($green-theme-foreground, disabled-button),
 	disabled-text:		map-get($green-theme-foreground, disabled-text),
