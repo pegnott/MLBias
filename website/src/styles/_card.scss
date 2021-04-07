@@ -1,29 +1,28 @@
 .mat-card {
-	border-radius: $border-radius;
+    border-radius: $border-radius;
 	padding:2.4rem 2.4rem 3.6rem 2.4rem !important;
 
-	.mat-card-image:first-child { border-radius:$border-radius $border-radius 0 0; }
+    .mat-card-image:first-child { border-radius:$border-radius $border-radius 0 0; }
 	.mat-card-header {
-		flex-wrap:wrap;
-
+        @extend .d-flex;
+        @extend .flex-column;
+        
 		.mat-chip-list {
-			order:0;
+			order:10;
 			width:100%;
 			@extend .mb-5;
 
 			.mat-chip { font-size:75%; 	}
 		}
 		.mat-card-header-text {
-			&:empty { display:none; }
-
-			order:1;
+            order:20;
 			flex-grow:1;
-			margin-left:0;
-			margin-right:0;
-			line-height:1.3em !important;
+			margin-left:0; margin-right:0;
+
+            &:empty { display:none; }
 		}
 	}
-
+    .mat-card-content { flex-grow:1; }
 }
 
 .mat-card.bg {
