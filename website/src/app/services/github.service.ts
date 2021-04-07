@@ -7,8 +7,9 @@ export class GithubService {
         default: 'https://github.com/XDgov/MLBias/tree/main/',
         raw: 'https://raw.githubusercontent.com/XDgov/MLBias/main/',
     }
+	public markdownFiles: any = {
+		Learn: new Array("Books", "Datasets", "ExternalTooling", "FrameworkOverview", "Papers"),
+		Build: new Array("BuildversusBuy", "Deployment_Retrain", "MachineLearningPipeline", "Model_Explainability", "Results_Interpretation"),
+	};
     constructor() { }
-    makeUrl(params:any) {
-        console.log(params)
-    }
 }
