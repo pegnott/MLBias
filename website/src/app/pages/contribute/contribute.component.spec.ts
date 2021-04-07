@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ContributeComponent } from './contribute.component';
+import { ContributePageComponent } from './contribute.component';
 
-describe('ContributeComponent', () => {
-  let component: ContributeComponent;
-  let fixture: ComponentFixture<ContributeComponent>;
+describe('ContributePageComponent', () => {
+  let component: ContributePageComponent;
+  let fixture: ComponentFixture<ContributePageComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ContributeComponent ]
+      declarations: [ ContributePageComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ContributeComponent);
+    fixture = TestBed.createComponent(ContributePageComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

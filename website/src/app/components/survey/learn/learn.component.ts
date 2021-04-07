@@ -5,7 +5,7 @@ import { SurveyService } from 'src/app/services/survey.service';
   templateUrl: './learn.component.html',
   styleUrls: ['./learn.component.scss']
 })
-export class LearnSurveyComponent implements OnInit {
+export class SurveyLearnComponent implements OnInit {
 	public defaults:any = this.surveyService.defaults;
 	@Input() step:string = "ai";
 	@Output() valueChanged = new EventEmitter<number>();

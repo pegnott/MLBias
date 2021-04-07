@@ -1,0 +1,9 @@
+export { BuildPageComponent } from './build/build.component';
+export { ContributePageComponent } from './contribute/contribute.component';
+export { HomePageComponent } from './home/home.component';
+export { JourneyPageComponent } from './journey/journey.component';
+export { LearnPageComponent } from './learn/learn.component';
+export { PrivacyComponent } from './privacy/privacy.component';
+export { ResourcePageComponent } from './resource/resource.component';
+export { ResourcesPageComponent } from './resources/resources.component';
+export { SurveyPageComponent } from './survey/survey.component';

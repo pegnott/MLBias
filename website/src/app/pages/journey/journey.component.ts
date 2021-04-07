@@ -3,11 +3,11 @@ import { MatDialog } from '@angular/material/dialog';
 import { MatVerticalStepper } from '@angular/material/stepper';
 import { DialogComponent } from 'src/app/components/dialog/dialog.component';
 @Component({
-	selector: 'app-journey',
+	selector: 'app-page-journey',
 	templateUrl: './journey.component.html',
 	styleUrls: ['./journey.component.scss']
 })
-export class JourneyComponent {
+export class JourneyPageComponent {
 	@ViewChild('stepper') stepper!: MatVerticalStepper;
 	constructor(
 		public matDialog: MatDialog,
@@ -27,6 +27,6 @@ export class JourneyComponent {
             this.stepper.selected.completed = false;
 		    this.stepper.previous();
         }
-		
+
 	}
 }
