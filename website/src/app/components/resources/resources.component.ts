@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { GithubService } from 'src/app/services/github.service';
 import { SurveyService } from 'src/app/services/survey.service';
 
@@ -7,23 +8,21 @@ import { SurveyService } from 'src/app/services/survey.service';
 	templateUrl: './resources.component.html',
 	styleUrls: ['./resources.component.scss']
 })
-export class ResourcesComponent implements OnInit {
+export class ResourcesComponent {
 	objectKeys = Object.keys;
 	objectValues = Object.values;
-	@Input() public showAllResources: boolean = false;
+	@Input() public showAllResources: boolean = true;
 	@Input() public survey: any = this.surveyService.data;
 
-	public levels = this.surveyService.levels;
+	public displayNames = this.surveyService.displayNames;
 	public markdownFiles:any = this.github.markdownFiles;
 
     constructor(
 		private surveyService: SurveyService,
 		private github:GithubService
-	) {	}
-
-	ngOnInit(): void {
-		console.log(this.surveyService.levels);
+	) {
 		if (Object.keys(this.survey).length > 0) {
+			this.showAllResources = false;
 			console.log(this.survey);
 		}
 	}

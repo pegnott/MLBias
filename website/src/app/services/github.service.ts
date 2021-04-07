@@ -8,8 +8,8 @@ export class GithubService {
         raw: 'https://raw.githubusercontent.com/XDgov/MLBias/main/',
     }
 	public markdownFiles: any = {
-		Learn: new Array("Books", "Datasets", "ExternalTooling", "FrameworkOverview", "Papers"),
-		Build: new Array("BuildversusBuy", "Deployment_Retrain", "MachineLearningPipeline", "Model_Explainability", "Results_Interpretation"),
+		learn: new Array("Books", "Datasets", "ExternalTooling", "FrameworkOverview", "Papers"),
+		build: new Array("BuildversusBuy", "Deployment_Retrain", "MachineLearningPipeline", "Model_Explainability", "Results_Interpretation"),
 	};
     constructor() { }
 }

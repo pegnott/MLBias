@@ -1,3 +1,19 @@
+<ng-template #all>
+	<ng-container *ngFor="let topic of objectKeys(markdownFiles)">
+		<ng-container *ngFor="let displayName of objectKeys(displayNames);">
+			<div *ngFor="let filename of markdownFiles[topic]" class="resource list theme-lightgreen col-12">
+				<app-resource
+					[list]="true"
+					[tags]="[topic, displayNames[displayName]]"
+					[title]="filename">
+				</app-resource>
+			</div>
+		</ng-container>
+	</ng-container>
+</ng-template>
+<ng-template #survey>
+	SURVERY RESULTS!!
+</ng-template>
 <section class="container">
 	<div id="resources" class="d-md-flex flex-wrap justify-content-evenly align-items-stretch">
 		<div id="survey-call-to-action" class="resource theme-lightpink col-md-6 col-lg-4 mb-5">
@@ -24,30 +40,15 @@
 				</mat-card-actions>
 			</mat-card>
 		</div>
-        <div id="readme" class="resource col-md-6 col-lg-8 mb-5 theme-lightgreen">
-            <!-- [classes]="['h-100', 'd-flex', 'flex-column', 'mb-3']" -->
-			<app-resource
+        <!-- <div id="readme" class="resource col-md-6 col-lg-8 mb-5 theme-lightgreen">
+            <app-resource
 				markdownFile="{{ survey.intent }}/{{ survey.ai}}/Readme"
                 [classes]="['h-100', 'd-flex', 'flex-column']"
                 [tags]="[survey.intent, survey.ai]">
 			</app-resource>
-		</div>
-		<ng-container *ngIf="showAllResources">
-			<ng-container *ngFor="let topic of objectKeys(markdownFiles)">
-				<ng-container *ngFor="let level of objectValues(levels)">
-					<div *ngFor="let filename of markdownFiles[topic]" class="resource list theme-lightgreen col-12">
-						<app-resource
-							[tags]="[topic]"
-							title="{{ topic }}/{{ level }}/{{ filename }}"
-							[list]="true"
-							markdownFile="{{ topic }}/{{ level }}/{{ filename }}">
-						</app-resource>
-					</div>
-				</ng-container>
-			</ng-container>
-			<!-- <div *ngFor="let md of markdownFiles; index as topic;" class="resource list theme-lightgreen col-12">
-				{{ topic }}
-			</div> -->
+		</div> -->
+		<ng-container *ngIf="showAllResources; then all; else survey"></ng-container>
+
 			<!-- <div *ngFor="let md of markdownFiles" class="resource list theme-lightgreen col-12">
 				<app-resource
 					markdownFile="{{ survey.intent }}/{{ survey.ai}}/{{md}}"
@@ -55,15 +56,6 @@
 					[list]="true">
 				</app-resource>
 			</div> -->
-		</ng-container>
-		<!-- <ng-container *ngIf="survey.intent">
-			<div *ngFor="let mdFile of markdownFiles[survey.intent]" class="resource list theme-lightgreen col-12">
-				<app-resource
-					markdownFile="{{ survey.intent }}/{{ survey.ai}}/{{ mdFile }}"
-					[tags]="[survey.intent, survey.ai]"
-					[list]="true">
-				</app-resource>
-			</div>
-		</ng-container> -->
+
 	</div>
 </section>
