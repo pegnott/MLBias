@@ -34,6 +34,7 @@ import { LearnSurveyComponent } from './components/survey/learn/learn.component'
 import { LearnComponent } from './pages/learn/learn.component';
 import { BuildComponent } from './pages/build/build.component';
 import { ContributeComponent } from './pages/contribute/contribute.component';
+import { ResourceComponent } from './pages/resource/resource.component';
 
 @NgModule({
 	bootstrap: [AppComponent],
@@ -55,7 +56,8 @@ import { ContributeComponent } from './pages/contribute/contribute.component';
 		ResourceCardComponent,
 		BuildComponent,
 		LearnComponent,
-		ContributeComponent
+		ContributeComponent,
+		ResourceComponent
 	],
 	exports: [],
 	imports: [

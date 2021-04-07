@@ -1,33 +1,31 @@
 @import '../../../../styles/helpers';
 
-:host.list {
-    @extend .d-block;
-    @extend .mb-4;
-
-    .mat-card {
-        width:100%;
-        display:flex !important;
-        flex-direction:row !important;
-        align-items: start;
-        
-        > * {
-            margin:0;
-            padding:0;
-            
-            mat-chip-list {  margin-bottom:0 !important; }
-            
-            &.mat-card-content { @extend .flex-fill }
-            &:not(:first-child):not(:last-child) { 
-                
-                @extend .mr-3; 
-                @extend .ml-3; 
-            }
-
-
-            // &:last-child { @extend .pr-5; }
-        }
+:host {
+    mat-card {
+        mat-card-content { overflow:hidden; }
     }
-}
-mat-card {
-	//mat-card-content { overflow:hidden; }
+    &.list {
+        @extend .d-block;
+        @extend .mb-4;
+
+        .mat-card {
+            width:100%;
+            display:flex !important;
+            flex-direction:row !important;
+            align-items: start;
+            
+            > * {
+                margin:0; padding:0;
+                
+                .mat-chip-list { margin-bottom:0 !important; }
+                
+                &.mat-card-content { @extend .flex-fill }
+                &:not(:first-child):not(:last-child) { 
+                    
+                    @extend .mr-3; 
+                    @extend .ml-3; 
+                }
+            }
+        }
+    }    
 }

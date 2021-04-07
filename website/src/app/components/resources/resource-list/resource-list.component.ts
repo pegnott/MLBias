@@ -15,11 +15,7 @@ export class ResourceListComponent implements OnInit {
     public markdownFiles: string[] =  [];
 
     public endPoints: any = {};
-	public githubEntryPoints: any = {
-        default: 'https://github.com/XDgov/MLBias/tree/main/',
-        raw: 'https://raw.githubusercontent.com/XDgov/MLBias/main/',
-    }
-    public featuredTopics: string[] = [];
+	public featuredTopics: string[] = [];
 	public map: any = {
 		Learn: {
 			ai: new Array("Books", "Datasets", "ExternalTooling", "FrameworkOverview", "Papers"),
@@ -50,7 +46,7 @@ export class ResourceListComponent implements OnInit {
 			let aiScore = this.humanReadableSurvey.ai || null;
 			let biasScore = this.humanReadableSurvey.bias || null;
 			if (intent) this.map[intent].ai.forEach((f:any) => {
-				let fileUrl = `${this.githubEntryPoints.raw}${intent}/${aiScore}/${f}.md`;
+				let fileUrl = `${intent}/${aiScore}/${f}.md`;
 				// this.http
 				// 		.get(fileUrl, { headers: new HttpHeaders().set('Accept', 'text/plain'), responseType: 'text'})
 				// 		.subscribe(
@@ -80,15 +76,15 @@ export class ResourceListComponent implements OnInit {
         return title;
     }
 
-	public githubUrlsFromSurvey(filename?:string) {
-		let url = this.githubEntryPoints.default;
-		if (filename) {
-			url = this.githubEntryPoints.raw;
-		}
-		let intent = this.humanReadableSurvey.intent;
-		let aiLevel = this.humanReadableSurvey.ai;
-		let biasLevel = this.humanReadableSurvey.bias;
-    }
+	// public githubUrlsFromSurvey(filename?:string) {
+	// 	let url = this.githubEntryPoints.default;
+	// 	if (filename) {
+	// 		url = this.githubEntryPoints.raw;
+	// 	}
+	// 	let intent = this.humanReadableSurvey.intent;
+	// 	let aiLevel = this.humanReadableSurvey.ai;
+	// 	let biasLevel = this.humanReadableSurvey.bias;
+    // }
 
     // private githubUrlsFromSurvey(url:string, defaultFile:boolean = false) {
     //     let filename = (defaultFile) ? `/${this.fileName}` : ``;

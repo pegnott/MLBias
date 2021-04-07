@@ -5,6 +5,7 @@ import { ContributeComponent } from './pages/contribute/contribute.component';
 
 import { HomeComponent } from './pages/home/home.component';
 import { LearnComponent } from './pages/learn/learn.component';
+import { ResourceComponent } from './pages/resource/resource.component';
 // import { JourneyComponent } from './pages/journey/journey.component';
 import { ResourcesComponent } from './pages/resources/resources.component';
 
@@ -14,7 +15,7 @@ export const routes: Routes = [
     // { path: 'journey', component: JourneyComponent },
     { path: 'quiz', component: ResourcesComponent },
 	{ path: 'resources', component: ResourcesComponent },
-
+    { path: 'resource/:intent/:level/:file', component: ResourceComponent },
 
 	{ path: 'learn', component: LearnComponent },
 	{ path: 'build', component: BuildComponent },

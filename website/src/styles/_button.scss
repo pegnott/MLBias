@@ -1,5 +1,6 @@
+@import "helpers";
 html body  {
-	[mat-raised-button], .mat-raised-button { @extend #{$elevation}; }
+	//[mat-raised-button], .mat-raised-button { @extend #{$elevation}; }
 	[mat-stroked-button], .mat-stroked-button,
 	[mat-raised-button], .mat-raised-button {
 		border-radius:$border-radius;
@@ -32,7 +33,7 @@ html body  {
 			.mat-icon { border-radius:100vw; }
 
 			&.thick-border {
-				@extend .mat-elevation-z0;
+				//@extend .mat-elevation-z0;
 				border-width:$icon-border-width !important;
 				border-style:solid !important;
 

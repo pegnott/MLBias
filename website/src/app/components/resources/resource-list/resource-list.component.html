@@ -24,20 +24,20 @@
 				</mat-card-actions>
 			</mat-card>
 		</div>
-        <div id="readme" class="resource col-md-6 col-lg-8 mb-5">
+        <div id="readme" class="resource col-md-6 col-lg-8 mb-5 theme-lightgreen">
             <!-- [classes]="['h-100', 'd-flex', 'flex-column', 'mb-3']" -->
 			<app-resource-card
-				markdownFile="{{ githubEntryPoints.raw }}{{ humanReadableSurvey.intent }}/{{ humanReadableSurvey.ai}}/Readme"
+				markdownFile="{{ humanReadableSurvey.intent }}/{{ humanReadableSurvey.ai}}/Readme"
                 [title]="'Readme'"
                 [classes]="['h-100', 'd-flex', 'flex-column']"
-				[tags]="[humanReadableSurvey.intent, humanReadableSurvey.ai]">
+                [tags]="[humanReadableSurvey.intent, humanReadableSurvey.ai]">
 			</app-resource-card>
 		</div>
 
 		<ng-container *ngIf="humanReadableSurvey.intent">
-			<div *ngFor="let mdFile of map[humanReadableSurvey.intent].ai" class="resource list col-12">
+			<div *ngFor="let mdFile of map[humanReadableSurvey.intent].ai" class="resource list theme-lightgreen col-12">
 				<app-resource-card
-					markdownFile="{{ githubEntryPoints.raw }}{{ humanReadableSurvey.intent }}/{{ humanReadableSurvey.ai}}/{{ mdFile }}"
+					markdownFile="{{ humanReadableSurvey.intent }}/{{ humanReadableSurvey.ai}}/{{ mdFile }}"
 					[tags]="[humanReadableSurvey.intent, humanReadableSurvey.ai]"
 					[title]="mdFile"
                     [list]="true">

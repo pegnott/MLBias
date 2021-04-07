@@ -12,7 +12,7 @@
 			width:100%;
 			@extend .mb-5;
 
-			.mat-chip { font-size:75%; 	}
+			.mat-chip { font-size:75%; text-transform: uppercase;	}
 		}
 		.mat-card-header-text {
             order:20;
