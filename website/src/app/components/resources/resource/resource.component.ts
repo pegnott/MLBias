@@ -2,11 +2,11 @@ import { Component, HostBinding, Input } from '@angular/core';
 import { GithubService } from 'src/app/services/github.service';
 
 @Component({
-    selector:       'app-resource-card',
-    templateUrl:    './resource-card.component.html',
-    styleUrls:      ['./resource-card.component.scss'],
+    selector:       'app-resource',
+    templateUrl:    './resource.component.html',
+    styleUrls:      ['./resource.component.scss'],
 })
-export class ResourceCardComponent  {
+export class ResourceComponent  {
     @HostBinding('class.list') @Input() list: boolean = false;
     @HostBinding('class.d-none') hideCard: boolean = true;
 
@@ -15,12 +15,9 @@ export class ResourceCardComponent  {
     @Input() public markdownFile:string;
 	@Input() public classes:string[] = [];
     @Input() public showActions:boolean = true;
-    
+
     constructor(
         public github: GithubService
     ) {}
-    onReady = () => {
-        this.hideCard = false;
-        console.log("READY")
-    }
+    onReady = () => this.hideCard = false;
 }

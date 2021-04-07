@@ -1,11 +1,11 @@
-@import "../../../../styles/helpers";
+@import "../../../styles/helpers";
 
 #resources {
 	.resource {
 		@extend .flex-column;
 		// @extend .col-md-6;
 		// @extend .col-lg-4;
-		
+
 
 		//&.large { @extend .col-lg-8 }
 	}

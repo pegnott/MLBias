@@ -12,18 +12,18 @@
             width:100%;
             display:flex !important;
             flex-direction:row !important;
-            align-items: start;
-            
+            align-items: flex-start;
+
             > * {
                 .mat-chip-list { margin-bottom:0 !important; }
-                
+
                 &.mat-card-content { @extend .flex-fill }
-                &:not(:first-child):not(:last-child) { 
-                    
-                    @extend .mr-3; 
-                    @extend .ml-3; 
+                &:not(:first-child):not(:last-child) {
+
+                    @extend .mr-3;
+                    @extend .ml-3;
                 }
             }
         }
-    }    
+    }
 }
