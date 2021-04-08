@@ -1,4 +1,13 @@
 @import "../../../styles/helpers";
+
+:host {
+	// flex-grow:0;
+	// flex-shrink:1;
+
+	// display:block;
+	// border:10px purple solid;
+}
+
 .header {
 	position:relative;
 	background-image:url(/assets/pexels-adrien-olichon-2387793.jpg);

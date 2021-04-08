@@ -1,6 +1,8 @@
-<ng-template #listTitle><h3>{{ title }}</h3></ng-template>
+<ng-template #listTitle><h3 class="font-accent font-weight-bold">{{ title }}</h3></ng-template>
 <ng-template #cardTitle><h2>{{ title }}</h2></ng-template>
-
+<article mat-card>
+	dsfgdfg
+</article>
 <mat-card class="{{ classes.join(' ') }}">
 	<mat-card-header>
         <mat-card-title *ngIf="title">
@@ -12,7 +14,7 @@
     </mat-card-header>
     <mat-card-content>
         <ng-container *ngIf="list; then listTitle"></ng-container>
-        <markdown *ngIf="markdownFile" (ready)="onReady()" src="{{github.entryPoints.raw}}{{markdownFile}}.md"></markdown> 
+        <markdown *ngIf="markdownFile" (ready)="onReady()" src="{{github.entryPoints.raw}}{{markdownFile}}.md"></markdown>
     </mat-card-content>
     <mat-card-actions *ngIf="showActions" class="text-right">
         <a mat-raised-button mat-stroked-button routerLink="/resource/{{markdownFile}}">

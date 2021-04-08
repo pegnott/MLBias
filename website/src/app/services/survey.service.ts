@@ -7,6 +7,7 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class SurveyService {
 	public formGroup: FormGroup;
+	public levels:string[] =  ['beginner', 'intermediate', 'advanced'];
 	public displayNames:any = {
 		learn:			"Learn",
 		build:			"Build",
@@ -15,8 +16,7 @@ export class SurveyService {
 		intermediate:	"Intermediate",
 		advanced: 		"Advanced",
 	};
-
-    public defaults:any = {
+	public defaults:any = {
         intent: {
 			default: "learn",
 			values:	['learn', 'build', 'contribute']
@@ -24,6 +24,7 @@ export class SurveyService {
         ai: 0.5,
         bias:  0.5,
     };
+
 	public data:any = {};
 	constructor(
 		private activatedRoute: ActivatedRoute,

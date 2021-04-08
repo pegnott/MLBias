@@ -9,21 +9,16 @@ import { SurveyService } from 'src/app/services/survey.service';
 	styleUrls: ['./resources.component.scss']
 })
 export class ResourcesComponent {
-	objectKeys = Object.keys;
-	objectValues = Object.values;
-	@Input() public showAllResources: boolean = true;
-	@Input() public survey: any = this.surveyService.data;
+	@Input() public surveyData: any;
 
-	public displayNames = this.surveyService.displayNames;
+	public objectKeys = Object.keys;
+	public displayNames = this.survey.displayNames;
 	public markdownFiles:any = this.github.markdownFiles;
 
     constructor(
-		private surveyService: SurveyService,
+		public survey: SurveyService,
 		private github:GithubService
 	) {
-		if (Object.keys(this.survey).length > 0) {
-			this.showAllResources = false;
-			console.log(this.survey);
-		}
+		console.log(this.survey);
 	}
 }

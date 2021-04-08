@@ -19,13 +19,32 @@ $color_warn:map-get($md-pink, 500);
 .theme-lightpink { @import "./themes/lightpink"; }
 .theme-lightgreen { @import "./themes/lightgreen"; }
 
-html { font-size:10px; }
+html, body {
+	margin:0; padding:0;
+	@extend .d-flex;
+	@extend .flex-column;
+}
 
-html,
-html body {
-    background:#edeff0;
-    margin:0; padding:0;
-    min-width:100vw; min-height:100vh;
+html {
+	font-size:10px;
+	body {
+		min-width:100vw; min-height:100vh;
+		// main router-outlet + .ng-star-inserted {
+		// 	//display:none !important;
+		// 	// flex-shrink:1;
+		// }
+
+		// app-root,
+		// router-outlet,
+		// router-outlet + .ng-star-inserted { display:block; }
+
+		// router-outlet + .ng-star-inserted {
+		// 	height:100%;
+		// 	border:10px green solid;
+		// 	overflow:hidden;
+		// }
+		//app-root, main router-outlet + .ng-star-inserted { display:block }
+	}
 }
 
 html body .padding-lg-top  		{ padding-top:7rem }
@@ -82,7 +101,6 @@ html body {
 @import "slider";
 @import "stepper";
 
-//	COMMON THINGS	//
 
 html body .mat-step-icon.mat-step-icon-state-edit,
 html body .mat-slider-thumb {

@@ -1,61 +1,105 @@
+<!-- <div id="readme" class="resource col-md-6 col-lg-8 mb-5 theme-lightgreen">
+	<app-resource
+		markdownFile="{{ survey.intent }}/{{ survey.ai}}/Readme"
+		[classes]="['h-100', 'd-flex', 'flex-column']"
+		[tags]="[survey.intent, survey.ai]">
+	</app-resource>
+</div> -->
+<ng-template #surveyActionCard>
+	<ng-template #surveyCallToActionTitle>Bias Your Results</ng-template>
+	<ng-template #surveyCallToActionText>Filter the resources on this page by taking our 60-second quiz</ng-template>
+	<ng-template #surveyCallToActionButton>Take the Quiz</ng-template>
+
+	<ng-template #surveyResultsTitle>Rebias Your Results</ng-template>
+	<ng-template #surveyResultsText>Want to try again? Filter the resources on this page by taking our 60-second quiz</ng-template>
+	<ng-template #surveyResultsButton>Retake the Quiz</ng-template>
+
+	<div id="survey-action-card" class="resource theme-lightpink offset-background col-md-6 col-lg-4 mb-5">
+		<mat-card>
+			<mat-card-header>
+				<mat-card-title>
+					<span class="font-accent mat-subheading-1 font-weight-bold">
+						<ng-content *ngIf="surveyData; then surveyResultsTitle; else surveyCallToActionTitle"></ng-content>
+					</span>
+				</mat-card-title>
+				<mat-chip-list aria-label="tags" class="offset-background">
+					<mat-chip class="text-accent">New</mat-chip>
+				</mat-chip-list>
+			</mat-card-header>
+			<mat-card-content>
+				<p>
+					<ng-content *ngIf="surveyData; then surveyResultsText; else surveyCallToActionText"></ng-content>
+				</p>
+			</mat-card-content>
+			<mat-card-actions>
+				<button class="text-light" color="primary" mat-raised-button routerLink="/quiz">
+					<span>
+						<ng-content *ngIf="surveyData; then surveyResultsButton; else surveyCallToActionButton"></ng-content>
+					</span>
+				</button>
+			</mat-card-actions>
+		</mat-card>
+	</div>
+</ng-template>
+<ng-template #highlightCard>
+	<div id="highlight-card" class="resource col-md-6 col-lg-8 mb-5 theme-lightgreen">
+		<mat-card>
+			<mat-card-header>
+				<mat-card-title>
+					<span class="font-accent mat-title font-weight-bold">
+						Highlight Title
+					</span>
+				</mat-card-title>
+				<mat-chip-list aria-label="tags" class="offset-background">
+					<mat-chip class="text-accent">Awesome!</mat-chip>
+				</mat-chip-list>
+			</mat-card-header>
+			<mat-card-content>
+				<p>
+					This content could be hardcoded w/ basic logic (build vs learn, for example),
+					and/or could be pulled in from a markdown file from github.
+				</p>
+			</mat-card-content>
+			<mat-card-actions>
+				<button class="text-light" color="primary" mat-raised-button>
+					<span>Call to Action or Link to Resource</span>
+				</button>
+			</mat-card-actions>
+		</mat-card>
+	</div>
+</ng-template>
+<ng-template #results>
+	<h2>RESULTS</h2>
+	<ng-container *ngFor="let level of survey.levels">
+		<div *ngFor="let filename of markdownFiles[surveyData.intent]" class="resource list theme-lightgreen col-12">
+			<!-- markdownFile="{{survey.displayNames[surveyData.intent]}}/{{survey.displayNames[level]}}/{{filename}}" -->
+			<!-- <app-resource
+				[list]="true"
+				[tags]="[survey.displayNames[level], survey.displayNames[surveyData.intent]]"
+				[title]="filename">
+			</app-resource> -->
+		</div>
+	</ng-container>
+</ng-template>
 <ng-template #all>
+	<h2>RESOURCES</h2>
 	<ng-container *ngFor="let topic of objectKeys(markdownFiles)">
-		<ng-container *ngFor="let displayName of objectKeys(displayNames);">
+		<ng-container *ngFor="let level of survey.levels">
 			<div *ngFor="let filename of markdownFiles[topic]" class="resource list theme-lightgreen col-12">
 				<app-resource
 					[list]="true"
-					[tags]="[topic, displayNames[displayName]]"
+					[tags]="[displayNames[level], displayNames[topic]]"
 					[title]="filename">
 				</app-resource>
 			</div>
 		</ng-container>
 	</ng-container>
 </ng-template>
-<ng-template #survey>
-	SURVERY RESULTS!!
-</ng-template>
+
 <section class="container">
 	<div id="resources" class="d-md-flex flex-wrap justify-content-evenly align-items-stretch">
-		<div id="survey-call-to-action" class="resource theme-lightpink col-md-6 col-lg-4 mb-5">
-            <mat-card>
-				<mat-card-header>
-					<mat-card-title>
-						<span class="font-accent mat-subheading-1 font-weight-bold">
-							Bias Your Results
-						</span>
-					</mat-card-title>
-                    <mat-chip-list aria-label="tags">
-						<mat-chip class="text-accent">New</mat-chip>
-					</mat-chip-list>
-				</mat-card-header>
-				<mat-card-content>
-					<p>
-						Filter the resources on this page by taking our 60-second quiz
-					</p>
-				</mat-card-content>
-				<mat-card-actions>
-					<button class="text-light" color="primary" mat-raised-button routerLink="/quiz">
-						<span>Take the Quiz</span>
-					</button>
-				</mat-card-actions>
-			</mat-card>
-		</div>
-        <!-- <div id="readme" class="resource col-md-6 col-lg-8 mb-5 theme-lightgreen">
-            <app-resource
-				markdownFile="{{ survey.intent }}/{{ survey.ai}}/Readme"
-                [classes]="['h-100', 'd-flex', 'flex-column']"
-                [tags]="[survey.intent, survey.ai]">
-			</app-resource>
-		</div> -->
-		<ng-container *ngIf="showAllResources; then all; else survey"></ng-container>
-
-			<!-- <div *ngFor="let md of markdownFiles" class="resource list theme-lightgreen col-12">
-				<app-resource
-					markdownFile="{{ survey.intent }}/{{ survey.ai}}/{{md}}"
-					[tags]="[survey.intent, survey.ai]"
-					[list]="true">
-				</app-resource>
-			</div> -->
-
+		<ng-template *ngIf="surveyActionCard; then surveyActionCard"></ng-template>
+		<ng-template *ngIf="highlightCard; then highlightCard"></ng-template>
+		<ng-container *ngIf="surveyData; then results; else all"></ng-container>
 	</div>
 </section>

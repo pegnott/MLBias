@@ -1,0 +1,28 @@
+@import '../styles/helpers';
+:host {
+	&.contain #site {
+		height:100vh; max-height:100vh;
+		overflow:hidden;
+
+
+
+
+		main {
+			flex-shrink:1;
+			flex-grow:0 !important;
+			//border:10px yellowgreen solid;
+		}
+	}
+	#site {
+		min-height:100vh;
+		@extend .d-flex;
+		@extend .flex-column;
+
+		main {
+			flex-grow:1;
+
+			@extend .d-flex;
+			@extend .flex-column;
+		}
+	}
+}
