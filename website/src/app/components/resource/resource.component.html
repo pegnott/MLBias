@@ -14,8 +14,8 @@
         <markdown *ngIf="markdownFile" (ready)="onReady()" src="{{github.entryPoints.raw}}{{markdownFile}}.md"></markdown>
     </mat-card-content>
     <mat-card-actions *ngIf="showActions" class="text-right">
-        <a mat-raised-button mat-stroked-button routerLink="/resource/{{markdownFile}}">
+        <button mat-raised-button mat-stroked-button routerLink="/resource/{{markdownFile}}">
             <span>Open Resource</span>
-        </a>
+		</button>
     </mat-card-actions>
 </mat-card>

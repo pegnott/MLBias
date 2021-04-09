@@ -1,8 +1,11 @@
 @import "helpers";
-html body  {
+html body {
 	//[mat-raised-button], .mat-raised-button { @extend #{$elevation}; }
 	[mat-stroked-button], .mat-stroked-button,
 	[mat-raised-button], .mat-raised-button {
+
+		&.mat-button-base { @extend .mat-elevation-z8; }
+
 		border-radius:$border-radius;
 		min-height:$button-height;
 		line-height:$button-height;
@@ -16,9 +19,8 @@ html body  {
 	}
 	// .mat-raised-button {  }
 	.mat-button-base {
-		@extend .mat-elevation-z10;
-
 		.mat-button-wrapper {
+
 			mat-icon { @include iconSizer($icon_dimension:2.8rem); }
 		}
 
