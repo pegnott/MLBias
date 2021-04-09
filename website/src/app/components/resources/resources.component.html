@@ -69,17 +69,19 @@
 	</div>
 </ng-template>
 <ng-template #results>
-	<h2>RESULTS</h2>
-	<ng-container *ngFor="let level of survey.levels">
-		<div *ngFor="let filename of markdownFiles[surveyData.intent]" class="resource list theme-lightgreen col-12">
-			<!-- markdownFile="{{survey.displayNames[surveyData.intent]}}/{{survey.displayNames[level]}}/{{filename}}" -->
-			<!-- <app-resource
-				[list]="true"
-				[tags]="[survey.displayNames[level], survey.displayNames[surveyData.intent]]"
-				[title]="filename">
-			</app-resource> -->
-		</div>
-	</ng-container>
+	<div *ngFor="let filename of markdownFiles[surveyData.intent]" class="resource list theme-lightgreen col-12">
+		<!-- markdownFile="{{survey.displayNames[surveyData.intent]}}/{{surveyData.ai}}/{{filename}}" -->
+
+		<app-resource
+			[list]="true"
+			[tags]="[survey.displayNames[surveyData.intent]]"
+			markdownFile="{{survey.displayNames[surveyData.intent]}}/{{surveyData.ai}}/{{filename}}"
+			[title]="'Markdown File: ' + filename">
+		</app-resource>
+	</div>
+	<!-- <ng-container *ngFor="let level of survey.levels">
+
+	</ng-container> -->
 </ng-template>
 <ng-template #all>
 	<h2>RESOURCES</h2>

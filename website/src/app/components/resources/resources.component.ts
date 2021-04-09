@@ -10,7 +10,6 @@ import { SurveyService } from 'src/app/services/survey.service';
 })
 export class ResourcesComponent {
 	@Input() public surveyData: any;
-
 	public objectKeys = Object.keys;
 	public displayNames = this.survey.displayNames;
 	public markdownFiles:any = this.github.markdownFiles;
@@ -19,6 +18,6 @@ export class ResourcesComponent {
 		public survey: SurveyService,
 		private github:GithubService
 	) {
-		console.log(this.survey);
+		console.log(this.surveyData);
 	}
 }

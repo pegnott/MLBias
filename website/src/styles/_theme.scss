@@ -21,30 +21,13 @@ $color_warn:map-get($md-pink, 500);
 
 html, body {
 	margin:0; padding:0;
-	@extend .d-flex;
-	@extend .flex-column;
+	min-width:100vw; width:100vw;
+	min-height:100vh; height:100vh;
 }
 
 html {
 	font-size:10px;
-	body {
-		min-width:100vw; min-height:100vh;
-		// main router-outlet + .ng-star-inserted {
-		// 	//display:none !important;
-		// 	// flex-shrink:1;
-		// }
-
-		// app-root,
-		// router-outlet,
-		// router-outlet + .ng-star-inserted { display:block; }
-
-		// router-outlet + .ng-star-inserted {
-		// 	height:100%;
-		// 	border:10px green solid;
-		// 	overflow:hidden;
-		// }
-		//app-root, main router-outlet + .ng-star-inserted { display:block }
-	}
+	body { max-width:100%; max-height:100%; }
 }
 
 html body .padding-lg-top  		{ padding-top:7rem }

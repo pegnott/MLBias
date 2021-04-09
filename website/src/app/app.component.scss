@@ -1,28 +1,30 @@
 @import '../styles/helpers';
-:host {
-	&.contain #site {
-		height:100vh; max-height:100vh;
-		overflow:hidden;
+#site {
+	min-height:100vh; height:100vh;
+	@extend .d-flex;
+	@extend .flex-column;
 
-
-
-
-		main {
-			flex-shrink:1;
-			flex-grow:0 !important;
-			//border:10px yellowgreen solid;
-		}
+	> * {
+		flex-grow:0;
+		flex-shrink:1;
+		flex-basis:auto;
 	}
-	#site {
-		min-height:100vh;
+	main {
+		flex-grow:1;
+		overflow:hidden;
 		@extend .d-flex;
 		@extend .flex-column;
 
+	}
+
+	.main-overflow-hidden main  { overflow:hidden; }
+	&.contain  {
+		max-height:100vh !important;
 		main {
 			flex-grow:1;
-
-			@extend .d-flex;
-			@extend .flex-column;
+			flex-shrink:1;
+			overflow:auto;
 		}
 	}
+
 }

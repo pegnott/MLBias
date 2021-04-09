@@ -11,7 +11,7 @@ export class BuildPageComponent {
 		public survey: SurveyService,
 		private mainContent: MainContentService
 	) {
-	 	this.mainContent.classes.push('contain');
+	 	this.mainContent.classes.push('contain', 'main-overflow-hidden');
 	// 	console.log(this.mainContent.classes)
 	}
 }
