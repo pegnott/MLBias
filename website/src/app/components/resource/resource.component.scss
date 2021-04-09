@@ -2,6 +2,7 @@
 
 :host {
     mat-card {
+		overflow:hidden;
         mat-card-content { overflow:hidden; }
     }
     &.list {

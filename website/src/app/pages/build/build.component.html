@@ -1,3 +1,6 @@
+<ng-template>
+
+</ng-template>
 <mat-sidenav-container class="theme-medium overflow-hidden" autosize>
 	<mat-sidenav mode="side" opened class="mw-23">
 		<div class="p-3">
@@ -13,7 +16,18 @@
 	</mat-sidenav>
 	<mat-sidenav-content class="mat-app-background">
 		<div class="overflow-auto">
-			<app-resources [surveyData]="survey.data"></app-resources>
+			<div class="row">
+				<div *ngFor="let filename of markdownFiles" class="resource list theme-lightgreen col-md-6 col-lg-4 mb-5">
+					<app-resource
+						markdownFile="Build/{{ survey.data.ai }}/{{thing}}_{{ filename }}"
+						[tags]="['tag']"
+						title="Build/{{ survey.data.ai }}/{{thing}}_{{ filename }}">
+					</app-resource>
+				</div>
+			</div>
+			<div class="container">
+				<app-resources [surveyData]="survey.data"></app-resources>
+			</div>
 		</div>
 	</mat-sidenav-content>
 </mat-sidenav-container>

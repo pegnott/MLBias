@@ -17,7 +17,5 @@ export class ResourcesComponent {
     constructor(
 		public survey: SurveyService,
 		private github:GithubService
-	) {
-		console.log(this.surveyData);
-	}
+	) {	}
 }
