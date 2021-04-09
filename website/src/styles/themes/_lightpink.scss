@@ -12,10 +12,8 @@ $pink-theme: mat-light-theme((
 		 warn: 		$pink-theme-warn,
 	),
 ));
-
 $pink-theme-foreground: map-get($pink-theme, foreground);
 $pink-theme-background: map-get($pink-theme, background);
-
 $theme-foreground-lightpink: (
 	base:				$color_darkblue,
 	divider:			map-get($pink-theme-foreground, divider),

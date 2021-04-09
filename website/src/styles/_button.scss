@@ -14,8 +14,10 @@ html body  {
 			.mat-icon:last-child { @extend .ml-3; }
 		}
 	}
-
+	// .mat-raised-button {  }
 	.mat-button-base {
+		@extend .mat-elevation-z10;
+
 		.mat-button-wrapper {
 			mat-icon { @include iconSizer($icon_dimension:2.8rem); }
 		}

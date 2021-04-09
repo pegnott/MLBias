@@ -9,15 +9,58 @@ $color_primary:map-get($md-purple, 500);
 $color_accent:map-get($md-green, 500);
 $color_warn:map-get($md-pink, 500);
 
+$light-theme: mat-light-theme((
+	color: (
+		primary: $theme-primary,
+		accent: $theme-accent,
+		warn: $theme-warn,
+	)
+));
+$light-foreground: map-get($light-theme, foreground);
+$light-background: map-get($light-theme, background);
 
-@import "./themes/typography";
-@import "./themes/light";
+$theme-background-light: (
+	status-bar:					map-get($light-background, status-bar),
+	app-bar:					map-get($light-background, app-bar),
+	background:				   	white,
+	hover:	 					white,
+	card:	   					map-get($light-background, card),
+	dialog:						map-get($light-background, dialog),
+	disabled-button:			map-get($light-background, disabled-button),
+	raised-button:				map-get($light-background, raised-button),
+	focused-button:				map-get($light-background, focused-button),
+	selected-button:			map-get($light-background, selected-button),
+	selected-disabled-button:	map-get($light-background, selected-disabled-button),
+	disabled-button-toggle:		map-get($light-background, disabled-button-toggle),
+	unselected-chip:			rgba(white, 0),
+	disabled-list-option:		map-get($light-background, disabled-list-option),
+	tooltip: 					map-get($light-background, tooltip),
+);
+$theme-foreground-light: (
+	base:				map-get($light-foreground, base),
+	divider:			map-get($md-purple, 500),
+	dividers:			map-get($md-purple, 500),
+	disabled:			map-get($light-foreground, disabled),
+	disabled-button:  	map-get($light-foreground, disabled-button),
+	disabled-text:		map-get($light-foreground, disabled-text),
+	elevation:			map-get($light-foreground, elevation),
+	hint-text:			map-get($light-foreground, hint-text),
+	secondary-text:		map-get($light-foreground, secondary-text),
+	icon:				$color_green,
+	icons:				$color_green,
+	text:				map-get($light-foreground, text),
+	slider-min:			map-get($light-foreground, slider-min),
+	slider-off:			map-get($light-foreground, slider-off),
+	slider-off-active:	map-get($light-foreground, slider-off-active),
+);
 
 .theme-light { @import "./themes/light"; }
 .theme-dark { @import "./themes/dark"; }
 .theme-medium { @import "./themes/medium"; }
 .theme-lightpink { @import "./themes/lightpink"; }
 .theme-lightgreen { @import "./themes/lightgreen"; }
+
+@import "./themes/typography";
 
 html, body {
 	margin:0; padding:0;
