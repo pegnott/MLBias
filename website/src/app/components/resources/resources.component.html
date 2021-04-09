@@ -71,11 +71,9 @@
 <ng-template #results>
 	<div *ngFor="let filename of markdownFiles[surveyData.intent]" class="resource list theme-lightgreen col-12">
 		<!-- markdownFile="{{survey.displayNames[surveyData.intent]}}/{{surveyData.ai}}/{{filename}}" -->
-
 		<app-resource
 			[list]="true"
 			[tags]="[survey.displayNames[surveyData.intent]]"
-			markdownFile="{{survey.displayNames[surveyData.intent]}}/{{surveyData.ai}}/{{filename}}"
 			[title]="'Markdown File: ' + filename">
 		</app-resource>
 	</div>

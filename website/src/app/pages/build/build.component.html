@@ -1,10 +1,19 @@
-<mat-sidenav-container class="theme-medium">
-	<mat-sidenav mode="side" opened>
-		<div class="p-4">
-			Build Navigation
+<mat-sidenav-container class="theme-medium overflow-hidden" autosize>
+	<mat-sidenav mode="side" opened class="mw-23">
+		<div class="p-3">
+			<h3>Where would you like to begin with your build?</h3>
 		</div>
+		<mat-action-list dense>
+			<button mat-list-item> Help me understand and evaluate my data.</button>
+			<button mat-list-item> Help me understand model selection. </button>
+			<button mat-list-item> Show me where I might find bias along the entire ML pipeline. </button>
+			<button mat-list-item> Help me make a buy/build decision.</button>
+			<button mat-list-item> Walk me through model deployment and beyond.</button>
+		  </mat-action-list>
 	</mat-sidenav>
 	<mat-sidenav-content class="mat-app-background">
-		<app-resources [surveyData]="survey.data"></app-resources>
+		<div class="overflow-auto">
+			<app-resources [surveyData]="survey.data"></app-resources>
+		</div>
 	</mat-sidenav-content>
 </mat-sidenav-container>

@@ -1,16 +1,21 @@
 @import '../../../styles/helpers';
 :host {
-
 	flex-grow:1;
 	flex-shrink:1;
 	overflow:hidden;
-
 	@extend .d-flex;
 	@extend .flex-column;
 
 	mat-sidenav-container {
 		flex-grow:1;
-		mat-sidenav {}
-		mat-sidenav-content { }
+		flex-shrink:1;
+		overflow:hidden;
+
+		@extend .d-flex;
+		@extend .flex-column;
+		mat-sidenav-content {
+			flex-grow:1;
+			flex-shrink:1;
+		}
 	}
 }

@@ -42,6 +42,7 @@ html body .padding-xl-left  	{ padding-left:10rem }
 
 @for $i from 1 to 100 {
     .w-#{$i} { width: #{$i}#{'%'} }
+	.mw-#{$i} { width: #{$i}#{'%'} }
     // @media only screen and (max-width: 400px) {
     //     .w-sm-#{$i} { width: #{$i}#{'%'} }
     // }
