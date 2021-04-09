@@ -13,11 +13,12 @@ export class ResourceComponent  {
     @Input() public title:string;
 	@Input() public tags:string[];
     @Input() public markdownFile:string;
+	@Input() public markdownLink:string;
 	@Input() public classes:string[] = [];
     @Input() public showActions:boolean = true;
 
     constructor(
         public github: GithubService
-    ) {}
+    ) { }
     onReady = () => this.hideCard = false;
 }

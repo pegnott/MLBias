@@ -1,5 +1,7 @@
 @import '../styles/helpers';
 #site {
+	background:#efefef;
+
 	min-height:100vh; ;
 	@extend .d-flex;
 	@extend .flex-column;

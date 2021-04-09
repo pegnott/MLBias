@@ -79,23 +79,32 @@
 	</div>
 </ng-template>
 <ng-template #all>
-	<h2>RESOURCES</h2>
 	<ng-container *ngFor="let topic of objectKeys(markdownFiles)">
 		<ng-container *ngFor="let level of survey.levels">
-			<div *ngFor="let filename of markdownFiles[topic]" class="resource list theme-lightgreen col-12">
+			<div *ngFor="let filename of markdownFiles[topic]" class="resource list theme-lightgreen col-12 mb-3">
+				<!-- NOTE: I am showing the filename as title while there is likely to be empty file content. 	-->
+				<!-- This, in combo with tags, allows us to see what resource we are are looking for. 			-->
+				<!-- Any title provided on this side should become unecessary once content is complete. 		-->
 				<app-resource
 					[list]="true"
 					[tags]="[displayNames[level], displayNames[topic]]"
+					markdownLink="{{ displayNames[topic] }}/{{ displayNames[level] }}/{{filename}}"
 					[title]="filename">
 				</app-resource>
 			</div>
 		</ng-container>
 	</ng-container>
 </ng-template>
-<section class="container">
-	<div id="resources" class="d-md-flex flex-wrap justify-content-evenly align-items-stretch">
-		<ng-template *ngIf="surveyActionCard; then surveyActionCard"></ng-template>
-		<ng-template *ngIf="highlightCard; then highlightCard"></ng-template>
-		<ng-container *ngIf="surveyData; then results; else all"></ng-container>
-	</div>
-</section>
+<div class="container-fluid">
+	<!-- full width -->
+
+
+	<section class="container">
+		<!-- max 1024 -->
+		<div id="resources" class="d-md-flex flex-wrap justify-content-evenly align-items-stretch">
+			<!-- <ng-template *ngIf="surveyActionCard; then surveyActionCard"></ng-template> -->
+			<!-- <ng-template *ngIf="highlightCard; then highlightCard"></ng-template> -->
+			<ng-container *ngIf="surveyData; then results; else all"></ng-container>
+		</div>
+	</section>
+</div>
