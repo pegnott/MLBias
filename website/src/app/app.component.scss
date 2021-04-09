@@ -14,7 +14,6 @@
 		overflow:hidden;
 		@extend .d-flex;
 		@extend .flex-column;
-
 	}
 
 	.main-overflow-hidden main  { overflow:hidden; }
@@ -26,5 +25,4 @@
 			overflow:auto;
 		}
 	}
-
 }
